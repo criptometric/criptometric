@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Metrics Dashboard</title>
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --panel:#131a2a;
+  --border:#1f2a44;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#4f8cff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+}
+
+img{max-width:100%;display:block}
+
+button{
+  background:var(--accent);
+  color:#fff;
+  border:0;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+input,textarea{
+  width:100%;
+  background:#0f172a;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:6px;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
+.logo{font-weight:700;color:var(--accent)}
+.admin-label{color:#22c55e;font-size:12px;margin-right:10px}
+
+/* GRID */
+.columns{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+  padding:10px;
+}
+.column{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  height:calc(100vh - 70px);
+}
+.col-title{
+  padding:10px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--muted);
+  border-bottom:1px solid var(--border);
+}
+.col-body{
+  padding:10px;
+  overflow-y:auto;
+  scrollbar-width:none;
+}
+.col-body::-webkit-scrollbar{width:0}
+
+/* CARD */
+.card{
+  background:#0f172a;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+.card-title{font-weight:600;margin-bottom:6px}
+.card-text{
+  font-size:12px;
+  color:var(--muted);
+  word-break:break-word;
+}
+.thumb img{border-radius:6px;margin-bottom:6px}
+
+/* ADMIN */
+.admin-controls{
+  display:none;
+  gap:6px;
+  margin-bottom:6px;
+}
+.admin .admin-controls{display:flex}
+
+/* VIEW MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  z-index:100;
+}
+.modal.active{display:flex}
+.modal-content{
+  width:100%;
+  height:100%;
+  background:#020617;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+}
+.modal-img{
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.modal-text{
+  padding:20px;
+  overflow-y:auto;
+}
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
+}
+
+/* POPUPS */
+.popup{
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+.popup.active{display:flex}
+.popup-box{
+  background:var(--panel);
+  padding:16px;
+  border-radius:10px;
+  width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CRYPTO METRICS</div>
+  <div>
+    <span id="adminLabel"></span>
+    <button id="adminBtn" style="display:none">Admin</button>
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </div>
+</header>
+
+<div class="columns" id="columns"></div>
+
+<!-- VIEW -->
+<div class="modal" id="viewModal">
+  <button class="modal-close" onclick="closeView()">X</button>
+  <div class="modal-content">
+    <div class="modal-img">
+      <img id="viewImg">
+    </div>
+    <div class="modal-text">
+      <h2 id="viewTitle"></h2>
+      <p id="viewText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="popup" id="loginPopup">
+  <div class="popup-box">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+  </div>
+</div>
+
+<!-- EDIT -->
+<div class="popup" id="editPopup">
+  <div class="popup-box">
+    <input id="eTitle" placeholder="Название">
+    <textarea id="eText" placeholder="Текст"></textarea>
+    <input id="eImage" placeholder="URL картинки">
+    <button onclick="saveEdit()">Сохранить</button>
+  </div>
+</div>
+
+<script>
+/* ====== CONFIG ====== */
+const PASSWORD='2025';
+const isAdminUrl=new URLSearchParams(location.search).has('admin');
+
+/* ====== STATE ====== */
+let isAdmin=false;
+let editCol=null;
+let editIndex=null;
+
+const columnsDef=[
+  {id:'research',title:'Research'},
+  {id:'global',title:'Global M2 Metric'},
+  {id:'recession',title:'Recession Metric'},
+  {id:'market',title:'Market Metric'},
+  {id:'onchain',title:'Onchain Metric'},
+  {id:'network',title:'Network Metric'}
+];
+
+let data=JSON.parse(localStorage.getItem('dashboard'))||{};
+
+/* ====== ELEMENTS ====== */
+const columns=document.getElementById('columns');
+const adminBtn=document.getElementById('adminBtn');
+const logoutBtn=document.getElementById('logoutBtn');
+const adminLabel=document.getElementById('adminLabel');
+
+/* ====== INIT ====== */
+if(isAdminUrl){
+  adminBtn.style.display='inline-block';
+  adminBtn.onclick=()=>loginPopup.classList.add('active');
+}
+logoutBtn.onclick=()=>{isAdmin=false;render()};
+
+/* ====== RENDER ====== */
+function render(){
+  document.body.classList.toggle('admin',isAdmin);
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
+
+  columns.innerHTML='';
+  columnsDef.forEach(col=>{
+    if(!data[col.id]) data[col.id]=[];
+    const el=document.createElement('div');
+    el.className='column';
+    el.innerHTML=`
+      <div class="col-title">${col.title}</div>
+      <div class="col-body">
+        ${isAdmin?`<button onclick="addCard('${col.id}')">+ Add</button>`:''}
+      </div>`;
+    columns.appendChild(el);
+
+    const body=el.querySelector('.col-body');
+    data[col.id].forEach((c,i)=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`
+        <div class="admin-controls">
+          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+        </div>
+        <div class="card-title">${c.title}</div>
+        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
+        <div class="card-text">${c.text}</div>`;
+      card.onclick=e=>{
+        if(e.target.tagName==='BUTTON')return;
+        openView(c);
+      };
+      body.appendChild(card);
+    });
+  });
+  localStorage.setItem('dashboard',JSON.stringify(data));
+}
+
+/* ====== VIEW ====== */
+function openView(c){
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  viewModal.classList.add('active');
+}
+function closeView(){viewModal.classList.remove('active')}
+
+/* ====== ADMIN ====== */
+function login(){
+  if(!isAdminUrl)return;
+  if(password.value===PASSWORD){
+    isAdmin=true;
+    password.value='';
+    loginPopup.classList.remove('active');
+    render();
+  }
+}
+
+function addCard(col){
+  editCol=col;
+  editIndex=null;
+  eTitle.value=eText.value=eImage.value='';
+  editPopup.classList.add('active');
+}
+
+function editCard(col,i){
+  editCol=col;
+  editIndex=i;
+  const c=data[col][i];
+  eTitle.value=c.title;
+  eText.value=c.text;
+  eImage.value=c.image||'';
+  editPopup.classList.add('active');
+}
+
+function saveEdit(){
+  const card={
+    title:eTitle.value,
+    text:eText.value,
+    image:eImage.value
+  };
+  if(editIndex===null) data[editCol].push(card);
+  else data[editCol][editIndex]=card;
+  editPopup.classList.remove('active');
+  render();
+}
+
+function deleteCard(col,i){
+  if(confirm('Удалить карточку?')){
+    data[col].splice(i,1);
+    render();
+  }
+}
+
+render();
+</script>
+</body>
+</html>
+
