@@ -69,10 +69,11 @@ header{
 }
 .col-title{
   padding:10px;
-  font-size:11px;
+  font-size:12px;
+  font-weight:500;
   text-transform:uppercase;
   letter-spacing:.1em;
-  color:var(--muted);
+  color:var(--accent);
   border-bottom:1px solid var(--border);
 }
 .col-body{
@@ -184,7 +185,7 @@ header{
 <body>
 
 <header>
-  <div class="logo">CRYPTO METRICS</div>
+  <div class="logo">RG CRYPTOMETRICS</div>
   <div>
     <span id="adminLabel"></span>
     <button id="adminBtn" style="display:none">Admin</button>
@@ -238,11 +239,11 @@ let editIndex=null;
 
 const columnsDef=[
   {id:'research',title:'Research'},
-  {id:'global',title:'Global M2 Metric'},
-  {id:'recession',title:'Recession Metric'},
-  {id:'market',title:'Market Metric'},
-  {id:'onchain',title:'Onchain Metric'},
-  {id:'network',title:'Network Metric'}
+  {id:'global',title:'Global M2 Metrics'},
+  {id:'recession',title:'Recession Metrics'},
+  {id:'market',title:'Market Metrics'},
+  {id:'onchain',title:'Onchain Metrics'},
+  {id:'network',title:'Network Metrics'}
 ];
 
 let data=JSON.parse(localStorage.getItem('dashboard'))||{};
