@@ -2,231 +2,225 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>CRIPTOMETRIC Dashboard</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Metrics Dashboard</title>
 
 <style>
-:root {
-  --bg: #050713;
-  --glass: rgba(18,22,55,0.75);
-  --blue: #00d4ff;
-  --red: #ff3b3b;
-  --text: #f5f7ff;
-  --text2: #9ca3c7;
-  --border: rgba(255,255,255,0.08);
+:root{
+  --bg:#0b0f1a;
+  --panel:#131a2a;
+  --border:#1f2a44;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#4f8cff;
 }
 
-* {
+*{box-sizing:border-box}
+body{
   margin:0;
-  padding:0;
-  box-sizing:border-box;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  height:100vh;
-  overflow:hidden;
+img{max-width:100%;display:block}
+
+button{
+  background:var(--accent);
+  color:#fff;
+  border:0;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-#app {
-  display:flex;
-  flex-direction:column;
-  height:100vh;
-  padding:1rem;
-  gap:.6rem;
+input,textarea{
+  width:100%;
+  background:#0f172a;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:6px;
 }
 
-/* ===== HEADER ===== */
-header {
+/* HEADER */
+header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:1rem 1.2rem;
-  border-radius:2rem;
-  background: linear-gradient(135deg,#101325,#070915);
-  border:1px solid var(--border);
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
 }
+.logo{font-weight:700;color:var(--accent)}
+.admin-label{color:#22c55e;font-size:12px;margin-right:10px}
 
-.logo {
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-}
-
-/* LOGO */
-.logo-circle {
-  width:3rem;
-  height:3rem;
-  border-radius:50%;
-  background: radial-gradient(circle at top left,#ff6b6b,#c0392b);
-  padding:.2rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.logo-inner {
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background:#070915;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.4rem;
-  font-weight:800;
-  color:#ff4d4d;
-  letter-spacing:.05em;
-}
-
-.logo-text {
-  font-size:.9rem;
-  font-weight:700;
-  letter-spacing:.05em;
-}
-
-.logo-sub {
-  font-size:.7rem;
-  color:var(--text2);
-}
-
-.status {
-  font-size:.75rem;
-  padding:.3rem .8rem;
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--border);
-  color:var(--text2);
-}
-
-/* ===== GRID ===== */
-.main {
-  flex:1;
+/* GRID */
+.columns{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:.6rem;
-  overflow:hidden;
+  gap:10px;
+  padding:10px;
 }
-
-@media(max-width:1200px){.main{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){.main{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.main{grid-template-columns:1fr}}
-
-/* ===== COLUMN ===== */
-.col {
+.column{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
   display:flex;
   flex-direction:column;
-  background: var(--glass);
-  border-radius:1.6rem;
-  border:1px solid var(--border);
-  overflow:hidden;
+  height:calc(100vh - 70px);
 }
-
-.col-header {
-  padding:.9rem 1rem;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  font-size:.7rem;
+.col-title{
+  padding:10px;
+  font-size:12px;
   text-transform:uppercase;
-  letter-spacing:.12em;
-  color:var(--text2);
+  letter-spacing:.1em;
+  color:var(--muted);
+  border-bottom:1px solid var(--border);
 }
-
-.col-body {
-  flex:1;
-  padding:.6rem;
+.col-body{
+  padding:10px;
   overflow-y:auto;
+  scrollbar-width:none;
 }
+.col-body::-webkit-scrollbar{width:0}
 
-/* ===== CARD ===== */
-.card {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(20,25,60,0.75),
-    rgba(10,15,40,0.75)
-  );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 1.2rem;
-  padding: .9rem;
-  margin-bottom: .6rem;
-  cursor: pointer;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
+/* CARD */
+.card{
+  background:#0f172a;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+  margin-bottom:10px;
+  cursor:pointer;
 }
-
-.card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.6),
-    0 0 0 1px rgba(0,212,255,0.25);
-  border-color: rgba(0,212,255,0.6);
+.card-title{font-weight:600;margin-bottom:6px}
+.card-text{
+  font-size:12px;
+  color:var(--muted);
+  word-break:break-word;
 }
+.thumb img{border-radius:6px;margin-bottom:6px}
 
-.card-title {
-  font-size:.8rem;
-  font-weight:600;
-  margin-bottom:.4rem;
+/* ADMIN */
+.admin-controls{
+  display:none;
+  gap:6px;
+  margin-bottom:6px;
 }
+.admin .admin-controls{display:flex}
 
-.card-text {
-  font-size:0.75rem;
-  color:var(--text2);
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  line-height:1.4;
+/* VIEW MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  z-index:100;
 }
-
-/* ===== IMAGE ===== */
-.chart-thumb {
-  height:3.4rem;
-  border-radius:.8rem;
-  overflow:hidden;
-  margin-bottom:.4rem;
-}
-
-.chart-thumb img {
+.modal.active{display:flex}
+.modal-content{
   width:100%;
   height:100%;
-  object-fit:cover;
+  background:#020617;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+}
+.modal-img{
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.modal-text{
+  padding:20px;
+  overflow-y:auto;
+}
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
 }
 
-/* ===== SCROLLBAR ===== */
-.col-body::-webkit-scrollbar {
-  width:0;
+/* POPUPS */
+.popup{
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+.popup.active{display:flex}
+.popup-box{
+  background:var(--panel);
+  padding:16px;
+  border-radius:10px;
+  width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 </style>
 </head>
 
 <body>
-<div id="app">
 
 <header>
-  <div class="logo">
-    <div class="logo-circle">
-      <div class="logo-inner">RG</div>
-    </div>
-    <div>
-      <div class="logo-text">CRIPTOMETRIC</div>
-      <div class="logo-sub">Macro • On-Chain • Metrics</div>
-    </div>
+  <div class="logo">CRYPTO METRICS</div>
+  <div>
+    <span id="adminLabel"></span>
+    <button id="adminBtn" style="display:none">Admin</button>
+    <button id="logoutBtn" style="display:none">Logout</button>
   </div>
-  <div class="status">Live Dashboard</div>
 </header>
 
-<main class="main" id="board"></main>
+<div class="columns" id="columns"></div>
 
+<!-- VIEW -->
+<div class="modal" id="viewModal">
+  <button class="modal-close" onclick="closeView()">X</button>
+  <div class="modal-content">
+    <div class="modal-img">
+      <img id="viewImg">
+    </div>
+    <div class="modal-text">
+      <h2 id="viewTitle"></h2>
+      <p id="viewText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="popup" id="loginPopup">
+  <div class="popup-box">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+  </div>
+</div>
+
+<!-- EDIT -->
+<div class="popup" id="editPopup">
+  <div class="popup-box">
+    <input id="eTitle" placeholder="Название">
+    <textarea id="eText" placeholder="Текст"></textarea>
+    <input id="eImage" placeholder="URL картинки">
+    <button onclick="saveEdit()">Сохранить</button>
+  </div>
 </div>
 
 <script>
-const columns = [
+/* ====== CONFIG ====== */
+const PASSWORD='2025';
+const isAdminUrl=new URLSearchParams(location.search).has('admin');
+
+/* ====== STATE ====== */
+let isAdmin=false;
+let editCol=null;
+let editIndex=null;
+
+const columnsDef=[
   {id:'research',title:'Research'},
   {id:'global',title:'Global M2 Metric'},
   {id:'recession',title:'Recession Metric'},
@@ -235,19 +229,118 @@ const columns = [
   {id:'network',title:'Network Metric'}
 ];
 
-function createGrid(){
-  const board = document.getElementById('board');
-  board.innerHTML = columns.map(c => `
-    <div class="col">
-      <div class="col-header">${c.title}</div>
-      <div class="col-body"></div>
-    </div>
-  `).join('');
+let data=JSON.parse(localStorage.getItem('dashboard'))||{};
+
+/* ====== ELEMENTS ====== */
+const columns=document.getElementById('columns');
+const adminBtn=document.getElementById('adminBtn');
+const logoutBtn=document.getElementById('logoutBtn');
+const adminLabel=document.getElementById('adminLabel');
+
+/* ====== INIT ====== */
+if(isAdminUrl){
+  adminBtn.style.display='inline-block';
+  adminBtn.onclick=()=>loginPopup.classList.add('active');
+}
+logoutBtn.onclick=()=>{isAdmin=false;render()};
+
+/* ====== RENDER ====== */
+function render(){
+  document.body.classList.toggle('admin',isAdmin);
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
+
+  columns.innerHTML='';
+  columnsDef.forEach(col=>{
+    if(!data[col.id]) data[col.id]=[];
+    const el=document.createElement('div');
+    el.className='column';
+    el.innerHTML=`
+      <div class="col-title">${col.title}</div>
+      <div class="col-body">
+        ${isAdmin?`<button onclick="addCard('${col.id}')">+ Add</button>`:''}
+      </div>`;
+    columns.appendChild(el);
+
+    const body=el.querySelector('.col-body');
+    data[col.id].forEach((c,i)=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`
+        <div class="admin-controls">
+          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+        </div>
+        <div class="card-title">${c.title}</div>
+        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
+        <div class="card-text">${c.text}</div>`;
+      card.onclick=e=>{
+        if(e.target.tagName==='BUTTON')return;
+        openView(c);
+      };
+      body.appendChild(card);
+    });
+  });
+  localStorage.setItem('dashboard',JSON.stringify(data));
 }
 
-document.addEventListener('DOMContentLoaded', createGrid);
-</script>
+/* ====== VIEW ====== */
+function openView(c){
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  viewModal.classList.add('active');
+}
+function closeView(){viewModal.classList.remove('active')}
 
+/* ====== ADMIN ====== */
+function login(){
+  if(!isAdminUrl)return;
+  if(password.value===PASSWORD){
+    isAdmin=true;
+    password.value='';
+    loginPopup.classList.remove('active');
+    render();
+  }
+}
+
+function addCard(col){
+  editCol=col;
+  editIndex=null;
+  eTitle.value=eText.value=eImage.value='';
+  editPopup.classList.add('active');
+}
+
+function editCard(col,i){
+  editCol=col;
+  editIndex=i;
+  const c=data[col][i];
+  eTitle.value=c.title;
+  eText.value=c.text;
+  eImage.value=c.image||'';
+  editPopup.classList.add('active');
+}
+
+function saveEdit(){
+  const card={
+    title:eTitle.value,
+    text:eText.value,
+    image:eImage.value
+  };
+  if(editIndex===null) data[editCol].push(card);
+  else data[editCol][editIndex]=card;
+  editPopup.classList.remove('active');
+  render();
+}
+
+function deleteCard(col,i){
+  if(confirm('Удалить карточку?')){
+    data[col].splice(i,1);
+    render();
+  }
+}
+
+render();
+</script>
 </body>
 </html>
-
