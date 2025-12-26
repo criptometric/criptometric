@@ -70,6 +70,9 @@ header {
   letter-spacing: .1em;
   color: var(--text2);
   border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .col-body {
   padding: 10px;
@@ -155,36 +158,35 @@ header {
   cursor: pointer;
   border-radius: 4px;
 }
-/* LOGIN */
-.popup {
+/* EDIT MODAL */
+.edit-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.85);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 200;
 }
-.popup.active { display: flex; }
-.popup-box {
+.edit-modal.active { display: flex; }
+.edit-box {
   background: var(--panel);
-  padding: 16px;
+  padding: 20px;
   border-radius: 10px;
-  width: 320px;
+  width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
+.edit-box input, .edit-box textarea { resize: none; }
 </style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">CRYPTO METRICS</div>
   <div>
     <span id="adminLabel"></span>
-    <button id="createBtn" style="display:none">Создать карту</button>
     <button id="downloadBtn" style="display:none">Download data.json</button>
     <button id="logoutBtn" style="display:none">Logout</button>
   </div>
@@ -206,9 +208,24 @@ header {
   </div>
 </div>
 
+<!-- EDIT MODAL -->
+<div class="edit-modal" id="editModal">
+  <div class="edit-box">
+    <h3 id="editHeader">Редактировать карту</h3>
+    <input type="text" id="editTitle" placeholder="Название">
+    <textarea id="editText" rows="4" placeholder="Текст"></textarea>
+    <input type="text" id="editImage" placeholder="URL изображения">
+    <div style="display:flex;gap:6px;justify-content:flex-end;">
+      <button onclick="saveEdit()">Сохранить</button>
+      <button onclick="closeEdit()">Отмена</button>
+    </div>
+  </div>
+</div>
+
 <script>
 let isAdmin=false;
 let data={};
+let editInfo={col:'',idx:null};
 
 const columnsDef=[
   {id:'research',title:'Research'},
@@ -222,26 +239,24 @@ const columnsDef=[
 const columns=document.getElementById('columns');
 const logoutBtn=document.getElementById('logoutBtn');
 const adminLabel=document.getElementById('adminLabel');
-const createBtn=document.getElementById('createBtn');
 const downloadBtn=document.getElementById('downloadBtn');
-
-logoutBtn.onclick=()=>{isAdmin=false; render();};
 
 // Проверка URL на ?admin
 const urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('admin')) isAdmin=true;
 
-// Загрузка данных из data.json автоматически
+// Загрузка данных
 fetch('data.json')
   .then(res=>res.json())
   .then(json=>{data=json; render();})
   .catch(err=>console.error('Ошибка загрузки data.json:', err));
 
+logoutBtn.onclick=()=>{isAdmin=false; render();};
+
 function render(){
   document.body.classList.toggle('admin',isAdmin);
   adminLabel.textContent=isAdmin?'ADMIN':'';
   logoutBtn.style.display=isAdmin?'inline-block':'none';
-  createBtn.style.display=isAdmin?'inline-block':'none';
   downloadBtn.style.display=isAdmin?'inline-block':'none';
 
   columns.innerHTML='';
@@ -249,7 +264,9 @@ function render(){
     if(!data[col.id]) data[col.id]=[];
     const el=document.createElement('div');
     el.className='column';
-    el.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+    el.innerHTML=`
+      <div class="col-title">${col.title}${isAdmin?`<button onclick="createCard('${col.id}')">Создать карту</button>`:''}</div>
+      <div class="col-body"></div>`;
     columns.appendChild(el);
 
     const body=el.querySelector('.col-body');
@@ -258,7 +275,7 @@ function render(){
       card.className='card';
       card.innerHTML=`
         ${isAdmin?`<div class="admin-controls">
-          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="openEdit('${col.id}',${i})">✏️</button>
           <button onclick="deleteCard('${col.id}',${i})">🗑</button>
         </div>`:''}
         <div class="card-title">${c.title}</div>
@@ -270,7 +287,7 @@ function render(){
   });
 }
 
-// Модальное окно
+// VIEW MODAL
 const viewImg=document.getElementById('viewImg');
 const viewTitle=document.getElementById('viewTitle');
 const viewText=document.getElementById('viewText');
@@ -282,24 +299,44 @@ function openView(c){
 }
 function closeView(){document.getElementById('viewModal').classList.remove('active');}
 
-// Admin функции
-createBtn.onclick=()=>{
-  const colId=prompt('В какой столбец добавить карту? (research, global, recession, market, onchain, network)');
-  if(!colId || !data[colId]) return alert('Неверный столбец!');
-  const title=prompt('Название карты:');
-  const text=prompt('Текст карты:');
-  const image=prompt('URL изображения (оставьте пустым, если нет):');
-  data[colId].push({title,text,image});
-  render();
-};
+// CREATE CARD
+function createCard(col){
+  editInfo={col,idx:null};
+  document.getElementById('editHeader').textContent='Создать карту';
+  document.getElementById('editTitle').value='';
+  document.getElementById('editText').value='';
+  document.getElementById('editImage').value='';
+  document.getElementById('editModal').classList.add('active');
+}
 
-function editCard(col,i){
-  const card=data[col][i];
-  const title=prompt('Название карты:',card.title);
-  const text=prompt('Текст карты:',card.text);
-  const image=prompt('URL изображения:',card.image||'');
-  data[col][i]={title,text,image};
+// EDIT CARD
+function openEdit(col,idx){
+  editInfo={col,idx};
+  const c = data[col][idx];
+  document.getElementById('editHeader').textContent='Редактировать карту';
+  document.getElementById('editTitle').value=c.title;
+  document.getElementById('editText').value=c.text;
+  document.getElementById('editImage').value=c.image||'';
+  document.getElementById('editModal').classList.add('active');
+}
+
+function saveEdit(){
+  const title=document.getElementById('editTitle').value;
+  const text=document.getElementById('editText').value;
+  const image=document.getElementById('editImage').value;
+  if(editInfo.idx===null){
+    // Создание
+    data[editInfo.col].push({title,text,image});
+  } else {
+    // Редактирование
+    data[editInfo.col][editInfo.idx]={title,text,image};
+  }
+  closeEdit();
   render();
+}
+
+function closeEdit(){
+  document.getElementById('editModal').classList.remove('active');
 }
 
 function deleteCard(col,i){
