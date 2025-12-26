@@ -1,102 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Metrics Dashboard</title>
+
+<style>
+:root{
+  --bg:#050713;
+  --panel:rgba(18,22,55,.85);
+  --border:rgba(255,255,255,.08);
+  --text:#f5f7ff;
+  --text2:#9ca3c7;
+  --blue:#00d4ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+}
+button{
+  background:var(--blue);
+  color:#fff;
+  border:0;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+input,textarea{
+  width:100%;
+  background:#0f172a;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:6px;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
+.columns{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+  padding:10px;
+}
+.column{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  height:calc(100vh - 70px);
+}
+.col-title{
+  padding:10px;
+  font-size:.75rem;
+  text-transform:uppercase;
+  color:var(--text2);
+  border-bottom:1px solid var(--border);
+}
+.col-body{
+  padding:10px;
+  overflow-y:auto;
+}
+.col-body::-webkit-scrollbar{width:0}
+
+.card{
+  background:rgba(20,25,60,.75);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:1rem;
+  padding:.8rem;
+  margin-bottom:.6rem;
+  cursor:pointer;
+  transition:.25s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+.card-title{
+  font-size:.8rem;
+  font-weight:600;
+}
+.card-text{
+  font-size:.75rem;
+  color:var(--text2);
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.admin-controls{
+  display:flex;
+  gap:6px;
+  margin-bottom:6px;
+}
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+}
+.modal.active{display:flex}
+.modal-content{
+  width:90%;
+  height:90%;
+  background:var(--panel);
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  border-radius:1rem;
+  overflow:hidden;
+}
+.modal-text{
+  padding:20px;
+  overflow-y:auto;
+}
+.modal-text::-webkit-scrollbar{width:0}
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
+  padding:5px 10px;
+  border-radius:5px;
+}
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+.popup.active{display:flex}
+.popup-box{
+  background:var(--panel);
+  padding:16px;
+  border-radius:10px;
+  width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <b>CRYPTO METRICS</b>
+  <span id="adminLabel"></span>
+</header>
+
+<div class="columns" id="columns"></div>
+
+<div class="modal" id="viewModal">
+  <button class="modal-close" onclick="closeView()">X</button>
+  <div class="modal-content">
+    <div class="modal-text">
+      <h2 id="viewTitle"></h2>
+      <p id="viewText"></p>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="loginPopup">
+  <div class="popup-box">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+  </div>
+</div>
+
 <script>
 const PASSWORD='2025';
 let isAdmin=false;
 let data={};
 
 const columnsDef=[
-  {id:'research',title:'Research'},
-  {id:'global',title:'Global M2 Metric'},
-  {id:'recession',title:'Recession Metric'},
-  {id:'market',title:'Market Metric'},
-  {id:'onchain',title:'Onchain Metric'},
-  {id:'network',title:'Network Metric'}
+ {id:'research',title:'Research'},
+ {id:'global',title:'Global M2'},
+ {id:'recession',title:'Recession'},
+ {id:'market',title:'Market'},
+ {id:'onchain',title:'Onchain'},
+ {id:'network',title:'Network'}
 ];
 
-const columns=document.getElementById('columns');
-const logoutBtn=document.getElementById('logoutBtn');
-const adminLabel=document.getElementById('adminLabel');
-
-logoutBtn.onclick=()=>{
-  isAdmin=false;
-  render();
-};
-
-// === ЗАГРУЗКА DATA.JSON ===
-fetch('data.json')
-  .then(res=>res.json())
-  .then(json=>{
-    data=json;
-    render();
-  })
-  .catch(err=>console.error('Ошибка загрузки data.json:', err));
-
-// === РЕНДЕР ===
-function render(){
-  document.body.classList.toggle('admin',isAdmin);
-  adminLabel.textContent=isAdmin?'ADMIN':'';
-  logoutBtn.style.display=isAdmin?'inline-block':'none';
-
-  columns.innerHTML='';
-  columnsDef.forEach(col=>{
-    if(!data[col.id]) data[col.id]=[];
-    const el=document.createElement('div');
-    el.className='column';
-    el.innerHTML=`
-      <div class="col-title">${col.title}</div>
-      <div class="col-body"></div>`;
-    columns.appendChild(el);
-
-    const body=el.querySelector('.col-body');
-    data[col.id].forEach((c,i)=>{
-      const card=document.createElement('div');
-      card.className='card';
-      card.innerHTML=`
-        ${isAdmin?`<div class="admin-controls">
-          <button onclick="editCard('${col.id}',${i})">✏️</button>
-          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-        </div>`:''}
-        <div class="card-title">${c.title}</div>
-        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
-        <div class="card-text">${c.text}</div>`;
-      card.onclick=e=>{
-        if(e.target.tagName==='BUTTON')return;
-        openView(c);
-      };
-      body.appendChild(card);
-    });
-  });
+const params=new URLSearchParams(location.search);
+if(params.get('admin')==='1'){
+  document.getElementById('loginPopup').classList.add('active');
 }
 
-// === MODAL ===
+fetch('data.json')
+ .then(r=>r.json())
+ .then(j=>{data=j;render()});
+
+function login(){
+ if(password.value===PASSWORD){
+  isAdmin=true;
+  loginPopup.classList.remove('active');
+  render();
+ }else alert('Неверный пароль');
+}
+
+function render(){
+ adminLabel.textContent=isAdmin?'ADMIN MODE':'';
+ columns.innerHTML='';
+ columnsDef.forEach(col=>{
+  if(!data[col.id])data[col.id]=[];
+  const c=document.createElement('div');
+  c.className='column';
+  c.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+  columns.appendChild(c);
+  const body=c.querySelector('.col-body');
+
+  data[col.id].forEach((card,i)=>{
+   const el=document.createElement('div');
+   el.className='card';
+   el.innerHTML=`
+    ${isAdmin?`
+     <div class="admin-controls">
+      <button onclick="editCard('${col.id}',${i})">✏️</button>
+      <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+     </div>`:''}
+    <div class="card-title">${card.title}</div>
+    <div class="card-text">${card.text}</div>`;
+   el.onclick=e=>{
+    if(e.target.tagName==='BUTTON')return;
+    openView(card);
+   };
+   body.appendChild(el);
+  });
+ });
+}
+
+function editCard(col,i){
+ const t=prompt('Заголовок',data[col][i].title);
+ const d=prompt('Текст',data[col][i].text);
+ if(t&&d){
+  data[col][i].title=t;
+  data[col][i].text=d;
+  render();
+ }
+}
+function deleteCard(col,i){
+ if(confirm('Удалить карточку?')){
+  data[col].splice(i,1);
+  render();
+ }
+}
 function openView(c){
-  viewImg.src=c.image||'';
-  viewTitle.textContent=c.title;
-  viewText.textContent=c.text;
-  document.getElementById('viewModal').classList.add('active');
+ viewTitle.textContent=c.title;
+ viewText.textContent=c.text;
+ viewModal.classList.add('active');
 }
 function closeView(){
-  document.getElementById('viewModal').classList.remove('active');
+ viewModal.classList.remove('active');
 }
-
-// === LOGIN ===
-function login(){
-  const pass=document.getElementById('password');
-  if(pass.value===PASSWORD){
-    isAdmin=true;
-    pass.value='';
-    document.getElementById('loginPopup').classList.remove('active');
-    render();
-  } else {
-    alert('Неверный пароль');
-  }
-}
-
-// === КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ ===
-function checkAdminMode(){
-  const params=new URLSearchParams(window.location.search);
-  if(params.get('admin')==='1'){
-    document.getElementById('loginPopup').classList.add('active');
-  }
-}
-checkAdminMode();
 </script>
+
+</body>
+</html>
