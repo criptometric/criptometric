@@ -2,79 +2,178 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Metrics Dashboard</title>
-
 <style>
 :root {
-  --bg:#050713;
-  --panel:rgba(18,22,55,.85);
-  --border:rgba(255,255,255,.08);
-  --text:#f5f7ff;
-  --text2:#9ca3c7;
-  --blue:#00d4ff;
+  --bg: #050713;
+  --panel: rgba(18,22,55,0.85);
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f7ff;
+  --text2: #9ca3c7;
+  --blue: #00d4ff;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,sans-serif;
-  overflow:hidden;
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
 }
-button{background:var(--blue);color:#fff;border:0;padding:6px 10px;border-radius:6px;cursor:pointer}
-input{
-  width:100%;
-  padding:8px;
-  font-size:16px;
-  border-radius:6px;
-  border:1px solid var(--border);
-  background:#0f172a;
-  color:var(--text);
+img { max-width: 100%; display: block; }
+button {
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
-header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border)}
-.logo{font-weight:700;color:var(--blue)}
-.columns{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:10px}
-.column{background:var(--panel);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;height:calc(100vh - 70px)}
-.col-title{padding:10px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);border-bottom:1px solid var(--border)}
-.col-body{padding:10px;overflow-y:auto}
-.card{background:linear-gradient(135deg,rgba(20,25,60,.75),rgba(10,15,40,.75));border:1px solid rgba(255,255,255,.08);border-radius:1.2rem;padding:.9rem;margin-bottom:.6rem;cursor:pointer;transition:.25s}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.6)}
-.card-title{font-weight:600;font-size:.75rem;margin-bottom:4px}
-.card-text{font-size:.75rem;color:var(--text2)}
-.admin-controls{display:none;gap:6px;margin-bottom:6px}
-.admin .admin-controls{display:flex}
-
-.modal,.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;
-  z-index:100;
+input, textarea {
+  width: 100%;
+  background: #0f172a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
 }
-.modal.active,.popup.active{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
 }
-.modal-content{
-  width:90%;
-  height:90%;
-  background:var(--panel);
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  border-radius:1rem;
-  overflow:hidden;
+.logo { font-weight: 700; color: var(--blue); }
+.admin-label { color: #22c55e; font-size: 12px; margin-right: 10px; }
+/* GRID */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 10px;
+  padding: 10px;
 }
-.modal-img{display:flex;align-items:center;justify-content:center;background:#000}
-.modal-img img{max-width:100%;max-height:100%}
-.modal-text{padding:20px;overflow-y:auto}
-.modal-close{position:absolute;top:10px;right:10px;background:#ef4444;color:#fff;border-radius:4px}
-.popup-box{background:var(--panel);padding:16px;border-radius:10px;width:320px;display:flex;flex-direction:column;gap:8px}
-#logoutBtn{display:none}
+.column {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+}
+.col-title {
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+}
+.col-body {
+  padding: 10px;
+  overflow-y: auto;
+}
+.col-body::-webkit-scrollbar { width: 0; }
+/* CARD */
+.card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(20,25,60,0.75), rgba(10,15,40,0.75));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.2rem;
+  padding: .9rem;
+  margin-bottom: .6rem;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.25);
+  border-color: rgba(0,212,255,0.6);
+}
+.card-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+}
+.card-text {
+  font-size: 0.75rem;
+  color: var(--text2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+.thumb img { border-radius:6px; margin-bottom:6px; }
+/* ADMIN */
+.admin-controls { display: none; gap: 6px; margin-bottom: 6px; }
+.admin .admin-controls { display: flex; }
+/* VIEW MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  z-index: 100;
+}
+.modal.active { display: flex; align-items: center; justify-content: center; }
+.modal-content {
+  width: 90%;
+  height: 90%;
+  background: var(--panel);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.modal-img {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.modal-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.modal-text {
+  padding: 20px;
+  overflow-y: auto;
+}
+.modal-text::-webkit-scrollbar { width: 0; }
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+/* LOGIN */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.popup.active { display: flex; }
+.popup-box {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 10px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 </style>
 </head>
 
@@ -84,16 +183,19 @@ header{display:flex;justify-content:space-between;align-items:center;padding:10p
   <div class="logo">CRYPTO METRICS</div>
   <div>
     <span id="adminLabel"></span>
-    <button id="logoutBtn">Logout</button>
+    <button id="logoutBtn" style="display:none">Logout</button>
   </div>
 </header>
 
 <div class="columns" id="columns"></div>
 
+<!-- VIEW MODAL -->
 <div class="modal" id="viewModal">
-  <button class="modal-close" id="modalClose">X</button>
+  <button class="modal-close" onclick="closeView()">X</button>
   <div class="modal-content">
-    <div class="modal-img"><img id="viewImg"></div>
+    <div class="modal-img">
+      <img id="viewImg">
+    </div>
     <div class="modal-text">
       <h2 id="viewTitle"></h2>
       <p id="viewText"></p>
@@ -101,103 +203,19 @@ header{display:flex;justify-content:space-between;align-items:center;padding:10p
   </div>
 </div>
 
+<!-- LOGIN -->
 <div class="popup" id="loginPopup">
   <div class="popup-box">
-    <input type="password" id="password" placeholder="Пароль" autocomplete="off">
-    <button id="loginBtn">Войти</button>
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
   </div>
 </div>
 
 <script>
-/* ===== STATE ===== */
-const state = {
-  isAdmin: localStorage.getItem('admin') === '1',
-  data: {}
-};
+const PASSWORD='2025';
+let isAdmin=false;
+let data={};
 
-/* SHA-256("2025") */
-const PASSWORD_HASH =
-"4c8d6bde1fd8f9e7a5e8f9b44c2f5b2d3f5a3a9b3a9d9a0c2f47eac5c6f9b92";
-
-/* ===== HASH ===== */
-async function sha256(text){
-  const buf = await crypto.subtle.digest(
-    "SHA-256",
-    new TextEncoder().encode(text)
-  );
-  return [...new Uint8Array(buf)]
-    .map(b=>b.toString(16).padStart(2,'0'))
-    .join('');
-}
-
-/* ===== AUTH ===== */
-async function login(){
-  const pass = document.getElementById('password').value;
-  if(await sha256(pass) === PASSWORD_HASH){
-    state.isAdmin = true;
-    localStorage.setItem('admin','1');
-    loginPopup.classList.remove('active');
-    render();
-  } else alert('Неверный пароль');
-}
-
-function logout(){
-  state.isAdmin = false;
-  localStorage.removeItem('admin');
-  render();
-}
-
-/* ===== RENDER ===== */
-function render(){
-  document.body.classList.toggle('admin',state.isAdmin);
-  adminLabel.textContent = state.isAdmin ? 'ADMIN' : '';
-  logoutBtn.style.display = state.isAdmin ? 'inline-block' : 'none';
-  columns.innerHTML = '';
-
-  columnsDef.forEach(col=>{
-    const wrap = document.createElement('div');
-    wrap.className = 'column';
-    wrap.innerHTML =
-      `<div class="col-title">${col.title}</div><div class="col-body"></div>`;
-    const body = wrap.querySelector('.col-body');
-
-    (state.data[col.id]||[]).forEach(card=>{
-      const el=document.createElement('div');
-      el.className='card';
-
-      if(state.isAdmin){
-        const ctrl=document.createElement('div');
-        ctrl.className='admin-controls';
-        ctrl.innerHTML='<button>✏️</button><button>🗑</button>';
-        el.appendChild(ctrl);
-      }
-
-      const t=document.createElement('div');
-      t.className='card-title';
-      t.textContent=card.title;
-
-      const tx=document.createElement('div');
-      tx.className='card-text';
-      tx.textContent=card.text;
-
-      el.append(t,tx);
-      el.onclick=()=>openView(card);
-      body.appendChild(el);
-    });
-
-    columns.appendChild(wrap);
-  });
-}
-
-/* ===== MODAL ===== */
-function openView(c){
-  viewImg.src=c.image||'';
-  viewTitle.textContent=c.title;
-  viewText.textContent=c.text;
-  viewModal.classList.add('active');
-}
-
-/* ===== INIT ===== */
 const columnsDef=[
   {id:'research',title:'Research'},
   {id:'global',title:'Global M2 Metric'},
@@ -207,21 +225,76 @@ const columnsDef=[
   {id:'network',title:'Network Metric'}
 ];
 
-modalClose.onclick=()=>viewModal.classList.remove('active');
-loginBtn.onclick=login;
-logoutBtn.onclick=logout;
+const columns=document.getElementById('columns');
+const logoutBtn=document.getElementById('logoutBtn');
+const adminLabel=document.getElementById('adminLabel');
 
-document.addEventListener('DOMContentLoaded',()=>{
-  const params=new URLSearchParams(location.search);
-  if(params.has('admin') && !state.isAdmin){
-    loginPopup.classList.add('active');
+logoutBtn.onclick=()=>{isAdmin=false; render();};
+
+// Загрузка данных из data.json автоматически
+fetch('data.json')
+  .then(res=>res.json())
+  .then(json=>{
+    data=json;
+    render();
+  })
+  .catch(err=>console.error('Ошибка загрузки data.json:', err));
+
+function render(){
+  document.body.classList.toggle('admin',isAdmin);
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
+
+  columns.innerHTML='';
+  columnsDef.forEach(col=>{
+    if(!data[col.id]) data[col.id]=[];
+    const el=document.createElement('div');
+    el.className='column';
+    el.innerHTML=`
+      <div class="col-title">${col.title}</div>
+      <div class="col-body"></div>`;
+    columns.appendChild(el);
+
+    const body=el.querySelector('.col-body');
+    data[col.id].forEach((c,i)=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`
+        ${isAdmin?`<div class="admin-controls">
+          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+        </div>`:''}
+        <div class="card-title">${c.title}</div>
+        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
+        <div class="card-text">${c.text}</div>`;
+      card.onclick=e=>{
+        if(e.target.tagName==='BUTTON')return;
+        openView(c);
+      };
+      body.appendChild(card);
+    });
+  });
+}
+
+function openView(c){
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  document.getElementById('viewModal').classList.add('active');
+}
+function closeView(){document.getElementById('viewModal').classList.remove('active')}
+
+function login(){
+  const pass=document.getElementById('password');
+  if(pass.value===PASSWORD){
+    isAdmin=true;
+    pass.value='';
+    document.getElementById('loginPopup').classList.remove('active');
+    render();
+  } else {
+    alert('Неверный пароль');
   }
-
-  fetch('data.json')
-    .then(r=>r.json())
-    .then(j=>{state.data=j;render()});
-});
+}
 </script>
-
 </body>
 </html>
