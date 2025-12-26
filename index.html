@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Metrics Dashboard</title>
+<title>Crypto Metrics</title>
 
 <style>
 :root{
   --bg:#050713;
   --panel:rgba(18,22,55,.85);
-  --border:#1f2a44;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --accent:#4f8cff;
+  --border:rgba(255,255,255,.08);
+  --text:#f5f7ff;
+  --muted:#9ca3c7;
+  --accent:#00d4ff;
 }
 
-/* ===== GLOBAL ===== */
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -23,36 +22,55 @@ body{
   color:var(--text);
   font-family:Inter,system-ui,sans-serif;
 }
-img{max-width:100%;display:block}
+
 button{
   background:var(--accent);
-  color:#fff;
   border:0;
+  color:#000;
   padding:6px 10px;
   border-radius:6px;
   cursor:pointer;
+  font-weight:600;
 }
+
 input,textarea{
   width:100%;
-  background:#0f172a;
+  background:#070915;
   color:var(--text);
   border:1px solid var(--border);
   border-radius:6px;
   padding:6px;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 16px;
+  padding:12px 16px;
   border-bottom:1px solid var(--border);
 }
-.logo{font-weight:700;color:var(--accent)}
-.admin-label{color:#22c55e;font-size:12px;margin-right:10px}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo-circle{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:radial-gradient(circle at top left,#ff6b6b,#c0392b);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.logo-inner{
+  font-weight:800;
+  color:#ff4d4d;
+}
+.admin-label{color:#22c55e;font-size:12px}
 
-/* ===== GRID ===== */
+/* GRID */
 .columns{
   display:grid;
   grid-template-columns:repeat(6,1fr);
@@ -62,18 +80,17 @@ header{
 .column{
   background:var(--panel);
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:14px;
   display:flex;
   flex-direction:column;
-  height:calc(100vh - 70px);
+  height:calc(100vh - 80px);
 }
 .col-title{
-  padding:10px;
-  font-size:12px;
-  font-weight:500;
+  padding:12px;
+  font-size:11px;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  letter-spacing:.1em;
-  color:var(--accent);
+  color:var(--muted);
   border-bottom:1px solid var(--border);
 }
 .col-body{
@@ -83,42 +100,40 @@ header{
 }
 .col-body::-webkit-scrollbar{width:0}
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
-  background:#0f172a;
+  background:linear-gradient(135deg,rgba(20,25,60,.8),rgba(10,15,40,.8));
   border:1px solid var(--border);
-  border-radius:8px;
-  padding:8px;
+  border-radius:14px;
+  padding:10px;
   margin-bottom:10px;
   cursor:pointer;
-
-  /* hover / интерактивность */
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transition:.25s;
 }
 .card:hover{
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.5), 0 0 0 1px rgba(79,140,255,0.25);
-  border-color: rgba(79,140,255,0.6);
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.6);
 }
-
 .card-title{
+  font-size:13px;
   font-weight:600;
   margin-bottom:6px;
-  font-size:13px; /* чуть меньше */
 }
 .card-text{
   font-size:12px;
   color:var(--muted);
-  word-break:break-word;
   display:-webkit-box;
-  -webkit-line-clamp:2; /* только 2 строки */
-  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
   overflow:hidden;
-  line-height:1.4;
 }
-.thumb img{border-radius:6px;margin-bottom:6px}
+.thumb img{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:6px;
+}
 
-/* ===== ADMIN ===== */
+/* ADMIN */
 .admin-controls{
   display:none;
   gap:6px;
@@ -126,40 +141,7 @@ header{
 }
 .admin .admin-controls{display:flex}
 
-/* ===== VIEW MODAL ===== */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(18,22,55,.85);
-  display:none;
-  z-index:100;
-}
-.modal.active{display:flex}
-.modal-content{
-  width:100%;
-  height:100%;
-  background:#020617;
-  display:grid;
-  grid-template-columns:2fr 1fr;
-}
-.modal-img{
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.modal-text{
-  padding:20px;
-  overflow-y:auto;
-}
-.modal-close{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#ef4444;
-}
-
-/* ===== POPUPS ===== */
+/* POPUP */
 .popup{
   position:fixed;
   inset:0;
@@ -173,11 +155,15 @@ header{
 .popup-box{
   background:var(--panel);
   padding:16px;
-  border-radius:10px;
-  width:320px;
+  border-radius:14px;
+  width:340px;
   display:flex;
   flex-direction:column;
   gap:8px;
+}
+.json-box{
+  width:90%;
+  height:300px;
 }
 </style>
 </head>
@@ -185,98 +171,64 @@ header{
 <body>
 
 <header>
-  <div class="logo">RG CRYPTOMETRICS</div>
+  <div class="logo">
+    <div class="logo-circle"><div class="logo-inner">RG</div></div>
+    <strong>CRYPTOMETRIC</strong>
+  </div>
   <div>
     <span id="adminLabel"></span>
-    <button id="adminBtn" style="display:none">Admin</button>
-    <button id="logoutBtn" style="display:none">Logout</button>
+    <button id="adminBtn">Admin</button>
   </div>
 </header>
 
 <div class="columns" id="columns"></div>
 
-<!-- VIEW -->
-<div class="modal" id="viewModal">
-  <button class="modal-close" onclick="closeView()">X</button>
-  <div class="modal-content">
-    <div class="modal-img">
-      <img id="viewImg">
-    </div>
-    <div class="modal-text">
-      <h2 id="viewTitle"></h2>
-      <p id="viewText"></p>
-    </div>
-  </div>
-</div>
-
-<!-- LOGIN -->
-<div class="popup" id="loginPopup">
-  <div class="popup-box">
-    <input type="password" id="password" placeholder="Пароль">
-    <button onclick="login()">Войти</button>
-  </div>
-</div>
-
-<!-- EDIT -->
+<!-- ADMIN EDIT -->
 <div class="popup" id="editPopup">
   <div class="popup-box">
-    <input id="eTitle" placeholder="Название">
-    <textarea id="eText" placeholder="Текст"></textarea>
-    <input id="eImage" placeholder="URL картинки">
-    <button onclick="saveEdit()">Сохранить</button>
+    <input id="eTitle" placeholder="Title">
+    <textarea id="eText" placeholder="Text"></textarea>
+    <input id="eImage" placeholder="Image URL">
+    <button onclick="saveEdit()">Save</button>
+    <button onclick="copyJSON()">Copy JSON</button>
   </div>
 </div>
 
 <script>
-/* ====== CONFIG ====== */
-const PASSWORD='2025';
-const isAdminUrl=new URLSearchParams(location.search).has('admin');
-
-/* ====== STATE ====== */
-let isAdmin=false;
-let editCol=null;
-let editIndex=null;
+const isAdmin=new URLSearchParams(location.search).has('admin');
 
 const columnsDef=[
   {id:'research',title:'Research'},
-  {id:'global',title:'Global M2 Metrics'},
-  {id:'recession',title:'Recession Metrics'},
-  {id:'market',title:'Market Metrics'},
-  {id:'onchain',title:'Onchain Metrics'},
-  {id:'network',title:'Network Metrics'}
+  {id:'global',title:'Global M2 Metric'},
+  {id:'recession',title:'Recession Metric'},
+  {id:'market',title:'Market Metric'},
+  {id:'onchain',title:'Onchain Metric'},
+  {id:'network',title:'Network Metric'}
 ];
 
-let data=JSON.parse(localStorage.getItem('dashboard'))||{};
+let data={};
+let editCol=null;
+let editIndex=null;
 
-/* ====== ELEMENTS ====== */
 const columns=document.getElementById('columns');
-const adminBtn=document.getElementById('adminBtn');
-const logoutBtn=document.getElementById('logoutBtn');
 const adminLabel=document.getElementById('adminLabel');
-const loginPopup=document.getElementById('loginPopup');
-const editPopup=document.getElementById('editPopup');
-const password=document.getElementById('password');
-const eTitle=document.getElementById('eTitle');
-const eText=document.getElementById('eText');
-const eImage=document.getElementById('eImage');
-const viewModal=document.getElementById('viewModal');
-const viewImg=document.getElementById('viewImg');
-const viewTitle=document.getElementById('viewTitle');
-const viewText=document.getElementById('viewText');
+const adminBtn=document.getElementById('adminBtn');
 
-/* ====== INIT ====== */
-if(isAdminUrl){
-  adminBtn.style.display='inline-block';
-  adminBtn.onclick=()=>loginPopup.classList.add('active');
+if(isAdmin){
+  document.body.classList.add('admin');
+  adminLabel.textContent='ADMIN';
 }
-logoutBtn.onclick=()=>{isAdmin=false;render()};
 
-/* ====== RENDER ====== */
+adminBtn.onclick=()=>{
+  if(isAdmin) alert('Admin mode active');
+  else location.href='?admin';
+};
+
+fetch('data.json')
+  .then(r=>r.json())
+  .then(d=>{data=d;render();});
+
 function render(){
-  document.body.classList.toggle('admin',isAdmin);
-  adminLabel.textContent=isAdmin?'ADMIN':'';
-  logoutBtn.style.display=isAdmin?'inline-block':'none';
-
   columns.innerHTML='';
   columnsDef.forEach(col=>{
     if(!data[col.id]) data[col.id]=[];
@@ -301,46 +253,19 @@ function render(){
         <div class="card-title">${c.title}</div>
         ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
         <div class="card-text">${c.text}</div>`;
-      card.onclick=e=>{
-        if(e.target.tagName==='BUTTON')return;
-        openView(c);
-      };
       body.appendChild(card);
     });
   });
-  localStorage.setItem('dashboard',JSON.stringify(data));
-}
-
-/* ====== VIEW ====== */
-function openView(c){
-  viewImg.src=c.image||'';
-  viewTitle.textContent=c.title;
-  viewText.textContent=c.text;
-  viewModal.classList.add('active');
-}
-function closeView(){viewModal.classList.remove('active')}
-
-/* ====== ADMIN ====== */
-function login(){
-  if(!isAdminUrl)return;
-  if(password.value===PASSWORD){
-    isAdmin=true;
-    password.value='';
-    loginPopup.classList.remove('active');
-    render();
-  }
 }
 
 function addCard(col){
-  editCol=col;
-  editIndex=null;
+  editCol=col;editIndex=null;
   eTitle.value=eText.value=eImage.value='';
   editPopup.classList.add('active');
 }
 
 function editCard(col,i){
-  editCol=col;
-  editIndex=i;
+  editCol=col;editIndex=i;
   const c=data[col][i];
   eTitle.value=c.title;
   eText.value=c.text;
@@ -349,25 +274,24 @@ function editCard(col,i){
 }
 
 function saveEdit(){
-  const card={
-    title:eTitle.value,
-    text:eText.value,
-    image:eImage.value
-  };
-  if(editIndex===null) data[editCol].push(card);
+  const card={title:eTitle.value,text:eText.value,image:eImage.value};
+  if(editIndex===null)data[editCol].push(card);
   else data[editCol][editIndex]=card;
   editPopup.classList.remove('active');
   render();
 }
 
 function deleteCard(col,i){
-  if(confirm('Удалить карточку?')){
+  if(confirm('Delete?')){
     data[col].splice(i,1);
     render();
   }
 }
 
-render();
+function copyJSON(){
+  navigator.clipboard.writeText(JSON.stringify(data,null,2));
+  alert('JSON copied. Paste into data.json on GitHub.');
+}
 </script>
 </body>
 </html>
