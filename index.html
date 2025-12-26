@@ -18,19 +18,20 @@
 html, body{width:100%; overflow-x:hidden; margin:0;}
 body{background:var(--bg); color:var(--text); font-family:Inter,sans-serif;}
 button{background:var(--blue); color:#fff; border:0; padding:6px 10px; border-radius:6px; cursor:pointer;}
-input{width:100%; background:#0f172a; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px;}
+input, textarea{width:100%; background:#0f172a; color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px;}
 
+/* Header */
 header{display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-bottom:1px solid var(--border);}
 .logo{font-weight:700; color:var(--blue);}
 #adminLabel{color:#22c55e; font-size:12px; margin-right:10px;}
 
+/* Columns */
 .columns{
   display:grid;
   grid-template-columns:repeat(6,1fr);
   gap:10px;
   padding:10px;
 }
-
 .column{
   background:var(--panel);
   border:1px solid var(--border);
@@ -39,7 +40,6 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   flex-direction:column;
   height:calc(100vh - 70px);
 }
-
 .col-title{
   padding:10px;
   font-size:.8rem;
@@ -49,7 +49,6 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   color:var(--text2);
   border-bottom:1px solid var(--border);
 }
-
 .col-body{
   padding:10px;
   overflow-y:auto;
@@ -57,6 +56,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
 }
 .col-body::-webkit-scrollbar{display:none;}
 
+/* Card */
 .card{
   position:relative;
   background:linear-gradient(135deg,rgba(20,25,60,.75),rgba(10,15,40,.75));
@@ -83,9 +83,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   overflow:hidden;
   line-height:1.4;
 }
-.thumb{
-  margin-bottom:6px;
-}
+.thumb{margin-bottom:6px;}
 .thumb img{
   border-radius:6px;
   width:100%;
@@ -95,7 +93,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
 .admin-controls{display:none; gap:6px; margin-bottom:6px;}
 .admin .admin-controls{display:flex}
 
-/* Modal */
+/* Modal view */
 .modal{
   position:fixed;
   inset:0;
@@ -163,6 +161,28 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   flex-direction:column;
   gap:8px;
 }
+
+/* Edit Card Modal */
+#editModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:300;
+}
+#editModal.active{display:flex;}
+#editModal .edit-box{
+  background:var(--panel);
+  padding:16px;
+  border-radius:10px;
+  width:400px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+#editModal label{font-size:12px;color:var(--text2);}
 </style>
 </head>
 <body>
@@ -177,7 +197,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
 
 <div class="columns" id="columns"></div>
 
-<!-- Modal -->
+<!-- Modal view -->
 <div class="modal" id="viewModal">
   <button class="modal-close" onclick="closeView()">X</button>
   <div class="modal-content">
@@ -194,6 +214,20 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   <div class="popup-box">
     <input type="password" id="password" placeholder="Пароль">
     <button id="loginBtn">Войти</button>
+  </div>
+</div>
+
+<!-- Edit Card Modal -->
+<div id="editModal">
+  <div class="edit-box">
+    <label>Заголовок</label>
+    <input type="text" id="editTitle">
+    <label>Текст</label>
+    <textarea id="editText" rows="4"></textarea>
+    <label>URL картинки</label>
+    <input type="text" id="editImage">
+    <button id="saveCardBtn">Сохранить</button>
+    <button onclick="closeEdit()">Отмена</button>
   </div>
 </div>
 
@@ -217,9 +251,7 @@ const Admin = (() => {
       document.getElementById('loginPopup').classList.remove('active');
       document.getElementById('password').value = '';
       App.render();
-    } else {
-      alert('Неверный пароль');
-    }
+    } else { alert('Неверный пароль'); }
   }
 
   function logout(){
@@ -256,6 +288,8 @@ const App = (() => {
 
   logoutBtn.onclick = Admin.logout;
 
+  let editCardInfo = null; // {colId, index}
+
   function render(){
     document.body.classList.toggle('admin', Admin.is());
     adminLabel.textContent = Admin.is() ? 'ADMIN' : '';
@@ -267,22 +301,60 @@ const App = (() => {
       const el = document.createElement('div');
       el.className = 'column';
       el.innerHTML = `<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+      if(Admin.is()){
+        const addBtn = document.createElement('button');
+        addBtn.textContent = '+ Добавить карточку';
+        addBtn.style.margin = '6px';
+        addBtn.onclick = ()=>openEdit(col.id, -1);
+        el.appendChild(addBtn);
+      }
       columns.appendChild(el);
       const body = el.querySelector('.col-body');
 
-      data[col.id].forEach(c=>{
+      data[col.id].forEach((c,i)=>{
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          ${Admin.is()?`<div class="admin-controls"><button>✏️</button><button>🗑</button></div>`:''}
+          ${Admin.is()?`<div class="admin-controls">
+            <button onclick="openEdit('${col.id}',${i})">✏️</button>
+          </div>`:''}
           <div class="card-title">${c.title}</div>
           ${c.image?`<div class="thumb"><img src="${c.image}" alt="${c.title}"></div>`:''}
           <div class="card-text">${c.text}</div>
         `;
-        card.onclick = e => { if(e.target.tagName!=='BUTTON') openView(c); };
+        card.onclick = e=>{ if(e.target.tagName!=='BUTTON') openView(c); };
         body.appendChild(card);
       });
     });
+  }
+
+  window.openEdit = function(colId,index){
+    editCardInfo = {colId,index};
+    let c = index>=0 ? data[colId][index] : {title:'', text:'', image:''};
+    document.getElementById('editTitle').value = c.title;
+    document.getElementById('editText').value = c.text;
+    document.getElementById('editImage').value = c.image;
+    document.getElementById('editModal').classList.add('active');
+  }
+
+  window.closeEdit = function(){
+    document.getElementById('editModal').classList.remove('active');
+  }
+
+  document.getElementById('saveCardBtn').onclick = function(){
+    const {colId,index} = editCardInfo;
+    const c = {
+      title: document.getElementById('editTitle').value,
+      text: document.getElementById('editText').value,
+      image: document.getElementById('editImage').value
+    };
+    if(index>=0){
+      data[colId][index] = c;
+    } else {
+      data[colId].push(c);
+    }
+    closeEdit();
+    render();
   }
 
   fetch('data.json').then(r=>r.json()).then(j=>{data=j; render();}).catch(err=>console.error(err));
