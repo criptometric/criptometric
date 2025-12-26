@@ -5,189 +5,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Metrics Dashboard</title>
 <style>
-:root{
-  --bg:#0b0f1a;
-  --panel:#131a2a;
-  --border:#1f2a44;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --accent:#4f8cff;
+:root {
+  --bg: #050713;
+  --panel: rgba(18,22,55,0.85);
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f7ff;
+  --text2: #9ca3c7;
+  --blue: #00d4ff;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,system-ui,sans-serif;
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
 }
 
-img{max-width:100%;display:block}
+img { max-width: 100%; display: block; }
 
-button{
-  background:var(--accent);
-  color:#fff;
-  border:0;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
+button {
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-input,textarea{
-  width:100%;
-  background:#0f172a;
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:6px;
+input, textarea {
+  width: 100%;
+  background: #0f172a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
 }
 
 /* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 16px;
-  border-bottom:1px solid var(--border);
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
 }
-.logo{font-weight:700;color:var(--accent)}
-.admin-label{color:#22c55e;font-size:12px;margin-right:10px}
+.logo { font-weight: 700; color: var(--blue); }
+.admin-label { color: #22c55e; font-size: 12px; margin-right: 10px; }
 
 /* GRID */
-.columns{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:10px;
-  padding:10px;
+.columns {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 10px;
+  padding: 10px;
 }
-.column{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:10px;
-  display:flex;
-  flex-direction:column;
-  height:calc(100vh - 70px);
+.column {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
 }
-.col-title{
-  padding:10px;
-  font-size:11px; /* чуть меньше */
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  color:var(--muted);
-  border-bottom:1px solid var(--border);
+.col-title {
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
 }
-.col-body{
-  padding:10px;
-  overflow-y:auto;
-  scrollbar-width:none;
+.col-body {
+  padding: 10px;
+  overflow-y: auto;
 }
-.col-body::-webkit-scrollbar{width:0}
+.col-body::-webkit-scrollbar { width: 0; }
 
 /* CARD */
-.card{
-  background:#0f172a;
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:8px;
-  margin-bottom:10px;
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  transition: transform 0.2s, box-shadow 0.2s;
-  height:200px; /* фиксированная высота */
+.card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(20,25,60,0.75), rgba(10,15,40,0.75));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.2rem;
+  padding: .9rem;
+  margin-bottom: .6rem;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-.card:hover{
-  transform: translateY(-4px);
-  box-shadow:0 4px 12px rgba(0,0,0,0.5);
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.25);
+  border-color: rgba(0,212,255,0.6);
 }
-.card-title{font-weight:600;margin-bottom:6px;font-size:13px}
-.card-text{
-  font-size:12px;
-  color:var(--muted);
-  word-break:break-word;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+.card-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
 }
-.thumb img{border-radius:6px;margin-bottom:6px;max-height:80px;object-fit:cover}
+.card-text {
+  font-size: 0.75rem;
+  color: var(--text2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* ограничение до 2 строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+.thumb img { border-radius:6px; margin-bottom:6px; }
 
 /* ADMIN */
-.admin-controls{
-  display:none;
-  gap:6px;
-  margin-bottom:6px;
+.admin-controls {
+  display: none;
+  gap: 6px;
+  margin-bottom: 6px;
 }
-.admin .admin-controls{display:flex}
+.admin .admin-controls { display: flex; }
 
 /* VIEW MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:#000c;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  z-index: 100;
 }
-.modal.active{display:flex}
-.modal-content{
-  width:80%;
-  max-width:900px;
-  height:80%;
-  background:#020617;
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  border-radius:10px;
-  overflow:hidden;
+.modal.active { display: flex; align-items: center; justify-content: center; }
+.modal-content {
+  width: 90%;
+  height: 90%;
+  background: var(--panel);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-radius: 1rem;
+  overflow: hidden;
 }
-.modal-img{
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.modal-img {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.modal-img img{
-  max-width:100%;
-  max-height:100%;
+.modal-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.modal-text {
+  padding: 20px;
+  overflow-y: auto;
 }
-.modal-text{
-  padding:20px;
-  overflow-y:auto;
-  color:var(--text);
-}
-.modal-close{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#ef4444;
-  border:none;
-  color:#fff;
-  padding:6px 10px;
-  cursor:pointer;
-  border-radius:6px;
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 /* POPUPS */
-.popup{
-  position:fixed;
-  inset:0;
-  background:#000c;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
 }
-.popup.active{display:flex}
-.popup-box{
-  background:var(--panel);
-  padding:16px;
-  border-radius:10px;
-  width:320px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+.popup.active { display: flex; }
+.popup-box {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 10px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 </style>
 </head>
@@ -198,7 +195,6 @@ header{
   <div class="logo">CRYPTO METRICS</div>
   <div>
     <span id="adminLabel"></span>
-    <button id="adminBtn">Admin</button>
     <button id="logoutBtn" style="display:none">Logout</button>
   </div>
 </header>
@@ -227,36 +223,11 @@ header{
   </div>
 </div>
 
-<!-- EDIT -->
-<div class="popup" id="editPopup">
-  <div class="popup-box">
-    <input id="eTitle" placeholder="Название">
-    <textarea id="eText" placeholder="Текст"></textarea>
-    <input id="eImage" placeholder="URL картинки">
-    <button onclick="saveEdit()">Сохранить</button>
-  </div>
-</div>
-
-<!-- COPY / DOWNLOAD JSON -->
-<div class="popup" id="jsonPopup">
-  <div class="popup-box">
-    <button id="copyJsonBtn">📋 Copy JSON</button>
-    <button id="downloadJsonBtn">⬇ Download JSON</button>
-  </div>
-</div>
-
 <script>
-/* ====== CONFIG ====== */
 const PASSWORD='2025';
-
-/* ====== STATE ====== */
 let isAdmin=false;
 let editCol=null;
 let editIndex=null;
-
-let data=JSON.parse(localStorage.getItem('dashboard'))||{
-  research:[], global:[], recession:[], market:[], onchain:[], network:[]
-};
 
 const columnsDef=[
   {id:'research',title:'Research'},
@@ -267,26 +238,17 @@ const columnsDef=[
   {id:'network',title:'Network Metric'}
 ];
 
-/* ====== ELEMENTS ====== */
+// Попробуем загрузить данные из localStorage, иначе пустые
+let data=JSON.parse(localStorage.getItem('dashboard'))||{
+  research:[], global:[], recession:[], market:[], onchain:[], network:[]
+};
+
 const columns=document.getElementById('columns');
-const adminBtn=document.getElementById('adminBtn');
 const logoutBtn=document.getElementById('logoutBtn');
 const adminLabel=document.getElementById('adminLabel');
-const loginPopup=document.getElementById('loginPopup');
-const viewModal=document.getElementById('viewModal');
-const viewImg=document.getElementById('viewImg');
-const viewTitle=document.getElementById('viewTitle');
-const viewText=document.getElementById('viewText');
-const editPopup=document.getElementById('editPopup');
-const eTitle=document.getElementById('eTitle');
-const eText=document.getElementById('eText');
-const eImage=document.getElementById('eImage');
 
-/* ====== INIT ====== */
-adminBtn.onclick = ()=> loginPopup.classList.add('active');
-logoutBtn.onclick=()=>{isAdmin=false;render()};
+logoutBtn.onclick=()=>{isAdmin=false; render();};
 
-/* ====== RENDER ====== */
 function render(){
   document.body.classList.toggle('admin',isAdmin);
   adminLabel.textContent=isAdmin?'ADMIN':'';
@@ -299,9 +261,7 @@ function render(){
     el.className='column';
     el.innerHTML=`
       <div class="col-title">${col.title}</div>
-      <div class="col-body">
-        ${isAdmin?`<button onclick="addCard('${col.id}')">+ Add</button>`:''}
-      </div>`;
+      <div class="col-body"></div>`;
     columns.appendChild(el);
 
     const body=el.querySelector('.col-body');
@@ -309,10 +269,10 @@ function render(){
       const card=document.createElement('div');
       card.className='card';
       card.innerHTML=`
-        <div class="admin-controls">
+        ${isAdmin?`<div class="admin-controls">
           <button onclick="editCard('${col.id}',${i})">✏️</button>
           <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-        </div>
+        </div>`:''}
         <div class="card-title">${c.title}</div>
         ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
         <div class="card-text">${c.text}</div>`;
@@ -326,83 +286,28 @@ function render(){
   localStorage.setItem('dashboard',JSON.stringify(data));
 }
 
-/* ====== VIEW ====== */
+/* VIEW MODAL */
 function openView(c){
   viewImg.src=c.image||'';
   viewTitle.textContent=c.title;
   viewText.textContent=c.text;
-  viewModal.classList.add('active');
+  document.getElementById('viewModal').classList.add('active');
 }
-function closeView(){viewModal.classList.remove('active')}
+function closeView(){document.getElementById('viewModal').classList.remove('active')}
 
-/* ====== ADMIN ====== */
+/* ADMIN */
 function login(){
-  if(password.value===PASSWORD){
+  const pass=document.getElementById('password');
+  if(pass.value===PASSWORD){
     isAdmin=true;
-    password.value='';
-    loginPopup.classList.remove('active');
+    pass.value='';
+    document.getElementById('loginPopup').classList.remove('active');
     render();
   } else {
-    alert("Неверный пароль");
+    alert('Неверный пароль');
   }
 }
 
-function addCard(col){
-  editCol=col;
-  editIndex=null;
-  eTitle.value=eText.value=eImage.value='';
-  editPopup.classList.add('active');
-}
-
-function editCard(col,i){
-  editCol=col;
-  editIndex=i;
-  const c=data[col][i];
-  eTitle.value=c.title;
-  eText.value=c.text;
-  eImage.value=c.image||'';
-  editPopup.classList.add('active');
-}
-
-function saveEdit(){
-  const card={
-    title:eTitle.value,
-    text:eText.value,
-    image:eImage.value
-  };
-  if(editIndex===null) data[editCol].push(card);
-  else data[editCol][editIndex]=card;
-  editPopup.classList.remove('active');
-  render();
-}
-
-function deleteCard(col,i){
-  if(confirm('Удалить карточку?')){
-    data[col].splice(i,1);
-    render();
-  }
-}
-
-/* ====== COPY / DOWNLOAD JSON ====== */
-function getCurrentData(){ return data; }
-
-document.getElementById("copyJsonBtn").onclick = () => {
-  const json = JSON.stringify(getCurrentData(), null, 2);
-  navigator.clipboard.writeText(json).then(()=>alert("JSON скопирован в буфер обмена"));
-};
-
-document.getElementById("downloadJsonBtn").onclick = () => {
-  const json = JSON.stringify(getCurrentData(), null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "data.json";
-  a.click();
-  URL.revokeObjectURL(url);
-};
-
-/* ====== INITIAL RENDER ====== */
 render();
 </script>
 </body>
