@@ -71,7 +71,7 @@ header { display:flex; justify-content:space-between; align-items:center; paddin
 <div class="popup" id="loginPopup">
   <div class="popup-box">
     <input type="password" id="password" placeholder="Пароль">
-    <button onclick="login()">Войти</button>
+    <button id="loginBtn">Войти</button>
   </div>
 </div>
 
@@ -98,44 +98,16 @@ const viewImg=document.getElementById('viewImg');
 const viewTitle=document.getElementById('viewTitle');
 const viewText=document.getElementById('viewText');
 const loginPopup=document.getElementById('loginPopup');
+const loginBtn=document.getElementById('loginBtn');
 
 logoutBtn.onclick=()=>{isAdmin=false; render();};
 
 modalClose.onclick=()=>{ modal.classList.remove('active'); };
 
-// ✅ ИСПРАВЛЕННАЯ ИНИЦИАЛИЗАЦИЯ
-function init() {
-  const params=new URLSearchParams(window.location.search);
-  
-  // ✅ Автологин при ?admin=1
-  if(params.get('admin')==='1'){
-    isAdmin=true;
-    setAdminUI();
-    loginPopup.classList.remove('active');
-  } else {
-    // Показываем форму входа только если НЕ админ
-    loginPopup.classList.add('active');
-  }
-  
-  // Загрузка данных
-  fetch('data.json')
-    .then(res=>res.json())
-    .then(json=>{
-      data=json;
-      render();
-    })
-    .catch(err=>console.error('Ошибка загрузки data.json:', err));
-}
-
-function setAdminUI() {
-  document.body.classList.add('admin');
-  adminLabel.textContent='ADMIN';
-  logoutBtn.style.display='inline-block';
-}
-
 function render(){
   document.body.classList.toggle('admin',isAdmin);
-  if(isAdmin) setAdminUI();
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
 
   columns.innerHTML='';
   columnsDef.forEach(col=>{
@@ -173,19 +145,39 @@ function openView(c){
   modal.classList.add('active');
 }
 
-window.login=function(){
+// Логин функция
+function login(){
   const pass=document.getElementById('password');
   if(pass.value===PASSWORD){
     isAdmin=true;
     pass.value='';
     loginPopup.classList.remove('active');
-    setAdminUI();
     render();
   } else alert('Неверный пароль');
 }
 
-// ✅ Запуск инициализации при загрузке
-init();
+// Проверка ?admin=1
+function checkAdminParam(){
+  const params=new URLSearchParams(window.location.search);
+  if(params.get('admin')==='1'){
+    loginPopup.classList.add('active');
+  }
+}
+
+// Событие кнопки
+loginBtn.onclick=login;
+
+// Загрузка данных и инициализация
+document.addEventListener('DOMContentLoaded',()=>{
+  checkAdminParam();
+  fetch('data.json')
+    .then(res=>res.json())
+    .then(json=>{
+      data=json;
+      render();
+    })
+    .catch(err=>console.error('Ошибка загрузки data.json:', err));
+});
 </script>
 </body>
 </html>
