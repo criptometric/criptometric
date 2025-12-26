@@ -90,7 +90,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
   object-fit:cover;
 }
 .admin-controls{display:none; gap:6px; margin-bottom:6px;}
-.admin .admin-controls{display:flex;}
+.admin .admin-controls{display:flex}
 
 /* Modal */
 .modal{
@@ -195,7 +195,7 @@ header{display:flex; justify-content:space-between; align-items:center; padding:
 </div>
 
 <script>
-/* ======== ADMIN MODULE ======== */
+/* ===== ADMIN MODULE ===== */
 const Admin = (() => {
   const PASSWORD_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8f9661f9e0d5e9f0d1e9a6c10"; // SHA-256("2025")
   let isAdmin = sessionStorage.getItem('admin') === '1';
@@ -206,13 +206,13 @@ const Admin = (() => {
   }
 
   async function login(){
-    const input = document.getElementById('password');
-    const hash = await sha256(input.value);
+    const pass = document.getElementById('password').value;
+    const hash = await sha256(pass);
     if(hash === PASSWORD_HASH){
-      isAdmin = true;
       sessionStorage.setItem('admin','1');
+      isAdmin = true;
       document.getElementById('loginPopup').classList.remove('active');
-      input.value = '';
+      document.getElementById('password').value = '';
       App.render();
     } else {
       alert('Неверный пароль');
@@ -236,7 +236,7 @@ const Admin = (() => {
   return {login, logout, checkUrl, is};
 })();
 
-/* ======== APP MODULE ======== */
+/* ===== APP MODULE ===== */
 const App = (() => {
   const columnsDef = [
     {id:'research',title:'Research'},
@@ -267,36 +267,27 @@ const App = (() => {
       columns.appendChild(el);
       const body = el.querySelector('.col-body');
 
-      data[col.id].forEach((c,i)=>{
+      data[col.id].forEach(c=>{
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          ${Admin.is()?`<div class="admin-controls">
-            <button>✏️</button>
-            <button>🗑</button>
-          </div>`:''}
+          ${Admin.is()?`<div class="admin-controls"><button>✏️</button><button>🗑</button></div>`:''}
           <div class="card-title">${c.title}</div>
           ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
           <div class="card-text">${c.text}</div>
         `;
-        card.onclick = e => {
-          if(e.target.tagName!=='BUTTON') openView(c);
-        }
+        card.onclick = e => { if(e.target.tagName!=='BUTTON') openView(c); };
         body.appendChild(card);
       });
     });
   }
 
-  // Load data.json
-  fetch('data.json')
-    .then(res=>res.json())
-    .then(json=>{data=json; render();})
-    .catch(err=>console.error('Ошибка загрузки data.json:', err));
+  fetch('data.json').then(r=>r.json()).then(j=>{data=j; render();}).catch(err=>console.error(err));
 
   return {render};
 })();
 
-/* ======== MODAL ======== */
+/* ===== MODAL ===== */
 const viewModal = document.getElementById('viewModal');
 const viewImg = document.getElementById('viewImg');
 const viewTitle = document.getElementById('viewTitle');
@@ -310,7 +301,7 @@ function openView(c){
 }
 function closeView(){viewModal.classList.remove('active')}
 
-/* ======== INIT ======== */
+/* ===== INIT ===== */
 document.getElementById('loginBtn').onclick = Admin.login;
 Admin.checkUrl();
 </script>
