@@ -208,6 +208,7 @@ const Admin = (() => {
   async function login(){
     const pass = document.getElementById('password').value;
     const hash = await sha256(pass);
+    console.log("HASH:", hash); // проверка
     if(hash === PASSWORD_HASH){
       sessionStorage.setItem('admin','1');
       isAdmin = true;
