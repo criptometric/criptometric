@@ -212,6 +212,8 @@ header {
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', ()=>{
+
 const PASSWORD='2025';
 let isAdmin=false;
 let data={};
@@ -230,22 +232,6 @@ const logoutBtn=document.getElementById('logoutBtn');
 const adminLabel=document.getElementById('adminLabel');
 
 logoutBtn.onclick=()=>{isAdmin=false; render();};
-
-// Загрузка данных из data.json автоматически
-fetch('data.json')
-  .then(res=>res.json())
-  .then(json=>{
-    data=json;
-
-    // Проверка ?admin=1 в URL
-    const params=new URLSearchParams(window.location.search);
-    if(params.get('admin')==='1'){
-      isAdmin=true;
-    }
-
-    render();
-  })
-  .catch(err=>console.error('Ошибка загрузки data.json:', err));
 
 function render(){
   document.body.classList.toggle('admin',isAdmin);
@@ -302,6 +288,24 @@ function login(){
     alert('Неверный пароль');
   }
 }
+
+// --- Загрузка данных ---
+fetch('data.json')
+  .then(res=>res.json())
+  .then(json=>{
+    data=json;
+
+    // проверка ?admin=1 в URL
+    const params=new URLSearchParams(window.location.search);
+    if(params.get('admin')==='1'){
+      isAdmin=true;
+    }
+
+    render();
+  })
+  .catch(err=>console.error('Ошибка загрузки data.json:', err));
+
+});
 </script>
 </body>
 </html>
