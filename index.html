@@ -6,7 +6,7 @@
 <title>Crypto Metrics Dashboard</title>
 
 <style>
-:root {
+:root{
   --bg:#050713;
   --panel:rgba(18,22,55,.85);
   --border:rgba(255,255,255,.08);
@@ -31,6 +31,7 @@ button{
   padding:6px 10px;
   border-radius:6px;
   cursor:pointer;
+  font-size:.7rem;
 }
 
 /* HEADER */
@@ -79,7 +80,7 @@ header{
   background:linear-gradient(135deg,rgba(20,25,60,.75),rgba(10,15,40,.75));
   backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.08);
-  border-radius:1.2rem;
+  border-radius:1rem;
   padding:.8rem;
   margin-bottom:.6rem;
   cursor:pointer;
@@ -106,10 +107,18 @@ header{
 .thumb img{border-radius:6px;margin-bottom:6px}
 
 /* ADMIN */
-.admin-controls{display:none;gap:6px;margin-bottom:6px}
+.admin-controls{
+  display:none;
+  gap:6px;
+  margin-bottom:6px;
+}
 .admin .admin-controls{display:flex}
+.admin-add{
+  margin-bottom:8px;
+  width:100%;
+}
 
-/* MODAL */
+/* MODAL VIEW */
 .modal{
   position:fixed;
   inset:0;
@@ -132,10 +141,7 @@ header{
   justify-content:center;
 }
 .modal-img img{max-width:100%;max-height:100%}
-.modal-text{
-  padding:20px;
-  overflow-y:auto;
-}
+.modal-text{padding:20px}
 .modal-close{
   position:absolute;
   top:10px;
@@ -143,7 +149,7 @@ header{
   background:#ef4444;
 }
 
-/* LOGIN */
+/* POPUP */
 .popup{
   position:fixed;
   inset:0;
@@ -163,6 +169,13 @@ header{
   flex-direction:column;
   gap:8px;
 }
+input,textarea{
+  background:#0f172a;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:6px;
+}
 </style>
 </head>
 
@@ -170,10 +183,7 @@ header{
 
 <header>
   <div class="logo">CRYPTO METRICS</div>
-  <div>
-    <span id="adminLabel"></span>
-    <button id="logoutBtn" style="display:none">Logout</button>
-  </div>
+  <span id="adminLabel"></span>
 </header>
 
 <div class="columns" id="columns"></div>
@@ -190,6 +200,16 @@ header{
   </div>
 </div>
 
+<!-- EDIT -->
+<div class="popup" id="editPopup">
+  <div class="popup-box">
+    <input id="eTitle" placeholder="Заголовок">
+    <textarea id="eText" placeholder="Текст"></textarea>
+    <input id="eImage" placeholder="Image URL">
+    <button onclick="saveEdit()">Сохранить</button>
+  </div>
+</div>
+
 <!-- LOGIN -->
 <div class="popup" id="loginPopup">
   <div class="popup-box">
@@ -200,9 +220,11 @@ header{
 
 <script>
 const PASSWORD='2025';
-const isAdminUrl = new URLSearchParams(location.search).has('admin');
-
+const isAdminUrl=new URLSearchParams(location.search).has('admin');
 let isAdmin=false;
+
+let editCol=null;
+let editIndex=null;
 let data={};
 
 const columnsDef=[
@@ -216,9 +238,6 @@ const columnsDef=[
 
 const columns=document.getElementById('columns');
 const adminLabel=document.getElementById('adminLabel');
-const logoutBtn=document.getElementById('logoutBtn');
-
-logoutBtn.onclick=()=>{isAdmin=false;render()};
 
 fetch('data.json')
   .then(r=>r.json())
@@ -231,47 +250,82 @@ if(isAdminUrl){
 function render(){
   document.body.classList.toggle('admin',isAdmin);
   adminLabel.textContent=isAdmin?'ADMIN':'';
-  logoutBtn.style.display=isAdmin?'inline-block':'none';
 
   columns.innerHTML='';
   columnsDef.forEach(col=>{
+    if(!data[col.id])data[col.id]=[];
     const el=document.createElement('div');
     el.className='column';
-    el.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+    el.innerHTML=`
+      <div class="col-title">${col.title}</div>
+      <div class="col-body">
+        ${isAdmin?`<button class="admin-add" onclick="addCard('${col.id}')">➕ Add</button>`:''}
+      </div>`;
     columns.appendChild(el);
 
     const body=el.querySelector('.col-body');
-    (data[col.id]||[]).forEach(c=>{
+    data[col.id].forEach((c,i)=>{
       const card=document.createElement('div');
       card.className='card';
       card.innerHTML=`
+        <div class="admin-controls">
+          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+        </div>
         <div class="card-title">${c.title}</div>
         ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
         <div class="card-text">${c.text}</div>`;
-      card.onclick=()=>openView(c);
+      card.onclick=e=>{
+        if(e.target.tagName==='BUTTON')return;
+        openView(c);
+      };
       body.appendChild(card);
     });
   });
 }
 
+/* VIEW */
 function openView(c){
   viewImg.src=c.image||'';
   viewTitle.textContent=c.title;
   viewText.textContent=c.text;
   viewModal.classList.add('active');
 }
-function closeView(){
-  viewModal.classList.remove('active');
-}
+function closeView(){viewModal.classList.remove('active')}
 
+/* ADMIN */
 function login(){
-  const pass=document.getElementById('password');
-  if(pass.value===PASSWORD){
+  if(password.value===PASSWORD){
     isAdmin=true;
-    pass.value='';
     loginPopup.classList.remove('active');
     render();
-  } else alert('Неверный пароль');
+  }else alert('Неверный пароль');
+}
+function addCard(col){
+  editCol=col; editIndex=null;
+  eTitle.value=eText.value=eImage.value='';
+  editPopup.classList.add('active');
+}
+function editCard(col,i){
+  editCol=col; editIndex=i;
+  const c=data[col][i];
+  eTitle.value=c.title;
+  eText.value=c.text;
+  eImage.value=c.image||'';
+  editPopup.classList.add('active');
+}
+function saveEdit(){
+  const card={title:eTitle.value,text:eText.value,image:eImage.value};
+  if(editIndex===null)data[editCol].push(card);
+  else data[editCol][editIndex]=card;
+  editPopup.classList.remove('active');
+  render();
+}
+function deleteCard(col,i){
+  if(confirm('Удалить карточку?')){
+    data[col].splice(i,1);
+    render();
+  }
 }
 </script>
 
