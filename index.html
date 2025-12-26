@@ -223,9 +223,9 @@ header {
 
 <div class="columns" id="columns"></div>
 
-<!-- VIEW MODAL -->
+<!-- VIEW MODAL - ✅ ИСПРАВЛЕННЫЙ КРЕСТИК -->
 <div class="modal" id="viewModal">
-  <button class="modal-close" id="closeViewBtn">✕</button>
+  <button class="modal-close" data-action="closeView">✕</button>
   <div class="modal-content">
     <div class="modal-img">
       <img id="viewImg">
@@ -279,7 +279,7 @@ class CryptoDashboard {
   initElements() {
     const ids = [
       'columns', 'adminLabel', 'downloadBtn', 'logoutBtn',
-      'viewModal', 'closeViewBtn', 'viewImg', 'viewTitle', 'viewText',
+      'viewModal', 'viewImg', 'viewTitle', 'viewText',
       'editModal', 'editHeader', 'editTitle', 'editText', 'editImage',
       'saveBtn', 'cancelBtn', 'deleteBtn', 'notification'
     ];
@@ -383,6 +383,7 @@ class CryptoDashboard {
     return div;
   }
 
+  // ✅ ИСПРАВЛЕННАЯ handleClick
   handleClick(e) {
     const btn = e.target.closest('button[data-action]');
     if (!btn) {
@@ -395,11 +396,23 @@ class CryptoDashboard {
 
     const { action, col, index } = btn.dataset;
     switch (action) {
-      case 'create': this.openEditModal(col, null); break;
-      case 'edit': this.openEditModal(col, parseInt(index)); break;
-      case 'delete': this.deleteCard(col, parseInt(index)); break;
-      case 'save': this.saveCard(); break;
-      case 'cancel': case 'closeViewBtn': this.closeModal('editModal', 'viewModal'); break;
+      case 'create': 
+        this.openEditModal(col, null); 
+        break;
+      case 'edit': 
+        this.openEditModal(col, parseInt(index)); 
+        break;
+      case 'delete': 
+        this.deleteCard(col, parseInt(index)); 
+        break;
+      case 'save': 
+        this.saveCard(); 
+        break;
+      case 'closeView':    // ✅ Работает!
+      case 'cancel': 
+        this.closeModal('editModal');
+        this.closeModal('viewModal');
+        break;
     }
   }
 
