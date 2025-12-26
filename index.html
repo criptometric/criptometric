@@ -103,10 +103,39 @@ logoutBtn.onclick=()=>{isAdmin=false; render();};
 
 modalClose.onclick=()=>{ modal.classList.remove('active'); };
 
+// ✅ ИСПРАВЛЕННАЯ ИНИЦИАЛИЗАЦИЯ
+function init() {
+  const params=new URLSearchParams(window.location.search);
+  
+  // ✅ Автологин при ?admin=1
+  if(params.get('admin')==='1'){
+    isAdmin=true;
+    setAdminUI();
+    loginPopup.classList.remove('active');
+  } else {
+    // Показываем форму входа только если НЕ админ
+    loginPopup.classList.add('active');
+  }
+  
+  // Загрузка данных
+  fetch('data.json')
+    .then(res=>res.json())
+    .then(json=>{
+      data=json;
+      render();
+    })
+    .catch(err=>console.error('Ошибка загрузки data.json:', err));
+}
+
+function setAdminUI() {
+  document.body.classList.add('admin');
+  adminLabel.textContent='ADMIN';
+  logoutBtn.style.display='inline-block';
+}
+
 function render(){
   document.body.classList.toggle('admin',isAdmin);
-  adminLabel.textContent=isAdmin?'ADMIN':'';
-  logoutBtn.style.display=isAdmin?'inline-block':'none';
+  if(isAdmin) setAdminUI();
 
   columns.innerHTML='';
   columnsDef.forEach(col=>{
@@ -150,24 +179,13 @@ window.login=function(){
     isAdmin=true;
     pass.value='';
     loginPopup.classList.remove('active');
+    setAdminUI();
     render();
   } else alert('Неверный пароль');
 }
 
-// Проверка ?admin=1 сразу при загрузке
-const params=new URLSearchParams(window.location.search);
-if(params.get('admin')==='1'){
-  loginPopup.classList.add('active');
-}
-
-// Загрузка данных
-fetch('data.json')
-  .then(res=>res.json())
-  .then(json=>{
-    data=json;
-    render();
-  })
-  .catch(err=>console.error('Ошибка загрузки data.json:', err));
+// ✅ Запуск инициализации при загрузке
+init();
 </script>
 </body>
 </html>
