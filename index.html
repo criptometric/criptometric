@@ -4,49 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Metrics Dashboard</title>
+
 <style>
 :root {
-  --bg: #050713;
-  --panel: rgba(18,22,55,0.85);
-  --border: rgba(255,255,255,0.08);
-  --text: #f5f7ff;
-  --text2: #9ca3c7;
-  --blue: #00d4ff;
+  --bg:#050713;
+  --panel:rgba(18,22,55,.85);
+  --border:rgba(255,255,255,.08);
+  --text:#f5f7ff;
+  --text2:#9ca3c7;
+  --blue:#00d4ff;
 }
-* { box-sizing: border-box; }
-body { margin:0; background:var(--bg); color:var(--text); font-family:Inter,sans-serif; }
-img { max-width:100%; display:block; }
-button { background:var(--blue); color:#fff; border:0; padding:6px 10px; border-radius:6px; cursor:pointer; }
-input { width:100%; padding:6px; border-radius:6px; border:1px solid var(--border); background:#0f172a; color:var(--text);}
-header { display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-bottom:1px solid var(--border);}
-.logo { font-weight:700; color:var(--blue);}
-.columns { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; padding:10px;}
-.column { background:var(--panel); border:1px solid var(--border); border-radius:10px; display:flex; flex-direction:column; height:calc(100vh - 70px);}
-.col-title { padding:10px; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--text2); border-bottom:1px solid var(--border);}
-.col-body { padding:10px; overflow-y:auto; scrollbar-width: none; -ms-overflow-style: none; }
-.col-body::-webkit-scrollbar { display: none; }
-.card { position:relative; background:linear-gradient(135deg, rgba(20,25,60,0.75), rgba(10,15,40,0.75)); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.08); border-radius:1.2rem; padding:.9rem; margin-bottom:.6rem; cursor:pointer; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
-.card:hover { transform:translateY(-4px) scale(1.01); box-shadow:0 12px 30px rgba(0,0,0,0.6),0 0 0 1px rgba(0,212,255,0.25); border-color:rgba(0,212,255,0.6);}
-.card-title { font-weight:600; margin-bottom:4px; font-size:0.75rem; }
-.card-text { font-size:0.75rem; color:var(--text2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; line-height:1.4;}
-.thumb img { border-radius:6px; margin-bottom:6px;}
-.admin-controls { display:none; gap:6px; margin-bottom:6px;}
-.admin .admin-controls { display:flex;}
-.modal { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:none; z-index:100;}
-.modal.active { display:flex; align-items:center; justify-content:center; }
-.modal-content { width:90%; height:90%; background:var(--panel); display:grid; grid-template-columns:2fr 1fr; border-radius:1rem; overflow:hidden;}
-.modal-img { background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;}
-.modal-img img { max-height:100%; max-width:100%; object-fit:contain;}
-.modal-text { padding:20px; overflow-y:auto;}
-.modal-text::-webkit-scrollbar { display:none; }
-.modal-close { position:absolute; top:10px; right:10px; background:#ef4444; color:#fff; border:none; padding:4px 8px; cursor:pointer; border-radius:4px;}
-.popup { position:fixed; inset:0; background:rgba(0,0,0,0.75); display:none; align-items:center; justify-content:center; z-index:200; }
-.popup.active { display:flex; }
-.popup-box { background:var(--panel); padding:16px; border-radius:10px; width:320px; display:flex; flex-direction:column; gap:8px;}
-#logoutBtn{display:none;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
+button{background:var(--blue);color:#fff;border:0;padding:6px 10px;border-radius:6px;cursor:pointer}
+input{width:100%;padding:6px;border-radius:6px;border:1px solid var(--border);background:#0f172a;color:var(--text)}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border)}
+.logo{font-weight:700;color:var(--blue)}
+.columns{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:10px}
+.column{background:var(--panel);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;height:calc(100vh - 70px)}
+.col-title{padding:10px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);border-bottom:1px solid var(--border)}
+.col-body{padding:10px;overflow-y:auto;scrollbar-width:none}
+.col-body::-webkit-scrollbar{display:none}
+.card{background:linear-gradient(135deg,rgba(20,25,60,.75),rgba(10,15,40,.75));border:1px solid rgba(255,255,255,.08);border-radius:1.2rem;padding:.9rem;margin-bottom:.6rem;cursor:pointer;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.6);border-color:rgba(0,212,255,.6)}
+.card-title{font-weight:600;font-size:.75rem;margin-bottom:4px}
+.card-text{font-size:.75rem;color:var(--text2);line-height:1.4}
+.thumb img{border-radius:6px;margin-bottom:6px}
+.admin-controls{display:none;gap:6px;margin-bottom:6px}
+.admin .admin-controls{display:flex}
+
+.modal,.popup{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;z-index:100}
+.modal.active,.popup.active{display:flex;align-items:center;justify-content:center}
+.modal-content{width:90%;height:90%;background:var(--panel);display:grid;grid-template-columns:2fr 1fr;border-radius:1rem;overflow:hidden}
+.modal-img{display:flex;align-items:center;justify-content:center;background:#000}
+.modal-img img{max-width:100%;max-height:100%}
+.modal-text{padding:20px;overflow-y:auto}
+.modal-close{position:absolute;top:10px;right:10px;background:#ef4444;color:#fff;border-radius:4px}
+
+.popup-box{background:var(--panel);padding:16px;border-radius:10px;width:320px;display:flex;flex-direction:column;gap:8px}
+#logoutBtn{display:none}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">CRYPTO METRICS</div>
   <div>
@@ -76,11 +77,19 @@ header { display:flex; justify-content:space-between; align-items:center; paddin
 </div>
 
 <script>
-const PASSWORD='2025';
-let isAdmin=false;
-let data={};
+/* ================= STATE ================= */
 
-const columnsDef=[
+const state = {
+  isAdmin: localStorage.getItem('admin') === '1',
+  data: {}
+};
+
+/* SHA-256 hash пароля "2025" */
+const PASSWORD_HASH = "c1a5298f939e87e8f962a5edfc206918";
+
+/* ================= CONFIG ================= */
+
+const columnsDef = [
   {id:'research',title:'Research'},
   {id:'global',title:'Global M2 Metric'},
   {id:'recession',title:'Recession Metric'},
@@ -89,95 +98,104 @@ const columnsDef=[
   {id:'network',title:'Network Metric'}
 ];
 
-const columns=document.getElementById('columns');
-const logoutBtn=document.getElementById('logoutBtn');
-const adminLabel=document.getElementById('adminLabel');
-const modal=document.getElementById('viewModal');
-const modalClose=document.getElementById('modalClose');
-const viewImg=document.getElementById('viewImg');
-const viewTitle=document.getElementById('viewTitle');
-const viewText=document.getElementById('viewText');
-const loginPopup=document.getElementById('loginPopup');
-const loginBtn=document.getElementById('loginBtn');
+/* ================= HELPERS ================= */
 
-logoutBtn.onclick=()=>{isAdmin=false; render();};
-
-modalClose.onclick=()=>{ modal.classList.remove('active'); };
-
-function render(){
-  document.body.classList.toggle('admin',isAdmin);
-  adminLabel.textContent=isAdmin?'ADMIN':'';
-  logoutBtn.style.display=isAdmin?'inline-block':'none';
-
-  columns.innerHTML='';
-  columnsDef.forEach(col=>{
-    if(!data[col.id]) data[col.id]=[];
-    const el=document.createElement('div');
-    el.className='column';
-    el.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
-    columns.appendChild(el);
-
-    const body=el.querySelector('.col-body');
-    data[col.id].forEach((c,i)=>{
-      const card=document.createElement('div');
-      card.className='card';
-      card.innerHTML=`
-        ${isAdmin?`<div class="admin-controls">
-          <button onclick="editCard('${col.id}',${i})">✏️</button>
-          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-        </div>`:''}
-        <div class="card-title">${c.title}</div>
-        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
-        <div class="card-text">${c.text}</div>`;
-      card.onclick=e=>{
-        if(e.target.tagName==='BUTTON')return;
-        openView(c);
-      };
-      body.appendChild(card);
-    });
-  });
+async function hash(text){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
 
-function openView(c){
-  viewImg.src=c.image||'';
-  viewTitle.textContent=c.title;
-  viewText.textContent=c.text;
-  modal.classList.add('active');
-}
+/* ================= AUTH ================= */
 
-// Логин функция
-function login(){
-  const pass=document.getElementById('password');
-  if(pass.value===PASSWORD){
-    isAdmin=true;
-    pass.value='';
+async function login(){
+  const pass = document.getElementById('password').value;
+  if(await hash(pass) === PASSWORD_HASH){
+    state.isAdmin = true;
+    localStorage.setItem('admin','1');
     loginPopup.classList.remove('active');
     render();
   } else alert('Неверный пароль');
 }
 
-// Проверка ?admin=1
-function checkAdminParam(){
-  const params=new URLSearchParams(window.location.search);
-  if(params.get('admin')==='1'){
-    loginPopup.classList.add('active');
-  }
+function logout(){
+  state.isAdmin=false;
+  localStorage.removeItem('admin');
+  render();
 }
 
-// Событие кнопки
-loginBtn.onclick=login;
+/* ================= RENDER ================= */
 
-// Загрузка данных и инициализация
+function render(){
+  document.body.classList.toggle('admin',state.isAdmin);
+  adminLabel.textContent = state.isAdmin ? 'ADMIN' : '';
+  logoutBtn.style.display = state.isAdmin ? 'inline-block' : 'none';
+  columns.innerHTML='';
+
+  columnsDef.forEach(col=>{
+    const wrap=document.createElement('div');
+    wrap.className='column';
+    wrap.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+    const body=wrap.querySelector('.col-body');
+
+    (state.data[col.id]||[]).forEach(card=>{
+      const el=document.createElement('div');
+      el.className='card';
+
+      const title=document.createElement('div');
+      title.className='card-title';
+      title.textContent=card.title;
+
+      const text=document.createElement('div');
+      text.className='card-text';
+      text.textContent=card.text;
+
+      if(state.isAdmin){
+        const ctrl=document.createElement('div');
+        ctrl.className='admin-controls';
+        ctrl.innerHTML='<button>✏️</button><button>🗑</button>';
+        el.appendChild(ctrl);
+      }
+
+      if(card.image){
+        const img=document.createElement('img');
+        img.src=card.image;
+        img.style.borderRadius='6px';
+        el.appendChild(img);
+      }
+
+      el.append(title,text);
+      el.onclick=()=>openView(card);
+      body.appendChild(el);
+    });
+
+    columns.appendChild(wrap);
+  });
+}
+
+/* ================= MODAL ================= */
+
+function openView(c){
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  viewModal.classList.add('active');
+}
+
+/* ================= INIT ================= */
+
+modalClose.onclick=()=>viewModal.classList.remove('active');
+loginBtn.onclick=login;
+logoutBtn.onclick=logout;
+
 document.addEventListener('DOMContentLoaded',()=>{
-  checkAdminParam();
+  const params=new URLSearchParams(location.search);
+  if(params.has('admin') && !state.isAdmin) loginPopup.classList.add('active');
+
   fetch('data.json')
-    .then(res=>res.json())
-    .then(json=>{
-      data=json;
-      render();
-    })
-    .catch(err=>console.error('Ошибка загрузки data.json:', err));
+    .then(r=>r.json())
+    .then(j=>{state.data=j;render()});
 });
 </script>
+
 </body>
 </html>
