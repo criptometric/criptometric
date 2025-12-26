@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Metrics</title>
+<title>Crypto Metrics Dashboard</title>
 
 <style>
 :root{
-  --bg:#050713;
-  --panel:rgba(18,22,55,.85);
-  --border:rgba(255,255,255,.08);
-  --text:#f5f7ff;
-  --muted:#9ca3c7;
-  --accent:#00d4ff;
+  --bg:#0b0f1a;
+  --panel:#131a2a;
+  --border:#1f2a44;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#4f8cff;
 }
 
 *{box-sizing:border-box}
@@ -25,17 +25,16 @@ body{
 
 button{
   background:var(--accent);
+  color:#fff;
   border:0;
-  color:#000;
   padding:6px 10px;
   border-radius:6px;
   cursor:pointer;
-  font-weight:600;
 }
 
 input,textarea{
   width:100%;
-  background:#070915;
+  background:#0f172a;
   color:var(--text);
   border:1px solid var(--border);
   border-radius:6px;
@@ -47,28 +46,11 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 16px;
+  padding:10px 16px;
   border-bottom:1px solid var(--border);
 }
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.logo-circle{
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:radial-gradient(circle at top left,#ff6b6b,#c0392b);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.logo-inner{
-  font-weight:800;
-  color:#ff4d4d;
-}
-.admin-label{color:#22c55e;font-size:12px}
+.logo{font-weight:700;color:var(--accent)}
+.admin-label{color:#22c55e;font-size:12px;margin-right:10px}
 
 /* GRID */
 .columns{
@@ -80,16 +62,16 @@ header{
 .column{
   background:var(--panel);
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:10px;
   display:flex;
   flex-direction:column;
-  height:calc(100vh - 80px);
+  height:calc(100vh - 70px);
 }
 .col-title{
-  padding:12px;
-  font-size:11px;
-  letter-spacing:.12em;
+  padding:10px;
+  font-size:12px;
   text-transform:uppercase;
+  letter-spacing:.1em;
   color:var(--muted);
   border-bottom:1px solid var(--border);
 }
@@ -102,21 +84,21 @@ header{
 
 /* CARD */
 .card{
-  background:linear-gradient(135deg,rgba(20,25,60,.8),rgba(10,15,40,.8));
+  background:#0f172a;
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:10px;
+  border-radius:8px;
+  padding:8px;
   margin-bottom:10px;
   cursor:pointer;
   transition:.25s;
 }
 .card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(0,0,0,.6);
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 .card-title{
-  font-size:13px;
   font-weight:600;
+  font-size:13px;
   margin-bottom:6px;
 }
 .card-text{
@@ -127,11 +109,6 @@ header{
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-.thumb img{
-  width:100%;
-  border-radius:8px;
-  margin-bottom:6px;
-}
 
 /* ADMIN */
 .admin-controls{
@@ -140,6 +117,38 @@ header{
   margin-bottom:6px;
 }
 .admin .admin-controls{display:flex}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  z-index:100;
+}
+.modal.active{display:flex}
+.modal-content{
+  width:100%;
+  height:100%;
+  background:#020617;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+}
+.modal-img{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.modal-text{
+  padding:20px;
+  overflow-y:auto;
+}
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
+}
 
 /* POPUP */
 .popup{
@@ -155,15 +164,11 @@ header{
 .popup-box{
   background:var(--panel);
   padding:16px;
-  border-radius:14px;
-  width:340px;
+  border-radius:10px;
+  width:320px;
   display:flex;
   flex-direction:column;
   gap:8px;
-}
-.json-box{
-  width:90%;
-  height:300px;
 }
 </style>
 </head>
@@ -171,31 +176,43 @@ header{
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-circle"><div class="logo-inner">RG</div></div>
-    <strong>CRYPTOMETRIC</strong>
-  </div>
+  <div class="logo">CRYPTO METRICS</div>
   <div>
     <span id="adminLabel"></span>
-    <button id="adminBtn">Admin</button>
+    <button id="adminBtn" style="display:none">Admin</button>
+    <button id="logoutBtn" style="display:none">Logout</button>
   </div>
 </header>
 
 <div class="columns" id="columns"></div>
 
-<!-- ADMIN EDIT -->
-<div class="popup" id="editPopup">
+<!-- VIEW MODAL -->
+<div class="modal" id="viewModal">
+  <button class="modal-close" onclick="closeView()">X</button>
+  <div class="modal-content">
+    <div class="modal-img">
+      <img id="viewImg">
+    </div>
+    <div class="modal-text">
+      <h2 id="viewTitle"></h2>
+      <p id="viewText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="popup" id="loginPopup">
   <div class="popup-box">
-    <input id="eTitle" placeholder="Title">
-    <textarea id="eText" placeholder="Text"></textarea>
-    <input id="eImage" placeholder="Image URL">
-    <button onclick="saveEdit()">Save</button>
-    <button onclick="copyJSON()">Copy JSON</button>
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
   </div>
 </div>
 
 <script>
-const isAdmin=new URLSearchParams(location.search).has('admin');
+const PASSWORD='2025';
+const isAdminUrl=new URLSearchParams(location.search).has('admin');
+let isAdmin=false;
+let data={};
 
 const columnsDef=[
   {id:'research',title:'Research'},
@@ -206,91 +223,76 @@ const columnsDef=[
   {id:'network',title:'Network Metric'}
 ];
 
-let data={};
-let editCol=null;
-let editIndex=null;
-
 const columns=document.getElementById('columns');
-const adminLabel=document.getElementById('adminLabel');
 const adminBtn=document.getElementById('adminBtn');
+const logoutBtn=document.getElementById('logoutBtn');
+const adminLabel=document.getElementById('adminLabel');
 
-if(isAdmin){
-  document.body.classList.add('admin');
-  adminLabel.textContent='ADMIN';
+if(isAdminUrl){
+  adminBtn.style.display='inline-block';
+  adminBtn.onclick=()=>loginPopup.classList.add('active');
 }
 
-adminBtn.onclick=()=>{
-  if(isAdmin) alert('Admin mode active');
-  else location.href='?admin';
+logoutBtn.onclick=()=>{
+  isAdmin=false;
+  document.body.classList.remove('admin');
+  adminLabel.textContent='';
+  logoutBtn.style.display='none';
 };
 
 fetch('data.json')
   .then(r=>r.json())
-  .then(d=>{data=d;render();});
+  .then(json=>{
+    data=json;
+    render();
+  });
 
 function render(){
+  document.body.classList.toggle('admin',isAdmin);
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
+
   columns.innerHTML='';
   columnsDef.forEach(col=>{
-    if(!data[col.id]) data[col.id]=[];
     const el=document.createElement('div');
     el.className='column';
     el.innerHTML=`
       <div class="col-title">${col.title}</div>
-      <div class="col-body">
-        ${isAdmin?`<button onclick="addCard('${col.id}')">+ Add</button>`:''}
-      </div>`;
+      <div class="col-body"></div>
+    `;
     columns.appendChild(el);
 
     const body=el.querySelector('.col-body');
-    data[col.id].forEach((c,i)=>{
+    (data[col.id]||[]).forEach(c=>{
       const card=document.createElement('div');
       card.className='card';
       card.innerHTML=`
-        <div class="admin-controls">
-          <button onclick="editCard('${col.id}',${i})">✏️</button>
-          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-        </div>
         <div class="card-title">${c.title}</div>
-        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
-        <div class="card-text">${c.text}</div>`;
+        <div class="card-text">${c.text}</div>
+      `;
+      card.onclick=()=>openView(c);
       body.appendChild(card);
     });
   });
 }
 
-function addCard(col){
-  editCol=col;editIndex=null;
-  eTitle.value=eText.value=eImage.value='';
-  editPopup.classList.add('active');
+function openView(c){
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  viewModal.classList.add('active');
+}
+function closeView(){
+  viewModal.classList.remove('active');
 }
 
-function editCard(col,i){
-  editCol=col;editIndex=i;
-  const c=data[col][i];
-  eTitle.value=c.title;
-  eText.value=c.text;
-  eImage.value=c.image||'';
-  editPopup.classList.add('active');
-}
-
-function saveEdit(){
-  const card={title:eTitle.value,text:eText.value,image:eImage.value};
-  if(editIndex===null)data[editCol].push(card);
-  else data[editCol][editIndex]=card;
-  editPopup.classList.remove('active');
-  render();
-}
-
-function deleteCard(col,i){
-  if(confirm('Delete?')){
-    data[col].splice(i,1);
+function login(){
+  if(password.value===PASSWORD){
+    isAdmin=true;
+    password.value='';
+    loginPopup.classList.remove('active');
     render();
   }
-}
-
-function copyJSON(){
-  navigator.clipboard.writeText(JSON.stringify(data,null,2));
-  alert('JSON copied. Paste into data.json on GitHub.');
 }
 </script>
 </body>
