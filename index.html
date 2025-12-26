@@ -17,7 +17,15 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
 button{background:var(--blue);color:#fff;border:0;padding:6px 10px;border-radius:6px;cursor:pointer}
-input{width:100%;padding:6px;border-radius:6px;border:1px solid var(--border);background:#0f172a;color:var(--text)}
+input{
+  width:100%;
+  padding:6px;
+  font-size:16px; /* 🔥 УБИРАЕТ АВТО-ЗУМ */
+  border-radius:6px;
+  border:1px solid var(--border);
+  background:#0f172a;
+  color:var(--text)
+}
 header{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border)}
 .logo{font-weight:700;color:var(--blue)}
 .columns{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:10px}
@@ -40,7 +48,6 @@ header{display:flex;justify-content:space-between;align-items:center;padding:10p
 .modal-img img{max-width:100%;max-height:100%}
 .modal-text{padding:20px;overflow-y:auto}
 .modal-close{position:absolute;top:10px;right:10px;background:#ef4444;color:#fff;border-radius:4px}
-
 .popup-box{background:var(--panel);padding:16px;border-radius:10px;width:320px;display:flex;flex-direction:column;gap:8px}
 #logoutBtn{display:none}
 </style>
@@ -78,18 +85,21 @@ header{display:flex;justify-content:space-between;align-items:center;padding:10p
 
 <script>
 /* ================= STATE ================= */
-
 const state = {
   isAdmin: localStorage.getItem('admin') === '1',
   data: {}
 };
 
-/* SHA-256 hash пароля "2025" */
+/* MD5("2025") */
 const PASSWORD_HASH = "c1a5298f939e87e8f962a5edfc206918";
 
-/* ================= CONFIG ================= */
+/* ================= MD5 ================= */
+function md5(str){
+  return CryptoJS.MD5(str).toString();
+}
 
-const columnsDef = [
+/* ================= CONFIG ================= */
+const columnsDef=[
   {id:'research',title:'Research'},
   {id:'global',title:'Global M2 Metric'},
   {id:'recession',title:'Recession Metric'},
@@ -98,19 +108,11 @@ const columnsDef = [
   {id:'network',title:'Network Metric'}
 ];
 
-/* ================= HELPERS ================= */
-
-async function hash(text){
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
 /* ================= AUTH ================= */
-
-async function login(){
-  const pass = document.getElementById('password').value;
-  if(await hash(pass) === PASSWORD_HASH){
-    state.isAdmin = true;
+function login(){
+  const pass=document.getElementById('password').value;
+  if(md5(pass)===PASSWORD_HASH){
+    state.isAdmin=true;
     localStorage.setItem('admin','1');
     loginPopup.classList.remove('active');
     render();
@@ -124,11 +126,10 @@ function logout(){
 }
 
 /* ================= RENDER ================= */
-
 function render(){
   document.body.classList.toggle('admin',state.isAdmin);
-  adminLabel.textContent = state.isAdmin ? 'ADMIN' : '';
-  logoutBtn.style.display = state.isAdmin ? 'inline-block' : 'none';
+  adminLabel.textContent=state.isAdmin?'ADMIN':'';
+  logoutBtn.style.display=state.isAdmin?'inline-block':'none';
   columns.innerHTML='';
 
   columnsDef.forEach(col=>{
@@ -140,14 +141,6 @@ function render(){
     (state.data[col.id]||[]).forEach(card=>{
       const el=document.createElement('div');
       el.className='card';
-
-      const title=document.createElement('div');
-      title.className='card-title';
-      title.textContent=card.title;
-
-      const text=document.createElement('div');
-      text.className='card-text';
-      text.textContent=card.text;
 
       if(state.isAdmin){
         const ctrl=document.createElement('div');
@@ -163,7 +156,15 @@ function render(){
         el.appendChild(img);
       }
 
-      el.append(title,text);
+      const t=document.createElement('div');
+      t.className='card-title';
+      t.textContent=card.title;
+
+      const tx=document.createElement('div');
+      tx.className='card-text';
+      tx.textContent=card.text;
+
+      el.append(t,tx);
       el.onclick=()=>openView(card);
       body.appendChild(el);
     });
@@ -173,7 +174,6 @@ function render(){
 }
 
 /* ================= MODAL ================= */
-
 function openView(c){
   viewImg.src=c.image||'';
   viewTitle.textContent=c.title;
@@ -182,20 +182,22 @@ function openView(c){
 }
 
 /* ================= INIT ================= */
-
 modalClose.onclick=()=>viewModal.classList.remove('active');
 loginBtn.onclick=login;
 logoutBtn.onclick=logout;
 
 document.addEventListener('DOMContentLoaded',()=>{
   const params=new URLSearchParams(location.search);
-  if(params.has('admin') && !state.isAdmin) loginPopup.classList.add('active');
+  if(params.has('admin')&&!state.isAdmin) loginPopup.classList.add('active');
 
   fetch('data.json')
     .then(r=>r.json())
     .then(j=>{state.data=j;render()});
 });
 </script>
+
+<!-- MD5 lib -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 </body>
 </html>
