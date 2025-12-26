@@ -236,6 +236,13 @@ fetch('data.json')
   .then(res=>res.json())
   .then(json=>{
     data=json;
+
+    // Проверка ?admin=1 в URL
+    const params=new URLSearchParams(window.location.search);
+    if(params.get('admin')==='1'){
+      isAdmin=true;
+    }
+
     render();
   })
   .catch(err=>console.error('Ошибка загрузки data.json:', err));
