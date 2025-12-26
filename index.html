@@ -76,7 +76,6 @@ header { display:flex; justify-content:space-between; align-items:center; paddin
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', ()=>{
 const PASSWORD='2025';
 let isAdmin=false;
 let data={};
@@ -144,7 +143,6 @@ function openView(c){
   viewText.textContent=c.text;
   modal.classList.add('active');
 }
-function closeView(){ modal.classList.remove('active'); }
 
 window.login=function(){
   const pass=document.getElementById('password');
@@ -156,22 +154,20 @@ window.login=function(){
   } else alert('Неверный пароль');
 }
 
+// Проверка ?admin=1 сразу при загрузке
+const params=new URLSearchParams(window.location.search);
+if(params.get('admin')==='1'){
+  loginPopup.classList.add('active');
+}
+
+// Загрузка данных
 fetch('data.json')
   .then(res=>res.json())
   .then(json=>{
     data=json;
-
-    // проверка ?admin=1 после загрузки данных
-    const params=new URLSearchParams(window.location.search);
-    if(params.get('admin')==='1'){
-      loginPopup.classList.add('active');
-    }
-
     render();
   })
   .catch(err=>console.error('Ошибка загрузки data.json:', err));
-
-});
 </script>
 </body>
 </html>
