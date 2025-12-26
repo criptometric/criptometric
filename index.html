@@ -74,9 +74,9 @@ header {
 .col-body {
   padding: 10px;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
-.col-body::-webkit-scrollbar { width: 0; } /* Chrome/Safari */
+.col-body::-webkit-scrollbar { display: none; }
 /* CARD */
 .card {
   position: relative;
@@ -143,7 +143,7 @@ header {
   padding: 20px;
   overflow-y: auto;
 }
-.modal-text::-webkit-scrollbar { width: 0; }
+.modal-text::-webkit-scrollbar { display: none; }
 .modal-close {
   position: absolute;
   top: 10px;
@@ -184,6 +184,7 @@ header {
   <div class="logo">CRYPTO METRICS</div>
   <div>
     <span id="adminLabel"></span>
+    <button id="createBtn" style="display:none">Создать карту</button>
     <button id="downloadBtn" style="display:none">Download data.json</button>
     <button id="logoutBtn" style="display:none">Logout</button>
   </div>
@@ -205,16 +206,7 @@ header {
   </div>
 </div>
 
-<!-- LOGIN -->
-<div class="popup" id="loginPopup">
-  <div class="popup-box">
-    <input type="password" id="password" placeholder="Пароль">
-    <button onclick="login()">Войти</button>
-  </div>
-</div>
-
 <script>
-const PASSWORD='2025';
 let isAdmin=false;
 let data={};
 
@@ -230,38 +222,26 @@ const columnsDef=[
 const columns=document.getElementById('columns');
 const logoutBtn=document.getElementById('logoutBtn');
 const adminLabel=document.getElementById('adminLabel');
+const createBtn=document.getElementById('createBtn');
 const downloadBtn=document.getElementById('downloadBtn');
 
 logoutBtn.onclick=()=>{isAdmin=false; render();};
 
-downloadBtn.onclick=()=>{
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download='data.json';
-  a.click();
-  URL.revokeObjectURL(url);
-};
+// Проверка URL на ?admin
+const urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('admin')) isAdmin=true;
 
 // Загрузка данных из data.json автоматически
 fetch('data.json')
   .then(res=>res.json())
-  .then(json=>{ data=json; checkAdmin(); render(); })
+  .then(json=>{data=json; render();})
   .catch(err=>console.error('Ошибка загрузки data.json:', err));
-
-// Проверка параметра ?admin
-function checkAdmin(){
-  const params=new URLSearchParams(window.location.search);
-  if(params.has('admin')){
-    document.getElementById('loginPopup').classList.add('active');
-  }
-}
 
 function render(){
   document.body.classList.toggle('admin',isAdmin);
   adminLabel.textContent=isAdmin?'ADMIN':'';
   logoutBtn.style.display=isAdmin?'inline-block':'none';
+  createBtn.style.display=isAdmin?'inline-block':'none';
   downloadBtn.style.display=isAdmin?'inline-block':'none';
 
   columns.innerHTML='';
@@ -276,19 +256,24 @@ function render(){
     data[col.id].forEach((c,i)=>{
       const card=document.createElement('div');
       card.className='card';
-      card.innerHTML=`${isAdmin?`<div class="admin-controls">
-        <button onclick="editCard('${col.id}',${i})">✏️</button>
-        <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-      </div>`:''}
-      <div class="card-title">${c.title}</div>
-      ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
-      <div class="card-text">${c.text}</div>`;
-      card.onclick=e=>{ if(e.target.tagName==='BUTTON')return; openView(c); };
+      card.innerHTML=`
+        ${isAdmin?`<div class="admin-controls">
+          <button onclick="editCard('${col.id}',${i})">✏️</button>
+          <button onclick="deleteCard('${col.id}',${i})">🗑</button>
+        </div>`:''}
+        <div class="card-title">${c.title}</div>
+        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
+        <div class="card-text">${c.text}</div>`;
+      card.onclick=e=>{if(e.target.tagName==='BUTTON')return; openView(c);};
       body.appendChild(card);
     });
   });
 }
 
+// Модальное окно
+const viewImg=document.getElementById('viewImg');
+const viewTitle=document.getElementById('viewTitle');
+const viewText=document.getElementById('viewText');
 function openView(c){
   viewImg.src=c.image||'';
   viewTitle.textContent=c.title;
@@ -297,20 +282,40 @@ function openView(c){
 }
 function closeView(){document.getElementById('viewModal').classList.remove('active');}
 
-function login(){
-  const pass=document.getElementById('password');
-  if(pass.value===PASSWORD){
-    isAdmin=true;
-    pass.value='';
-    document.getElementById('loginPopup').classList.remove('active');
-    render();
-  } else alert('Неверный пароль');
+// Admin функции
+createBtn.onclick=()=>{
+  const colId=prompt('В какой столбец добавить карту? (research, global, recession, market, onchain, network)');
+  if(!colId || !data[colId]) return alert('Неверный столбец!');
+  const title=prompt('Название карты:');
+  const text=prompt('Текст карты:');
+  const image=prompt('URL изображения (оставьте пустым, если нет):');
+  data[colId].push({title,text,image});
+  render();
+};
+
+function editCard(col,i){
+  const card=data[col][i];
+  const title=prompt('Название карты:',card.title);
+  const text=prompt('Текст карты:',card.text);
+  const image=prompt('URL изображения:',card.image||'');
+  data[col][i]={title,text,image};
+  render();
 }
 
-// Заглушки для админских функций
-function editCard(col,i){ alert('Edit card '+col+' index '+i); }
-function deleteCard(col,i){ alert('Delete card '+col+' index '+i); }
+function deleteCard(col,i){
+  if(confirm('Удалить карту?')){data[col].splice(i,1); render();}
+}
 
+// Download JSON
+downloadBtn.onclick=()=>{
+  const blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='data.json';
+  a.click();
+  URL.revokeObjectURL(url);
+};
 </script>
 </body>
 </html>
