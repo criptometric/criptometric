@@ -6,7 +6,7 @@
 <title>Crypto Metrics Dashboard</title>
 
 <style>
-:root{
+:root {
   --bg:#050713;
   --panel:rgba(18,22,55,.85);
   --border:rgba(255,255,255,.08);
@@ -14,6 +14,7 @@
   --text2:#9ca3c7;
   --blue:#00d4ff;
 }
+
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -21,6 +22,8 @@ body{
   color:var(--text);
   font-family:Inter,system-ui,sans-serif;
 }
+img{max-width:100%;display:block}
+
 button{
   background:var(--blue);
   color:#fff;
@@ -29,20 +32,19 @@ button{
   border-radius:6px;
   cursor:pointer;
 }
-input,textarea{
-  width:100%;
-  background:#0f172a;
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:6px;
-}
+
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:10px 16px;
   border-bottom:1px solid var(--border);
 }
+.logo{font-weight:700;color:var(--blue)}
+.admin-label{color:#22c55e;font-size:12px}
+
+/* GRID */
 .columns{
   display:grid;
   grid-template-columns:repeat(6,1fr);
@@ -60,7 +62,9 @@ header{
 .col-title{
   padding:10px;
   font-size:.75rem;
+  font-weight:600;
   text-transform:uppercase;
+  letter-spacing:.1em;
   color:var(--text2);
   border-bottom:1px solid var(--border);
 }
@@ -70,10 +74,12 @@ header{
 }
 .col-body::-webkit-scrollbar{width:0}
 
+/* CARD */
 .card{
-  background:rgba(20,25,60,.75);
+  background:linear-gradient(135deg,rgba(20,25,60,.75),rgba(10,15,40,.75));
+  backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.08);
-  border-radius:1rem;
+  border-radius:1.2rem;
   padding:.8rem;
   margin-bottom:.6rem;
   cursor:pointer;
@@ -81,61 +87,67 @@ header{
 }
 .card:hover{
   transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(0,0,0,.5);
+  box-shadow:0 12px 30px rgba(0,0,0,.6);
 }
 .card-title{
-  font-size:.8rem;
+  font-size:.75rem;
   font-weight:600;
+  margin-bottom:4px;
 }
 .card-text{
-  font-size:.75rem;
+  font-size:.72rem;
   color:var(--text2);
   display:-webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
   overflow:hidden;
+  line-height:1.4;
 }
-.admin-controls{
-  display:flex;
-  gap:6px;
-  margin-bottom:6px;
-}
+.thumb img{border-radius:6px;margin-bottom:6px}
+
+/* ADMIN */
+.admin-controls{display:none;gap:6px;margin-bottom:6px}
+.admin .admin-controls{display:flex}
+
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.8);
   display:none;
-  align-items:center;
-  justify-content:center;
   z-index:100;
 }
 .modal.active{display:flex}
 .modal-content{
-  width:90%;
-  height:90%;
+  width:100%;
+  height:100%;
   background:var(--panel);
   display:grid;
   grid-template-columns:2fr 1fr;
-  border-radius:1rem;
-  overflow:hidden;
 }
+.modal-img{
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.modal-img img{max-width:100%;max-height:100%}
 .modal-text{
   padding:20px;
   overflow-y:auto;
 }
-.modal-text::-webkit-scrollbar{width:0}
 .modal-close{
   position:absolute;
   top:10px;
   right:10px;
   background:#ef4444;
-  padding:5px 10px;
-  border-radius:5px;
 }
+
+/* LOGIN */
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.8);
   display:none;
   align-items:center;
   justify-content:center;
@@ -157,15 +169,20 @@ header{
 <body>
 
 <header>
-  <b>CRYPTO METRICS</b>
-  <span id="adminLabel"></span>
+  <div class="logo">CRYPTO METRICS</div>
+  <div>
+    <span id="adminLabel"></span>
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </div>
 </header>
 
 <div class="columns" id="columns"></div>
 
+<!-- VIEW -->
 <div class="modal" id="viewModal">
   <button class="modal-close" onclick="closeView()">X</button>
   <div class="modal-content">
+    <div class="modal-img"><img id="viewImg"></div>
     <div class="modal-text">
       <h2 id="viewTitle"></h2>
       <p id="viewText"></p>
@@ -173,6 +190,7 @@ header{
   </div>
 </div>
 
+<!-- LOGIN -->
 <div class="popup" id="loginPopup">
   <div class="popup-box">
     <input type="password" id="password" placeholder="Пароль">
@@ -182,88 +200,78 @@ header{
 
 <script>
 const PASSWORD='2025';
+const isAdminUrl = new URLSearchParams(location.search).has('admin');
+
 let isAdmin=false;
 let data={};
 
 const columnsDef=[
- {id:'research',title:'Research'},
- {id:'global',title:'Global M2'},
- {id:'recession',title:'Recession'},
- {id:'market',title:'Market'},
- {id:'onchain',title:'Onchain'},
- {id:'network',title:'Network'}
+  {id:'research',title:'Research'},
+  {id:'global',title:'Global M2 Metric'},
+  {id:'recession',title:'Recession Metric'},
+  {id:'market',title:'Market Metric'},
+  {id:'onchain',title:'Onchain Metric'},
+  {id:'network',title:'Network Metric'}
 ];
 
-const params=new URLSearchParams(location.search);
-if(params.get('admin')==='1'){
+const columns=document.getElementById('columns');
+const adminLabel=document.getElementById('adminLabel');
+const logoutBtn=document.getElementById('logoutBtn');
+
+logoutBtn.onclick=()=>{isAdmin=false;render()};
+
+fetch('data.json')
+  .then(r=>r.json())
+  .then(j=>{data=j;render()});
+
+if(isAdminUrl){
   document.getElementById('loginPopup').classList.add('active');
 }
 
-fetch('data.json')
- .then(r=>r.json())
- .then(j=>{data=j;render()});
-
-function login(){
- if(password.value===PASSWORD){
-  isAdmin=true;
-  loginPopup.classList.remove('active');
-  render();
- }else alert('Неверный пароль');
-}
-
 function render(){
- adminLabel.textContent=isAdmin?'ADMIN MODE':'';
- columns.innerHTML='';
- columnsDef.forEach(col=>{
-  if(!data[col.id])data[col.id]=[];
-  const c=document.createElement('div');
-  c.className='column';
-  c.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
-  columns.appendChild(c);
-  const body=c.querySelector('.col-body');
+  document.body.classList.toggle('admin',isAdmin);
+  adminLabel.textContent=isAdmin?'ADMIN':'';
+  logoutBtn.style.display=isAdmin?'inline-block':'none';
 
-  data[col.id].forEach((card,i)=>{
-   const el=document.createElement('div');
-   el.className='card';
-   el.innerHTML=`
-    ${isAdmin?`
-     <div class="admin-controls">
-      <button onclick="editCard('${col.id}',${i})">✏️</button>
-      <button onclick="deleteCard('${col.id}',${i})">🗑</button>
-     </div>`:''}
-    <div class="card-title">${card.title}</div>
-    <div class="card-text">${card.text}</div>`;
-   el.onclick=e=>{
-    if(e.target.tagName==='BUTTON')return;
-    openView(card);
-   };
-   body.appendChild(el);
+  columns.innerHTML='';
+  columnsDef.forEach(col=>{
+    const el=document.createElement('div');
+    el.className='column';
+    el.innerHTML=`<div class="col-title">${col.title}</div><div class="col-body"></div>`;
+    columns.appendChild(el);
+
+    const body=el.querySelector('.col-body');
+    (data[col.id]||[]).forEach(c=>{
+      const card=document.createElement('div');
+      card.className='card';
+      card.innerHTML=`
+        <div class="card-title">${c.title}</div>
+        ${c.image?`<div class="thumb"><img src="${c.image}"></div>`:''}
+        <div class="card-text">${c.text}</div>`;
+      card.onclick=()=>openView(c);
+      body.appendChild(card);
+    });
   });
- });
 }
 
-function editCard(col,i){
- const t=prompt('Заголовок',data[col][i].title);
- const d=prompt('Текст',data[col][i].text);
- if(t&&d){
-  data[col][i].title=t;
-  data[col][i].text=d;
-  render();
- }
-}
-function deleteCard(col,i){
- if(confirm('Удалить карточку?')){
-  data[col].splice(i,1);
-  render();
- }
-}
 function openView(c){
- viewTitle.textContent=c.title;
- viewText.textContent=c.text;
- viewModal.classList.add('active');
+  viewImg.src=c.image||'';
+  viewTitle.textContent=c.title;
+  viewText.textContent=c.text;
+  viewModal.classList.add('active');
 }
 function closeView(){
- viewModal.classList.remove('active');
+  viewModal.classList.remove('active');
+}
+
+function login(){
+  const pass=document.getElementById('password');
+  if(pass.value===PASSWORD){
+    isAdmin=true;
+    pass.value='';
+    loginPopup.classList.remove('active');
+    render();
+  } else alert('Неверный пароль');
 }
 </script>
 
