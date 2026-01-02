@@ -419,7 +419,8 @@ class CryptoDashboard {
   handleClick(e) {
     const btn = e.target.closest('button[data-action]');
     if (!btn) {
-      e.stopPropagation(); // 🔴 ВАЖНО
+      e.stopPropagation(); // ✅ ВОТ ГДЕ НУЖНО
+  } else {
       const card = e.target.closest('.card');
       if (card && !e.target.closest('.admin-controls')) {
         this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
