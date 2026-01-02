@@ -575,6 +575,7 @@ document.getElementById('downloadBtn').addEventListener('click', (e) => {
 document.getElementById('logoutBtn').addEventListener('click', (e) => {
   e.stopPropagation();
   localStorage.removeItem('cryptoAdmin');
+  location.reload();
   window.dashboard.isAdmin = false;
   window.dashboard.render();
   window.dashboard.showNotification('Выход выполнен', 'success');
