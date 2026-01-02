@@ -415,19 +415,42 @@ class CryptoDashboard {
     return div;
   }
 
-  // ✅ ИСПРАВЛЕННАЯ handleClick
-  handleClick(e) {
-    const btn = e.target.closest('button[data-action]');
-    if (!btn) {
-      e.stopPropagation(); // ✅ ВОТ ГДЕ НУЖНО
-  } else {
-      const card = e.target.closest('.card');
-      if (card && !e.target.closest('.admin-controls')) {
-        this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
-      }
-      return;
-    }
+ handleClick(e) {
+  const btn = e.target.closest('button[data-action]');
 
+  // 1️⃣ КНОПКИ (edit / delete / create / close)
+  if (btn) {
+    e.stopPropagation();
+    const { action, col, index } = btn.dataset;
+
+    switch (action) {
+      case 'create':
+        this.openEditModal(col, null);
+        break;
+      case 'edit':
+        this.openEditModal(col, parseInt(index));
+        break;
+      case 'delete':
+        this.deleteCard(col, parseInt(index));
+        break;
+      case 'save':
+        this.saveCard();
+        break;
+      case 'closeView':
+      case 'cancel':
+        this.closeModal('editModal');
+        this.closeModal('viewModal');
+        break;
+    }
+    return;
+  }
+
+  // 2️⃣ КЛИК ПО КАРТОЧКЕ
+  const card = e.target.closest('.card');
+  if (card && !e.target.closest('.admin-controls')) {
+    this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
+  }
+}
     const { action, col, index } = btn.dataset;
     switch (action) {
       case 'create': 
