@@ -451,27 +451,6 @@ class CryptoDashboard {
     this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
   }
 }
-    const { action, col, index } = btn.dataset;
-    switch (action) {
-      case 'create': 
-        this.openEditModal(col, null); 
-        break;
-      case 'edit': 
-        this.openEditModal(col, parseInt(index)); 
-        break;
-      case 'delete': 
-        this.deleteCard(col, parseInt(index)); 
-        break;
-      case 'save': 
-        this.saveCard(); 
-        break;
-      case 'closeView':    // ✅ Работает!
-      case 'cancel': 
-        this.closeModal('editModal');
-        this.closeModal('viewModal');
-        break;
-    }
-  }
 
  openViewModal(colId, index) {
   const card = this.data[colId][index];
