@@ -311,7 +311,7 @@ class CryptoDashboard {
   initElements() {
     const ids = [
       'columns', 'adminLabel', 'downloadBtn', 'logoutBtn',
-      'viewModal', 'viewImg', 'viewTitle', 'viewText',
+      'viewModal', 'viewImg', 'viewTitle', 'viewText', 'viewExtra',
       'editModal', 'editHeader', 'editTitle', 'editText', 'editExtra', 'editImage',
       'saveBtn', 'cancelBtn', 'deleteBtn', 'notification'
     ];
@@ -467,12 +467,14 @@ class CryptoDashboard {
       this.elements.deleteBtn.style.display = 'inline-block';
       this.elements.editTitle.value = card.title || '';
       this.elements.editText.value = card.text || '';
+      this.elements.editExtra.value = card.extra || '';
       this.elements.editImage.value = card.image || '';
     } else {
       this.elements.editHeader.textContent = 'Создать новую карту';
       this.elements.deleteBtn.style.display = 'none';
       this.elements.editTitle.value = '';
       this.elements.editText.value = '';
+      this.elements.editExtra.value = '';
       this.elements.editImage.value = '';
     }
     
