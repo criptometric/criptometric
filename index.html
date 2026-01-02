@@ -312,7 +312,7 @@ class CryptoDashboard {
     const ids = [
       'columns', 'adminLabel', 'downloadBtn', 'logoutBtn',
       'viewModal', 'viewImg', 'viewTitle', 'viewText',
-      'editModal', 'editHeader', 'editTitle', 'editText', 'editImage',
+      'editModal', 'editHeader', 'editTitle', 'editText', 'editExtra', 'editImage',
       'saveBtn', 'cancelBtn', 'deleteBtn', 'notification'
     ];
     
@@ -457,7 +457,6 @@ class CryptoDashboard {
   this.elements.viewModal.classList.add('active');
 }
 
-  }
 
   openEditModal(column, index) {
     this.editState = { column, index: index ? parseInt(index) : null };
@@ -493,10 +492,10 @@ class CryptoDashboard {
 
     if (this.editState.index === null) {
       // Create
-      this.data[this.editState.column].push({ title, text, image });
+      this.data[this.editState.column].push({ title, text, extra, image });
     } else {
       // Update
-      this.data[this.editState.column][this.editState.index] = { title, text, image };
+      this.data[this.editState.column][this.editState.index] = { title, text, extra, image };
     }
 
     this.closeModal('editModal');
