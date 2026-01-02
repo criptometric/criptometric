@@ -162,13 +162,33 @@ header {
   grid-template-columns: 2fr 1fr;
 }
 .modal-img {
-  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modal-img-top {
+  flex: 0 0 70%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
-.modal-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+.modal-img-top img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.modal-img-bottom {
+  flex: 0 0 30%;
+  padding: 12px;
+  font-size: 0.85rem;
+  color: var(--text2);
+  overflow-y: auto;
+}
+
 .modal-text {
   padding: 20px;
   overflow-y: auto;
@@ -226,24 +246,36 @@ header {
 <!-- VIEW MODAL - ✅ ИСПРАВЛЕННЫЙ КРЕСТИК -->
 <div class="modal" id="viewModal">
   <button class="modal-close" data-action="closeView">✕</button>
-  <div class="modal-content">
-    <div class="modal-img">
+ <div class="modal-content">
+  <div class="modal-img">
+
+    <div class="modal-img-top">
       <img id="viewImg">
     </div>
-    <div class="modal-text">
-      <h2 id="viewTitle"></h2>
-      <p id="viewText"></p>
-    </div>
+
+    <div class="modal-img-bottom" id="viewExtra"></div>
+
+  </div>
+
+  <div class="modal-text">
+    <h2 id="viewTitle"></h2>
+    <p id="viewText"></p>
   </div>
 </div>
+ 
 
 <!-- EDIT MODAL -->
 <div class="edit-modal" id="editModal">
   <div class="edit-box">
     <h3 id="editHeader">Редактировать карту</h3>
-    <input type="text" id="editTitle" placeholder="Название карты" maxlength="100">
-    <textarea id="editText" rows="6" placeholder="Описание (поддерживает Markdown)" maxlength="8000"></textarea>
-    <input type="url" id="editImage" placeholder="https://example.com/image.jpg">
+   <input type="text" id="editTitle">
+<textarea id="editText"></textarea>
+
+<textarea id="editExtra"
+  rows="4"
+  placeholder="Текст под графиком (30%)"></textarea>
+
+<input type="url" id="editImage">
     <div class="edit-actions">
       <button id="deleteBtn" class="btn-danger" style="display:none">🗑 Удалить</button>
       <button id="cancelBtn" class="btn-secondary">Отмена</button>
@@ -416,12 +448,15 @@ class CryptoDashboard {
     }
   }
 
-  openViewModal(colId, index) {
-    const card = this.data[colId][index];
-    this.elements.viewImg.src = card.image || '';
-    this.elements.viewTitle.textContent = card.title || '';
-    this.elements.viewText.textContent = card.text || '';
-    this.elements.viewModal.classList.add('active');
+ openViewModal(colId, index) {
+  const card = this.data[colId][index];
+  this.elements.viewImg.src = card.image || '';
+  this.elements.viewTitle.textContent = card.title || '';
+  this.elements.viewText.textContent = card.text || '';
+  this.elements.viewExtra.textContent = card.extra || '';
+  this.elements.viewModal.classList.add('active');
+}
+
   }
 
   openEditModal(column, index) {
@@ -448,6 +483,7 @@ class CryptoDashboard {
   async saveCard() {
     const title = this.elements.editTitle.value.trim();
     const text = this.elements.editText.value.trim();
+    const extra = this.elements.editExtra.value.trim();
     const image = this.elements.editImage.value.trim();
 
     if (!title || !text) {
