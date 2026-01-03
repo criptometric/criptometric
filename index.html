@@ -278,8 +278,8 @@ header {
 <input type="url" id="editImage">
     <div class="edit-actions">
       <button id="deleteBtn" class="btn-danger" style="display:none">🗑 Удалить</button>
-        <button id="cancelBtn" class="btn-secondary" data-action="cancel">Отмена</button>
-        <button id="saveBtn" data-action="save">💾 Сохранить</button>
+      <button id="cancelBtn" class="btn-secondary">Отмена</button>
+      <button id="saveBtn">💾 Сохранить</button>
     </div>
   </div>
 </div>
@@ -415,42 +415,35 @@ class CryptoDashboard {
     return div;
   }
 
-   handleClick(e) {
-    const btn = e.target.closest('button[data-action]');
+ handleClick(e) {
+  const btn = e.target.closest('button[data-action]');
 
-    if (btn) {
-        e.stopPropagation();
-        const { action, col, index } = btn.dataset;
+  // 1️⃣ КНОПКИ (edit / delete / create / close)
+  if (btn) {
+    e.stopPropagation();
+    const { action, col, index } = btn.dataset;
 
-        switch (action) {
-            case 'create':
-                this.openEditModal(col, null);
-                break;
-            case 'edit':
-                this.openEditModal(col, parseInt(index));
-                break;
-            case 'delete':
-                this.deleteCard(col, parseInt(index));
-                break;
-            case 'save':
-                this.saveCard();
-                break;
-            case 'closeView':
-            case 'cancel':
-                this.closeModal('editModal');
-                this.closeModal('viewModal');
-                break;
-        }
-        return;
+    switch (action) {
+      case 'create':
+        this.openEditModal(col, null);
+        break;
+      case 'edit':
+        this.openEditModal(col, parseInt(index));
+        break;
+      case 'delete':
+        this.deleteCard(col, parseInt(index));
+        break;
+      case 'save':
+        this.saveCard();
+        break;
+      case 'closeView':
+      case 'cancel':
+        this.closeModal('editModal');
+        this.closeModal('viewModal');
+        break;
     }
-
-    const card = e.target.closest('.card');
-    if (card && !e.target.closest('.admin-controls')) {
-        this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
-    }
-}
-
-   
+    return;
+  }
 
   // 2️⃣ КЛИК ПО КАРТОЧКЕ
   const card = e.target.closest('.card');
@@ -468,29 +461,29 @@ class CryptoDashboard {
   this.elements.viewModal.classList.add('active');
 }
 
-openEditModal(column, index) {
-    // index может быть 0, поэтому проверяем !== null и !== undefined
-    this.editState = { column, index: (index !== null && index !== undefined) ? parseInt(index) : null };
 
-    if (this.editState.index !== null) {
-        const card = this.data[column][this.editState.index];
-        this.elements.editHeader.textContent = 'Редактировать карту';
-        this.elements.deleteBtn.style.display = 'inline-block';
-        this.elements.editTitle.value = card.title || '';
-        this.elements.editText.value = card.text || '';
-        this.elements.editExtra.value = card.extra || '';
-        this.elements.editImage.value = card.image || '';
+  openEditModal(column, index) {
+    this.editState = { column, index: index ? parseInt(index) : null };
+    
+    if (index !== null) {
+      const card = this.data[column][index];
+      this.elements.editHeader.textContent = 'Редактировать карту';
+      this.elements.deleteBtn.style.display = 'inline-block';
+      this.elements.editTitle.value = card.title || '';
+      this.elements.editText.value = card.text || '';
+      this.elements.editExtra.value = card.extra || '';
+      this.elements.editImage.value = card.image || '';
     } else {
-        this.elements.editHeader.textContent = 'Создать новую карту';
-        this.elements.deleteBtn.style.display = 'none';
-        this.elements.editTitle.value = '';
-        this.elements.editText.value = '';
-        this.elements.editExtra.value = '';
-        this.elements.editImage.value = '';
+      this.elements.editHeader.textContent = 'Создать новую карту';
+      this.elements.deleteBtn.style.display = 'none';
+      this.elements.editTitle.value = '';
+      this.elements.editText.value = '';
+      this.elements.editExtra.value = '';
+      this.elements.editImage.value = '';
     }
-
+    
     this.elements.editModal.classList.add('active');
-}
+  }
 
   async saveCard() {
     const title = this.elements.editTitle.value.trim();
@@ -577,7 +570,7 @@ document.getElementById('downloadBtn').addEventListener('click', (e) => {
   e.stopPropagation();
   window.dashboard?.downloadData();
 });
-  
+
 // Logout button
 document.getElementById('logoutBtn').addEventListener('click', (e) => {
   e.stopPropagation();
@@ -589,6 +582,8 @@ document.getElementById('logoutBtn').addEventListener('click', (e) => {
 });
 
 // Save/Cancel buttons in modal
+document.getElementById('saveBtn').addEventListener('click', () => window.dashboard?.saveCard());
+document.getElementById('cancelBtn').addEventListener('click', () => window.dashboard.closeModal('editModal'));
 document.getElementById('deleteBtn').addEventListener('click', (e) => {
   e.stopPropagation();
   window.dashboard.deleteCard(
@@ -603,5 +598,3 @@ window.dashboard = dashboard;
 </script>
 </body>
 </html>
-
-
