@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto Metrics Dashboard</title>
+
 <style>
 :root {
   --bg: #050713;
@@ -12,7 +13,6 @@
   --text: #f5f7ff;
   --text2: #9ca3c7;
   --blue: #00d4ff;
-  --success: #22c55e;
   --error: #ef4444;
 }
 * { box-sizing: border-box; }
@@ -23,40 +23,13 @@ body {
   font-family: Inter, system-ui, sans-serif;
 }
 img { max-width: 100%; display: block; }
-button {
-  background: var(--blue);
-  color: #fff;
-  border: 0;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-button:hover { opacity: 0.9; }
-input, textarea {
-  width: 100%;
-  background: #0f172a;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px;
-  font-size: 14px;
-}
-input:focus, textarea:focus { outline: none; border-color: var(--blue); }
+
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
 }
 .logo { font-weight: 700; color: var(--blue); }
-.admin-label { 
-  color: var(--success); 
-  font-size: 12px; 
-  margin-right: 10px; 
-  font-weight: 600;
-}
+
 .columns {
   display: grid;
   grid-template-columns: repeat(6,1fr);
@@ -79,9 +52,6 @@ header {
   letter-spacing: .1em;
   color: var(--text2);
   border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .col-body {
   padding: 10px;
@@ -89,10 +59,9 @@ header {
   scrollbar-width: none;
 }
 .col-body::-webkit-scrollbar { display: none; }
+
 .card {
-  position: relative;
   background: linear-gradient(135deg, rgba(20,25,60,0.75), rgba(10,15,40,0.75));
-  backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 1.2rem;
   padding: .9rem;
@@ -101,14 +70,13 @@ header {
   transition: all .25s ease;
 }
 .card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.25);
-  border-color: rgba(0,212,255,0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 .card-title {
   font-weight: 600;
-  margin-bottom: 4px;
   font-size: 0.75rem;
+  margin-bottom: 4px;
 }
 .card-text {
   font-size: 0.75rem;
@@ -117,41 +85,20 @@ header {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
 }
 .thumb img { border-radius:6px; margin-bottom:6px; }
-.admin-controls { 
-  display: none; 
-  gap: 6px; 
-  margin-bottom: 6px; 
-}
-.admin .admin-controls { display: flex; }
-.notification {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  font-weight: 500;
-  z-index: 1000;
-  transform: translateX(400px);
-  transition: transform 0.3s ease;
-}
-.notification.show { transform: translateX(0); }
-.notification.success { background: rgba(34,197,94,0.95); }
-.notification.error { background: rgba(239,68,68,0.95); }
-/* MODALS */
-.modal, .edit-modal {
+
+/* MODAL */
+.modal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 200;
 }
-.modal.active, .edit-modal.active { display: flex; }
+.modal.active { display: flex; }
+
 .modal-content {
   width: 90%;
   height: 90%;
@@ -164,36 +111,27 @@ header {
 .modal-img {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
-
 .modal-img-top {
   flex: 0 0 70%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--border);
 }
-
 .modal-img-top img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
 }
-
 .modal-img-bottom {
   flex: 0 0 30%;
   padding: 12px;
   font-size: 0.85rem;
   color: var(--text2);
-  overflow-y: auto;
 }
-
 .modal-text {
   padding: 20px;
   overflow-y: auto;
 }
-.modal-text::-webkit-scrollbar { display: none; }
 .modal-close {
   position: absolute;
   top: 10px;
@@ -204,95 +142,43 @@ header {
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 6px;
-  font-size: 16px;
 }
-.edit-box {
-  background: var(--panel);
-  padding: 24px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  border: 1px solid var(--border);
-}
-.edit-box h3 { margin: 0 0 16px 0; color: var(--text); }
-.edit-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-}
-.btn-secondary { background: var(--text2); }
-.btn-danger { background: var(--error); }
 @media (max-width: 768px) {
   .columns { grid-template-columns: 1fr; }
   .modal-content { grid-template-columns: 1fr; }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">CRYPTOMETRICS RG</div>
-  <div>
-    <span id="adminLabel" class="admin-label"></span>
-    <button id="downloadBtn">📥 data.json</button>
-    <button id="logoutBtn">🚪 Logout</button>
-  </div>
 </header>
 
 <div class="columns" id="columns"></div>
 
-<!-- VIEW MODAL - ✅ ИСПРАВЛЕННЫЙ КРЕСТИК -->
+<!-- VIEW MODAL -->
 <div class="modal" id="viewModal">
-  <button class="modal-close" data-action="closeView">✕</button>
- <div class="modal-content">
-  <div class="modal-img">
-
-    <div class="modal-img-top">
-      <img id="viewImg">
+  <button class="modal-close" id="closeView">✕</button>
+  <div class="modal-content">
+    <div class="modal-img">
+      <div class="modal-img-top">
+        <img id="viewImg">
+      </div>
+      <div class="modal-img-bottom" id="viewExtra"></div>
     </div>
-
-    <div class="modal-img-bottom" id="viewExtra"></div>
-
-  </div>
-
-  <div class="modal-text">
-    <h2 id="viewTitle"></h2>
-    <p id="viewText"></p>
-  </div>
-</div>
- 
-
-<!-- EDIT MODAL -->
-<div class="edit-modal" id="editModal">
-  <div class="edit-box">
-    <h3 id="editHeader">Редактировать карту</h3>
-   <input type="text" id="editTitle">
-<textarea id="editText"></textarea>
-
-<textarea id="editExtra"
-  rows="4"
-  placeholder="Текст под графиком (30%)"></textarea>
-
-<input type="url" id="editImage">
-    <div class="edit-actions">
-      <button id="deleteBtn" class="btn-danger" style="display:none">🗑 Удалить</button>
-      <button id="cancelBtn" class="btn-secondary">Отмена</button>
-      <button id="saveBtn">💾 Сохранить</button>
+    <div class="modal-text">
+      <h2 id="viewTitle"></h2>
+      <p id="viewText"></p>
     </div>
   </div>
 </div>
-
-<!-- NOTIFICATION -->
-<div id="notification" class="notification"></div>
 
 <script type="module">
 class CryptoDashboard {
   constructor() {
-    this.isAdmin = false;
     this.data = {};
-    this.editState = { column: '', index: null };
     this.columnsDef = [
       { id: 'research', title: 'Research' },
       { id: 'global', title: 'Global M2 Metrics' },
@@ -301,300 +187,76 @@ class CryptoDashboard {
       { id: 'onchain', title: 'Onchain Metrics' },
       { id: 'network', title: 'Network Metrics' }
     ];
-    
-    this.elements = {};
-    this.initElements();
-    this.bindEvents();
     this.init();
   }
 
-  initElements() {
-    const ids = [
-      'columns', 'adminLabel', 'downloadBtn', 'logoutBtn',
-      'viewModal', 'viewImg', 'viewTitle', 'viewText', 'viewExtra',
-      'editModal', 'editHeader', 'editTitle', 'editText', 'editExtra', 'editImage',
-      'saveBtn', 'cancelBtn', 'deleteBtn', 'notification'
-    ];
-    
-    ids.forEach(id => {
-      this.elements[id] = document.getElementById(id);
-    });
-  }
-
-  bindEvents() {
-    // Single event delegation
-    document.addEventListener('click', (e) => this.handleClick(e));
-    
-    // Modal shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.closeModal('editModal');
-        this.closeModal('viewModal');
-      }
-    });
-  }
-
   async init() {
-    this.checkAdminAuth();
     await this.loadData();
     this.render();
-  }
-
-  checkAdminAuth() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const stored = localStorage.getItem('cryptoAdmin');
-    
-    if (urlParams.get('admin') === '1') {
-      localStorage.setItem('cryptoAdmin', 'true');
-      this.isAdmin = true;
-    } else {
-      this.isAdmin = stored === 'true';
-    }
-    
-    this.updateAdminUI();
+    this.bindEvents();
   }
 
   async loadData() {
-    try {
-      const response = await fetch('data.json');
-      if (!response.ok) throw new Error('data.json не найден');
-      this.data = await response.json();
-      
-      // Ensure structure exists
-      this.columnsDef.forEach(col => {
-        if (!this.data[col.id]) this.data[col.id] = [];
-      });
-    } catch (error) {
-      this.showNotification('Создайте data.json или проверьте файл', 'error');
-      this.data = {};
-      this.columnsDef.forEach(col => this.data[col.id] = []);
-    }
+    const res = await fetch('data.json');
+    this.data = await res.json();
+    this.columnsDef.forEach(c => this.data[c.id] ||= []);
   }
 
   render() {
-    this.elements.columns.innerHTML = '';
-    
+    const root = document.getElementById('columns');
+    root.innerHTML = '';
     this.columnsDef.forEach(col => {
-      const column = document.createElement('div');
-      column.className = 'column';
-      column.innerHTML = `
-        <div class="col-title">
-          ${col.title}
-          ${this.isAdmin ? `<button data-action="create" data-col="${col.id}">➕</button>` : ''}
-        </div>
+      const el = document.createElement('div');
+      el.className = 'column';
+      el.innerHTML = `
+        <div class="col-title">${col.title}</div>
         <div class="col-body"></div>
       `;
-      this.elements.columns.appendChild(column);
-
-      const body = column.querySelector('.col-body');
+      const body = el.querySelector('.col-body');
       this.data[col.id].forEach((card, i) => {
-        body.appendChild(this.createCardElement(col.id, i, card));
+        body.appendChild(this.card(col.id, i, card));
       });
+      root.appendChild(el);
     });
-
-    this.updateAdminUI();
   }
 
-  createCardElement(colId, index, card) {
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.dataset.col = colId;
-    div.dataset.index = index;
-    
-    div.innerHTML = `
-      ${this.isAdmin ? `
-        <div class="admin-controls">
-          <button data-action="edit" data-col="${colId}" data-index="${index}">✏️</button>
-          <button data-action="delete" data-col="${colId}" data-index="${index}">🗑</button>
-        </div>` : ''}
-      <div class="card-title">${this.escapeHtml(card.title || 'Без названия')}</div>
-      ${card.image ? `<div class="thumb"><img src="${card.image}" alt="Preview" loading="lazy"></div>` : ''}
-      <div class="card-text">${this.truncateText(card.text || 'Без описания')}</div>
+  card(col, i, card) {
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.dataset.col = col;
+    d.dataset.index = i;
+    d.innerHTML = `
+      <div class="card-title">${card.title || ''}</div>
+      ${card.image ? `<div class="thumb"><img src="${card.image}"></div>` : ''}
+      <div class="card-text">${card.text || ''}</div>
     `;
-    
-    return div;
+    return d;
   }
 
- handleClick(e) {
-  const btn = e.target.closest('button[data-action]');
-
-  // 1️⃣ КНОПКИ (edit / delete / create / close)
-  if (btn) {
-    e.stopPropagation();
-    const { action, col, index } = btn.dataset;
-
-    switch (action) {
-      case 'create':
-        this.openEditModal(col, null);
-        break;
-      case 'edit':
-        this.openEditModal(col, parseInt(index));
-        break;
-      case 'delete':
-        this.deleteCard(col, parseInt(index));
-        break;
-      case 'save':
-        this.saveCard();
-        break;
-      case 'closeView':
-      case 'cancel':
-        this.closeModal('editModal');
-        this.closeModal('viewModal');
-        break;
-    }
-    return;
-  }
-
-  // 2️⃣ КЛИК ПО КАРТОЧКЕ
-  const card = e.target.closest('.card');
-  if (card && !e.target.closest('.admin-controls')) {
-    this.openViewModal(card.dataset.col, parseInt(card.dataset.index));
-  }
-}
-
- openViewModal(colId, index) {
-  const card = this.data[colId][index];
-  this.elements.viewImg.src = card.image || '';
-  this.elements.viewTitle.textContent = card.title || '';
-  this.elements.viewText.textContent = card.text || '';
-  this.elements.viewExtra.textContent = card.extra || '';
-  this.elements.viewModal.classList.add('active');
-}
-
-
-  openEditModal(column, index) {
-    this.editState = { column, index: index ? parseInt(index) : null };
-    
-    if (index !== null) {
-      const card = this.data[column][index];
-      this.elements.editHeader.textContent = 'Редактировать карту';
-      this.elements.deleteBtn.style.display = 'inline-block';
-      this.elements.editTitle.value = card.title || '';
-      this.elements.editText.value = card.text || '';
-      this.elements.editExtra.value = card.extra || '';
-      this.elements.editImage.value = card.image || '';
-    } else {
-      this.elements.editHeader.textContent = 'Создать новую карту';
-      this.elements.deleteBtn.style.display = 'none';
-      this.elements.editTitle.value = '';
-      this.elements.editText.value = '';
-      this.elements.editExtra.value = '';
-      this.elements.editImage.value = '';
-    }
-    
-    this.elements.editModal.classList.add('active');
-  }
-
-  async saveCard() {
-    const title = this.elements.editTitle.value.trim();
-    const text = this.elements.editText.value.trim();
-    const extra = this.elements.editExtra.value.trim();
-    const image = this.elements.editImage.value.trim();
-
-    if (!title || !text) {
-      this.showNotification('Заполните название и описание', 'error');
-      return;
-    }
-
-    if (this.editState.index === null) {
-      // Create
-      this.data[this.editState.column].push({ title, text, extra, image });
-    } else {
-      // Update
-      this.data[this.editState.column][this.editState.index] = { title, text, extra, image };
-    }
-
-    this.closeModal('editModal');
-    this.render();
-    this.showNotification('Карта сохранена!', 'success');
-  }
-
-  async deleteCard(colId, index) {
-    if (!confirm('Удалить эту карту?')) return;
-    
-    this.data[colId].splice(index, 1);
-    this.render();
-    this.showNotification('Карта удалена', 'success');
-  }
-
-  closeModal(...modals) {
-    modals.forEach(id => {
-      this.elements[id]?.classList.remove('active');
+  bindEvents() {
+    document.addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if (card) this.open(card.dataset.col, card.dataset.index);
+      if (e.target.id === 'closeView') this.close();
     });
   }
 
-  updateAdminUI() {
-    document.body.classList.toggle('admin', this.isAdmin);
-    this.elements.adminLabel.textContent = this.isAdmin ? 'ADMIN' : '';
-    this.elements.logoutBtn.style.display = this.isAdmin ? 'inline-block' : 'none';
-    this.elements.downloadBtn.style.display = this.isAdmin ? 'inline-block' : 'none';
+  open(col, i) {
+    const c = this.data[col][i];
+    viewImg.src = c.image || '';
+    viewTitle.textContent = c.title || '';
+    viewText.textContent = c.text || '';
+    viewExtra.textContent = c.extra || '';
+    viewModal.classList.add('active');
   }
 
-  downloadData() {
-    const blob = new Blob([JSON.stringify(this.data, null, 2)], {
-      type: 'application/json'
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  truncateText(text, maxLength = 120) {
-    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
-  }
-
-  escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  showNotification(message, type = 'success') {
-    const notif = this.elements.notification;
-    notif.textContent = message;
-    notif.className = `notification ${type} show`;
-    
-    setTimeout(() => {
-      notif.classList.remove('show');
-    }, 3000);
+  close() {
+    viewModal.classList.remove('active');
   }
 }
 
-// Download button
-document.getElementById('downloadBtn').addEventListener('click', (e) => {
-  e.stopPropagation();
-  window.dashboard?.downloadData();
-});
-
-// Logout button
-document.getElementById('logoutBtn').addEventListener('click', (e) => {
-  e.stopPropagation();
-  localStorage.removeItem('cryptoAdmin');
-  location.reload();
-  window.dashboard.isAdmin = false;
-  window.dashboard.render();
-  window.dashboard.showNotification('Выход выполнен', 'success');
-});
-
-// Save/Cancel buttons in modal
-document.getElementById('saveBtn').addEventListener('click', () => window.dashboard?.saveCard());
-document.getElementById('cancelBtn').addEventListener('click', () => window.dashboard.closeModal('editModal'));
-document.getElementById('deleteBtn').addEventListener('click', (e) => {
-  e.stopPropagation();
-  window.dashboard.deleteCard(
-    window.dashboard.editState.column,
-    window.dashboard.editState.index
-  );
-});
-
-// Init app
-const dashboard = new CryptoDashboard();
-window.dashboard = dashboard;
+new CryptoDashboard();
 </script>
+
 </body>
 </html>
