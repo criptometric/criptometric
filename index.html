@@ -122,12 +122,14 @@ header {
   max-width: 100%;
   max-height: 100%;
 }
-.modal-img-bottom {
-  flex: 0 0 30%;
+  .modal-img-bottom {
+  flex: 1;             /* займет оставшееся место в модалке */
   padding: 12px;
   font-size: 0.85rem;
   color: var(--text2);
+  overflow-y: auto;    /* добавляем прокрутку при переполнении */
 }
+  
 .modal-text {
   padding: 20px;
   overflow-y: auto;
