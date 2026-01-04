@@ -116,21 +116,18 @@ header {
   min-height: 0;
 }
   .modal-img-top {
-  flex: 0 0 45%;
-  max-height: 45%;
+  flex: 0 0 auto;   /* фиксированная высота по содержимому */
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
 }
 .modal-img-top img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
 }
   .modal-img-bottom {
-  flex: 1   1 auto;            /* занимает всё оставшееся место */
+  flex: 1;              /* занимает всё оставшееся место */
   padding: 12px;
   font-size: 0.85rem;
   color: var(--text2);
