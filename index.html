@@ -133,10 +133,30 @@ header {
   overflow-y: auto;     /* ПРОКРУТКА */
   min-height: 0;        /* критично для flex */
 }
- .modal-text {
+  .modal-img-bottom::-webkit-scrollbar {
+  display: none;
+}
+.modal-img-bottom {
+  scrollbar-width: none;
+}
+  .modal-text {
   padding: 20px;
-  overflow-y: auto;     /* включаем скролл */
-  max-height: 100%;     /* НЕ даём ломать модалку */
+  overflow-y: auto;   /* прокрутка */
+  min-height: 0;      /* КРИТИЧНО */
+}
+  /* ВАЖНО: фикс обрезания текста */
+.modal-content > .modal-text {
+  height: 100%;
+}
+.modal-text::-webkit-scrollbar {
+  display: none;
+}
+.modal-text {
+  scrollbar-width: none;
+} 
+  #viewText {
+  white-space: pre-wrap;
+  line-height: 1.5;
 }
 .modal-close {
   position: absolute;
@@ -176,7 +196,7 @@ header {
     </div>
     <div class="modal-text">
       <h2 id="viewTitle"></h2>
-      <p id="viewText"></p>
+      <p id="viewText"></div>
     </div>
   </div>
 </div>
