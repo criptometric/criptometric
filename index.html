@@ -30,6 +30,27 @@ header {
 }
 .logo { font-weight: 700; color: var(--blue); }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  margin-left: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-switch button:hover {
+  background: var(--blue);
+  color: #000;
+}
+
 .columns {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -121,7 +142,7 @@ header {
   justify-content: center;
   overflow: hidden;
 }
-.modal-img-top img {
+ .modal-img-top img {
   max-width: 100%;
   max-height: calc(96vh - 120px);
   object-fit: contain;
@@ -176,6 +197,11 @@ header {
 
 <header>
   <div class="logo">CRYPTOMETRICS RG</div>
+  
+  <div class="lang-switch">
+    <button id="langRu">RU</button>
+    <button id="langEn">EN</button>
+  </div>
 </header>
 
 <div class="columns" id="columns"></div>
@@ -198,6 +224,13 @@ header {
 </div>
 
 <script type="module">
+let LANG = localStorage.getItem('lang') || 'ru';
+const viewModal = document.getElementById('viewModal');
+const viewImg   = document.getElementById('viewImg');
+const viewTitle = document.getElementById('viewTitle');
+const viewText  = document.getElementById('viewText');
+const viewExtra = document.getElementById('viewExtra');
+
 class CryptoDashboard {
   constructor() {
     this.data = {};
@@ -217,12 +250,18 @@ class CryptoDashboard {
     this.render();
     this.bindEvents();
   }
+  
+async loadData() {
+  const res = await fetch('data.json');
 
-  async loadData() {
-    const res = await fetch('data.json');
-    this.data = await res.json();
-    this.columnsDef.forEach(c => this.data[c.id] ||= []);
-  }
+  this.data = await res.json().catch(() => ({}));
+
+  this.columnsDef.forEach(c => {
+    if (!Array.isArray(this.data[c.id])) {
+      this.data[c.id] = [];
+    }
+  });
+}
 
   render() {
     const root = document.getElementById('columns');
@@ -248,27 +287,42 @@ class CryptoDashboard {
     d.dataset.col = col;
     d.dataset.index = i;
     d.innerHTML = `
-      <div class="card-title">${card.title || ''}</div>
+      <div class="card-title">${card.title?.[LANG] || card.title?.ru || ''}
+      </div>
       ${card.image ? `<div class="thumb"><img src="${card.image}"></div>` : ''}
-      <div class="card-text">${card.text || ''}</div>
+      <div class="card-text">${card.text?.[LANG] || card.text?.ru || ''}
+      </div>
     `;
     return d;
   }
 
-  bindEvents() {
-    document.addEventListener('click', e => {
-      const card = e.target.closest('.card');
-      if (card) this.open(card.dataset.col, card.dataset.index);
-      if (e.target.id === 'closeView') this.close();
-    });
-  }
+bindEvents() {
+  document.addEventListener('click', e => {
+    const card = e.target.closest('.card');
+    if (card) this.open(card.dataset.col, card.dataset.index);
+    if (e.target.id === 'closeView') this.close();
+    if (e.target === viewModal) this.close();
+  });
 
+  document.getElementById('langRu').onclick = () => {
+    LANG = 'ru';
+    localStorage.setItem('lang', 'ru');
+    this.render();
+  };
+
+  document.getElementById('langEn').onclick = () => {
+    LANG = 'en';
+    localStorage.setItem('lang', 'en');
+    this.render();
+  };
+}
+  
   open(col, i) {
     const c = this.data[col][i];
     viewImg.src = c.image || '';
-    viewTitle.textContent = c.title || '';
-    viewText.textContent = c.text || '';
-    viewExtra.textContent = c.extra || '';
+    viewTitle.textContent = c.title?.[LANG] || c.title?.ru || '';
+    viewText.textContent  = c.text?.[LANG]  || c.text?.ru  || '';
+    viewExtra.textContent = c.extra?.[LANG] || c.extra?.ru || '';
     viewModal.classList.add('active');
   }
 
