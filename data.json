@@ -6,6 +6,21 @@
       "extra": "Коммент",
       "image": "assets/BTC SUN.jpg"
     }
+   {
+  "title": {
+    "ru": "Реализованная цена",
+    "en": "Realized Price"
+  },
+  "text": {
+    "ru": "Что это такое",
+    "en": "What it is"
+  },
+  "extra": {
+    "ru": "Длинное описание",
+    "en": "Long description"
+  },
+  "image": "img/realized.png"
+}
   ],
   "global": [
     {
