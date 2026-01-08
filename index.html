@@ -36,17 +36,22 @@ header {
   justify-content: space-between;
 }
 
+.lang-switch {
+  display: flex;
+  gap: 6px;
+}
+  
   .lang-switch button {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   margin-left: 6px;
 
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 50%;
 
   color: var(--text2);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.05em;
 
@@ -56,36 +61,38 @@ header {
   justify-content: center;
 
   transition:
-    box-shadow .25s ease,
-    border-color .25s ease,
-    transform .15s ease,
-    color .2s ease;
+    box-shadow .22s ease,
+    border-color .22s ease,
+    transform .18s ease,
+    color .18s ease;
 }
 
-  .lang-switch button.active {
-  border-color: rgba(180,140,255,0.9);
-  color: #f0eaff;
-
-  transform: translateY(2px);
+/* активная кнопка */
+.lang-switch button.active {
+  transform: translateY(1px);
+  border-color: rgba(0,212,255,0.9);
+  color: #ffffff;
 
   box-shadow:
-    0 0 0 1px rgba(180,140,255,0.8),
-    0 0 14px rgba(180,140,255,0.45),
-    inset 0 0 6px rgba(180,140,255,0.25);
+    0 0 0 1px rgba(0,212,255,0.7),
+    0 0 18px rgba(0,212,255,0.45),
+    inset 0 0 6px rgba(0,212,255,0.25);
 }
-
+  
   .lang-switch button:active {
   transform: translateY(3px);
 }
 
+  /* hover — как у карточек, БЕЗ смены цвета */
 .lang-switch button:hover {
-  background: var(--blue);
-  border-color: rgba(180,140,255,0.6);
+  transform: translateY(-2px);
+  border-color: rgba(0,212,255,0.55);
   box-shadow:
-    0 0 0 1px rgba(180,140,255,0.4),
-    0 0 10px rgba(180,140,255,0.25);
-  color: #e5dbff;
+    0 0 0 1px rgba(0,212,255,0.35),
+    0 0 14px rgba(0,212,255,0.25);
+  color: var(--text);
 }
+
 
 .columns {
   display: grid;
@@ -243,8 +250,8 @@ header {
   <div class="logo">CRYPTOMETRICS RG</div>
   
   <div class="lang-switch">
-    <button id="langRu">RU</button>
-    <button id="langEn">EN</button>
+    <button id="langRu">EN</button>
+    <button id="langEn">RU</button>
   </div>
 </header>
 
