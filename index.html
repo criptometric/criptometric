@@ -36,28 +36,55 @@ header {
   justify-content: space-between;
 }
 
-.lang-switch button {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 6px 10px;
+  .lang-switch button {
+  width: 34px;
+  height: 34px;
   margin-left: 6px;
-  border-radius: 6px;
+
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+
+  color: var(--text2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    box-shadow .25s ease,
+    border-color .25s ease,
+    transform .15s ease,
+    color .2s ease;
 }
 
- .lang-switch button.active {
-  background: rgba(0,212,255,0.15);
-  border-color: rgba(0,212,255,0.8);
-  color: var(--blue);
+  .lang-switch button.active {
+  border-color: rgba(180,140,255,0.9);
+  color: #f0eaff;
+
+  transform: translateY(2px);
+
   box-shadow:
-    0 0 0 1px rgba(0,212,255,0.6),
-    0 0 12px rgba(0,212,255,0.4);
-} 
+    0 0 0 1px rgba(180,140,255,0.8),
+    0 0 14px rgba(180,140,255,0.45),
+    inset 0 0 6px rgba(180,140,255,0.25);
+}
+
+  .lang-switch button:active {
+  transform: translateY(3px);
+}
 
 .lang-switch button:hover {
   background: var(--blue);
-  color: #000;
+  border-color: rgba(180,140,255,0.6);
+  box-shadow:
+    0 0 0 1px rgba(180,140,255,0.4),
+    0 0 10px rgba(180,140,255,0.25);
+  color: #e5dbff;
 }
 
 .columns {
