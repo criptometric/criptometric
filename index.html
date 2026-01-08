@@ -46,6 +46,15 @@ header {
   cursor: pointer;
 }
 
+ .lang-switch button.active {
+  background: rgba(0,212,255,0.15);
+  border-color: rgba(0,212,255,0.8);
+  color: var(--blue);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.6),
+    0 0 12px rgba(0,212,255,0.4);
+} 
+
 .lang-switch button:hover {
   background: var(--blue);
   color: #000;
@@ -307,7 +316,15 @@ class CryptoDashboard {
     return d;
   }
 
-bindEvents() {
+ bindEvents() {
+  const btnRu = document.getElementById('langRu');
+  const btnEn = document.getElementById('langEn');
+
+  const updateLangUI = () => {
+    btnRu.classList.toggle('active', LANG === 'ru');
+    btnEn.classList.toggle('active', LANG === 'en');
+  };
+
   document.addEventListener('click', e => {
     const card = e.target.closest('.card');
     if (card) this.open(card.dataset.col, card.dataset.index);
@@ -315,19 +332,23 @@ bindEvents() {
     if (e.target === viewModal) this.close();
   });
 
-  document.getElementById('langRu').onclick = () => {
+  btnRu.onclick = () => {
     LANG = 'ru';
     localStorage.setItem('lang', 'ru');
+    updateLangUI();
     this.render();
   };
 
-  document.getElementById('langEn').onclick = () => {
+  btnEn.onclick = () => {
     LANG = 'en';
     localStorage.setItem('lang', 'en');
+    updateLangUI();
     this.render();
   };
+
+  updateLangUI(); // 👈 при загрузке страницы
 }
-  
+
   open(col, i) {
     const c = this.data[col][i];
     viewImg.src = c.image || '';
