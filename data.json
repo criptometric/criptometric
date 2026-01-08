@@ -1,10 +1,19 @@
  {
   "research": [
     {
-      "title": "CRIPTOMETRICS RG",
-      "text": "Этот сайт будет полезен для финансистов, финансовых аналитиков, трейдеров, экономистов и людей интересующихся рыночными циклами. Создаю финансовые статистические сайты Дашборды (Dashboard). Работаю с графиками, провожу анализ, делаю прогноз, даю рекомендации. (Сайт находится в стадии разработки)",
-      "extra": "Коммент",
-      "image": "assets/BTC SUN.jpg"
+  "title": {
+    "ru": "CRIPTOMETRICS RG",
+    "en": "CRIPTOMETRICS RG"
+  },
+  "text": {
+    "ru": "Этот сайт будет полезен для финансистов, финансовых аналитиков, трейдеров, экономистов и людей, интересующихся рыночными циклами. Создаю финансовые статистические сайты Дашборды (Dashboard). Работаю с графиками, провожу анализ, делаю прогноз, даю рекомендации. (Сайт находится в стадии разработки)",
+    "en": "This site will be useful for financiers, financial analysts, traders, economists, and anyone interested in market cycles. I create financial statistical websites and dashboards. I work with charts, perform analysis, provide forecasts, and give recommendations. (The site is currently under development)"
+  },
+  "extra": {
+    "ru": "Коммент",
+    "en": "Commentary"
+  },
+  "image": "assets/BTC SUN.jpg"
     }
   ],
   {
