@@ -233,7 +233,15 @@ const viewExtra = document.getElementById('viewExtra');
 
 class CryptoDashboard {
   constructor() {
-    this.data = {};
+    this.data = {research: [
+    {
+      title: { ru: "Тест", en: "Test" },
+      text: { ru: "Тестовый текст", en: "Test text" },
+      extra: { ru: "Комментарий", en: "Commentary" },
+      image: "assets/NT Hash R.png"
+    }
+  ],
+  global: [], recession: [], market: [], onchain: [], network: []};
     this.columnsDef = [
       { id: 'research', title: 'Research' },
       { id: 'global', title: 'Global M2 Metrics' },
