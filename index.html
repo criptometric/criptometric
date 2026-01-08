@@ -233,14 +233,7 @@ const viewExtra = document.getElementById('viewExtra');
 
 class CryptoDashboard {
   constructor() {
-    this.data = {research: [
-      {
-        title: { ru: "Тестовая карточка", en: "Test Card" },
-        text: { ru: "Карточка должна отображаться", en: "Card should be visible" },
-        extra: { ru: "Комментарий", en: "Commentary" },
-        image: "assets/NT Hash R.png"
-      }
-    ],
+    this.data = {research: [],
   global: [], recession: [], market: [], onchain: [], network: []};
     this.columnsDef = [
       { id: 'research', title: 'Research' },
@@ -254,22 +247,28 @@ class CryptoDashboard {
   }
 
   async init() {
-    //await this.loadData();
+    await this.loadData();
     this.render();
     this.bindEvents();
   }
-  
+
 async loadData() {
-  const res = await fetch('data.json');
+  try {
+    const res = await fetch('data.json');
+    if (!res.ok) throw new Error('HTTP error');
+    const json = await res.json();
 
-  this.data = await res.json().catch(() => ({}));
+    Object.keys(this.data).forEach(key => {
+      if (Array.isArray(json[key])) {
+        this.data[key] = json[key];
+      }
+    });
 
-  this.columnsDef.forEach(c => {
-    if (!Array.isArray(this.data[c.id])) {
-      this.data[c.id] = [];
-    }
-  });
+  } catch (e) {
+    console.warn('⚠️ data.json not loaded, using local fallback');
+  }
 }
+  
 
   render() {
     const root = document.getElementById('columns');
