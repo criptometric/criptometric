@@ -258,6 +258,8 @@ async loadData() {
     if (!res.ok) throw new Error('HTTP error');
     const json = await res.json();
 
+    console.log('JSON loaded:', json); // 👈 ВОТ ЭТА СТРОКА
+
     Object.keys(this.data).forEach(key => {
       if (Array.isArray(json[key])) {
         this.data[key] = json[key];
