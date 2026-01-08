@@ -1,22 +1,21 @@
- {
+{
   "research": [
     {
-  "title": {
-    "ru": "CRIPTOMETRICS RG",
-    "en": "CRIPTOMETRICS RG"
-  },
-  "text": {
-    "ru": "Этот сайт будет полезен для финансистов, финансовых аналитиков, трейдеров, экономистов и людей, интересующихся рыночными циклами. Создаю финансовые статистические сайты Дашборды (Dashboard). Работаю с графиками, провожу анализ, делаю прогноз, даю рекомендации. (Сайт находится в стадии разработки)",
-    "en": "This site will be useful for financiers, financial analysts, traders, economists, and anyone interested in market cycles. I create financial statistical websites and dashboards. I work with charts, perform analysis, provide forecasts, and give recommendations. (The site is currently under development)"
-  },
-  "extra": {
-    "ru": "Коммент",
-    "en": "Commentary"
-  },
-  "image": "assets/BTC SUN.jpg"
+      "title": {
+        "ru": "CRIPTOMETRICS RG",
+        "en": "CRIPTOMETRICS RG"
+      },
+      "text": {
+        "ru": "Этот сайт будет полезен для финансистов, финансовых аналитиков, трейдеров, экономистов и людей, интересующихся рыночными циклами. Создаю финансовые статистические сайты Дашборды (Dashboard). Работаю с графиками, провожу анализ, делаю прогноз, даю рекомендации. (Сайт находится в стадии разработки)",
+        "en": "This site will be useful for financiers, financial analysts, traders, economists, and anyone interested in market cycles. I create financial statistical websites and dashboards. I work with charts, perform analysis, provide forecasts, and give recommendations. (The site is currently under development)"
+      },
+      "extra": {
+        "ru": "Коммент",
+        "en": "Commentary"
+      },
+      "image": "assets/BTC SUN.jpg"
     }
   ],
-  {
   "global": [
     {
       "title": {
@@ -126,446 +125,445 @@
   ],
   "recession": [
     {
-  "title": {
-    "ru": "Business Cycle Dating NBER",
-    "en": "NBER Business Cycle Dating"
-  },
-  "text": {
-    "ru": "Анализ Business Cycle Dating NBER на сегодня (25 декабря 2025 года)\nBusiness Cycle Dating NBER — это процесс определения дат начала и окончания рецессий (contractions) и экспансий (expansions) в экономике США комитетом NBER...",
-    "en": "Analysis of NBER Business Cycle Dating as of December 25, 2025.\nNBER Business Cycle Dating is the official process used by the National Bureau of Economic Research to identify the start and end dates of recessions (contractions) and expansions in the U.S. economy. Based on the unemployment rate chart since 1980 with shaded recession periods, unemployment historically rises sharply during recessions and declines during expansions.\n\nThe current unemployment rate is approximately 4.3% (November 2025, BLS data), which remains low by historical standards. Although unemployment has increased from 3.8% in 2023 to 4.3% in 2025, it remains well below recessionary peaks such as 14.8% in 2020. This suggests a continued expansion with early warning signs rather than a confirmed recession.\n\nThe current economic expansion has lasted since May 2020 (around 68 months), making it the longest expansion on record. NBER has not declared a new recession despite economic slowing. Rising unemployment represents a cautionary signal, but not yet a decisive recessionary trigger."
-  },
-  "extra": {
-    "ru": "Комментарий",
-    "en": "Commentary"
-  },
-  "image": "assets/R Business Cycle Dating NBER.png"
+      "title": {
+        "ru": "Business Cycle Dating NBER",
+        "en": "NBER Business Cycle Dating"
+      },
+      "text": {
+        "ru": "Анализ Business Cycle Dating NBER на сегодня (25 декабря 2025 года)\nBusiness Cycle Dating NBER — это процесс определения дат начала и окончания рецессий (contractions) и экспансий (expansions) в экономике США комитетом NBER...",
+        "en": "Analysis of NBER Business Cycle Dating as of December 25, 2025.\nNBER Business Cycle Dating is the official process used by the National Bureau of Economic Research to identify the start and end dates of recessions (contractions) and expansions in the U.S. economy. Based on the unemployment rate chart since 1980 with shaded recession periods, unemployment historically rises sharply during recessions and declines during expansions.\n\nThe current unemployment rate is approximately 4.3% (November 2025, BLS data), which remains low by historical standards. Although unemployment has increased from 3.8% in 2023 to 4.3% in 2025, it remains well below recessionary peaks such as 14.8% in 2020. This suggests a continued expansion with early warning signs rather than a confirmed recession.\n\nThe current economic expansion has lasted since May 2020 (around 68 months), making it the longest expansion on record. NBER has not declared a new recession despite economic slowing. Rising unemployment represents a cautionary signal, but not yet a decisive recessionary trigger."
+      },
+      "extra": {
+        "ru": "Комментарий",
+        "en": "Commentary"
+      },
+      "image": "assets/R Business Cycle Dating NBER.png"
     },
     {
-  "title": {
-    "ru": "NBER based Recession Indicators",
-    "en": "NBER-Based Recession Indicators"
-  },
-  "text": {
-    "ru": "Business Cycle Dating NBER — это процесс, при котором комитет Национального бюро экономических исследований США (NBER) определяет даты пиков и дна экономического цикла...",
-    "en": "NBER-based recession indicators rely on the official business cycle dating methodology of the National Bureau of Economic Research. The NBER committee evaluates a broad set of economic indicators including GDP, employment, income, industrial production, and sales, rather than relying solely on the simplified rule of two consecutive quarters of negative GDP growth.\n\nRecession dates are announced retroactively with a delay of 6–18 months to ensure accuracy. As of late 2025, the U.S. economy remains in expansion, with no official recession declared by NBER."
-  },
-  "extra": {
-    "ru": "АНАЛИЗ на 25.12.2025 года...",
-    "en": "Analysis as of December 25, 2025. The current expansion has continued since May 2020, reaching approximately 68 months. Unemployment has risen modestly but remains far below historical recessionary levels, suggesting a soft landing scenario rather than an imminent downturn."
-  },
-  "image": "assets/Rec NBER.png"
+      "title": {
+        "ru": "NBER based Recession Indicators",
+        "en": "NBER-Based Recession Indicators"
+      },
+      "text": {
+        "ru": "Business Cycle Dating NBER — это процесс, при котором комитет Национального бюро экономических исследований США (NBER) определяет даты пиков и дна экономического цикла...",
+        "en": "NBER-based recession indicators rely on the official business cycle dating methodology of the National Bureau of Economic Research. The NBER committee evaluates a broad set of economic indicators including GDP, employment, income, industrial production, and sales, rather than relying solely on the simplified rule of two consecutive quarters of negative GDP growth.\n\nRecession dates are announced retroactively with a delay of 6–18 months to ensure accuracy. As of late 2025, the U.S. economy remains in expansion, with no official recession declared by NBER."
+      },
+      "extra": {
+        "ru": "АНАЛИЗ на 25.12.2025 года...",
+        "en": "Analysis as of December 25, 2025. The current expansion has continued since May 2020, reaching approximately 68 months. Unemployment has risen modestly but remains far below historical recessionary levels, suggesting a soft landing scenario rather than an imminent downturn."
+      },
+      "image": "assets/Rec NBER.png"
     },
     {
-  "title": {
-    "ru": "GDP-Based Recession Indicator Index",
-    "en": "GDP-Based Recession Indicator Index"
-  },
-  "text": {
-    "ru": "GDP-Based Recession Indicator Index — это квартальный индикатор вероятности рецессии в США...",
-    "en": "The GDP-Based Recession Indicator Index is a quarterly measure estimating the probability that the U.S. economy was in recession during a given quarter. Values above 67% indicate a high probability of recession, while values below 33% suggest that a recession is unlikely or has ended.\n\nThe indicator is retrospective in nature and does not forecast future recessions. It is never revised once published."
-  },
-  "extra": {
-    "ru": "Текущий анализ с учётом Q3 и Q4 2025...",
-    "en": "Based on Q3 2025 data, the indicator remains near historical lows, supported by strong real GDP growth of approximately 4.3%. Preliminary expectations for Q4 2025 also suggest low recession probability. Overall, the trend confirms continued economic expansion with growing, but still manageable, downside risks."
-  },
-  "image": "assets/RC GDP.png"
+      "title": {
+        "ru": "GDP-Based Recession Indicator Index",
+        "en": "GDP-Based Recession Indicator Index"
+      },
+      "text": {
+        "ru": "GDP-Based Recession Indicator Index — это квартальный индикатор вероятности рецессии в США...",
+        "en": "The GDP-Based Recession Indicator Index is a quarterly measure estimating the probability that the U.S. economy was in recession during a given quarter. Values above 67% indicate a high probability of recession, while values below 33% suggest that a recession is unlikely or has ended.\n\nThe indicator is retrospective in nature and does not forecast future recessions. It is never revised once published."
+      },
+      "extra": {
+        "ru": "Текущий анализ с учётом Q3 и Q4 2025...",
+        "en": "Based on Q3 2025 data, the indicator remains near historical lows, supported by strong real GDP growth of approximately 4.3%. Preliminary expectations for Q4 2025 also suggest low recession probability. Overall, the trend confirms continued economic expansion with growing, but still manageable, downside risks."
+      },
+      "image": "assets/RC GDP.png"
     },
     {
-  "title": {
-    "ru": "Security Brokers and Dealers; Debt Securities; Asset, Level",
-    "en": "Security Brokers and Dealers: Debt Securities Assets"
-  },
-  "text": {
-    "ru": "Анализ индикатора SBDDSA (Security Brokers and Dealers; Debt Securities; Asset, Level) на 28.12.2025...",
-    "en": "Analysis of the SBDDSA indicator (Security Brokers and Dealers: Debt Securities; Asset Level) as of December 28, 2025.\n\nSBDDSA reflects the volume of debt securities held as assets by U.S. security brokers and dealers. This indicator provides insight into the balance sheet structure of the broker-dealer sector and their exposure to fixed-income instruments such as government and corporate bonds.\n\nAs of Q2 2025, the indicator reached approximately USD 1.28 trillion, continuing a multi-quarter upward trend. This sustained growth suggests increased participation of financial intermediaries in debt markets, potentially driven by interest rate expectations, portfolio rebalancing, or defensive positioning amid late-cycle economic conditions."
-  },
-  "extra": {
-    "ru": "АНАЛИЗ на 25.12.2025...",
-    "en": "Medium-term analysis indicates that rising SBDDSA levels may reflect a cautious market stance. Accumulation of debt securities often coincides with lower volatility, reduced risk appetite, and a preference for yield stability. For financial markets, this can imply moderate equity performance, stable bond demand, and a consolidation phase for risk assets, including cryptocurrencies."
-  },
-  "image": "assets/RC Brok Dill.png"
+      "title": {
+        "ru": "Security Brokers and Dealers; Debt Securities; Asset, Level",
+        "en": "Security Brokers and Dealers: Debt Securities Assets"
+      },
+      "text": {
+        "ru": "Анализ индикатора SBDDSA (Security Brokers and Dealers; Debt Securities; Asset, Level) на 28.12.2025...",
+        "en": "Analysis of the SBDDSA indicator (Security Brokers and Dealers: Debt Securities; Asset Level) as of December 28, 2025.\n\nSBDDSA reflects the volume of debt securities held as assets by U.S. security brokers and dealers. This indicator provides insight into the balance sheet structure of the broker-dealer sector and their exposure to fixed-income instruments such as government and corporate bonds.\n\nAs of Q2 2025, the indicator reached approximately USD 1.28 trillion, continuing a multi-quarter upward trend. This sustained growth suggests increased participation of financial intermediaries in debt markets, potentially driven by interest rate expectations, portfolio rebalancing, or defensive positioning amid late-cycle economic conditions."
+      },
+      "extra": {
+        "ru": "АНАЛИЗ на 25.12.2025...",
+        "en": "Medium-term analysis indicates that rising SBDDSA levels may reflect a cautious market stance. Accumulation of debt securities often coincides with lower volatility, reduced risk appetite, and a preference for yield stability. For financial markets, this can imply moderate equity performance, stable bond demand, and a consolidation phase for risk assets, including cryptocurrencies."
+      },
+      "image": "assets/RC Brok Dill.png"
     },
     {
-  "title": {
-    "ru": "Sahm Rule Recession Indicator (SAHMREALTIME)",
-    "en": "Sahm Rule Recession Indicator (SAHMREALTIME)"
-  },
-  "text": {
-    "ru": "Анализ Sahm Rule Recession Indicator (SAHMREALTIME) на 28.12.2025...",
-    "en": "The Sahm Rule Recession Indicator is an early-warning economic signal developed by economist Claudia Sahm. It identifies the onset of a recession when the three-month moving average of the unemployment rate rises by at least 0.50 percentage points above its lowest level over the previous 12 months.\n\nAs of November 2025, the Sahm Rule value is estimated between 0.23 and 0.43 percentage points, remaining below the recession threshold. Although unemployment is rising, the indicator does not yet confirm that a recession has begun."
-  },
-  "extra": {
-    "ru": "АНАЛИЗ 25.12.2025...",
-    "en": "The upward trend in the Sahm Rule suggests growing labor market softening, but not a full recession signal. If the indicator surpasses the 0.50 threshold, it would imply that a recession is already underway. Until then, the signal remains neutral-to-cautious, implying moderate volatility in equities and a conditional risk environment for Bitcoin and other risk assets."
-  },
-  "image": "assets/RC Sanm.png"
-    },
-         {
-  "title": {
-    "ru": "T10Y2Y",
-    "en": "10Y–2Y Treasury Yield Spread (T10Y2Y)"
-  },
-  "text": {
-    "ru": "АНАЛИЗ на 28.12.2025...",
-    "en": "As of December 26, 2025, the T10Y2Y spread stands at approximately +0.68 percentage points, remaining firmly in positive territory. This indicates that 10-year Treasury yields exceed 2-year yields, reflecting a normally shaped yield curve.\n\nThe spread has widened compared to the previous year (~0.28%), signaling partial normalization after the deep inversions observed during 2022–2024. However, it remains slightly below the long-term historical average, suggesting that while recession fears have eased, growth expectations remain moderate."
-  },
-  "extra": {
-    "ru": "T10Y2Y — это разница между доходностью 10-летних и 2-летних облигаций США...",
-    "en": "The T10Y2Y spread represents the difference between 10-year and 2-year U.S. Treasury yields and is a widely used macroeconomic indicator of business cycle expectations. A positive spread typically signals economic stability, while a flattening or inversion may precede economic downturns.\n\nAt current levels, the curve suggests moderate confidence in economic continuity, supporting risk assets while keeping investors alert to potential slowdowns."
-  },
-  "image": "assets/RC 10-2.png"
-     },
-    {
-  "title": {
-    "ru": "WTREGEN",
-    "en": "Treasury General Account Balance (WTREGEN)"
-  },
-  "text": {
-    "ru": "Текущее значение на 28 декабря 2025...",
-    "en": "As of December 17, 2025, the WTREGEN indicator stands at approximately USD 833 billion. This reflects the balance of U.S. Treasury deposits held at the Federal Reserve, excluding bank reserve balances.\n\nA high WTREGEN level indicates that a significant portion of government liquidity is retained within the Treasury General Account rather than circulating through the banking system. This can temporarily reduce available market liquidity and influence financial conditions."
-  },
-  "extra": {
-    "ru": "WTREGEN — это экономический показатель из базы данных FRED...",
-    "en": "WTREGEN is closely monitored as part of broader liquidity models. Elevated balances suggest restrained fiscal liquidity injection, which may dampen risk appetite across financial markets.\n\nIn a medium-term context, persistently high WTREGEN levels may contribute to equity consolidation, lower volatility in bond markets, and subdued momentum in Bitcoin and other liquidity-sensitive assets unless offset by central bank easing or fiscal outflows."
-  },
-  "image": "assets/RC WTREGEN.png"
+      "title": {
+        "ru": "Sahm Rule Recession Indicator (SAHMREALTIME)",
+        "en": "Sahm Rule Recession Indicator (SAHMREALTIME)"
+      },
+      "text": {
+        "ru": "Анализ Sahm Rule Recession Indicator (SAHMREALTIME) на 28.12.2025...",
+        "en": "The Sahm Rule Recession Indicator is an early-warning economic signal developed by economist Claudia Sahm. It identifies the onset of a recession when the three-month moving average of the unemployment rate rises by at least 0.50 percentage points above its lowest level over the previous 12 months.\n\nAs of November 2025, the Sahm Rule value is estimated between 0.23 and 0.43 percentage points, remaining below the recession threshold. Although unemployment is rising, the indicator does not yet confirm that a recession has begun."
+      },
+      "extra": {
+        "ru": "АНАЛИЗ 25.12.2025...",
+        "en": "The upward trend in the Sahm Rule suggests growing labor market softening, but not a full recession signal. If the indicator surpasses the 0.50 threshold, it would imply that a recession is already underway. Until then, the signal remains neutral-to-cautious, implying moderate volatility in equities and a conditional risk environment for Bitcoin and other risk assets."
+      },
+      "image": "assets/RC Sanm.png"
     },
     {
-  "title": {
-    "ru": "T10Y3M",
-    "en": "10Y–3M Treasury Yield Spread (T10Y3M)"
-  },
-  "text": {
-    "ru": "10-летние минус 3-месячные казначейские облигации США...",
-    "en": "The T10Y3M spread measures the difference between 10-year and 3-month U.S. Treasury yields and is considered one of the most reliable leading indicators of economic cycles.\n\nAs of late December 2025, the spread remains positive at approximately +0.50%, indicating a non-inverted yield curve. This suggests that markets do not currently anticipate an imminent recession, although the spread remains below its long-term historical average, pointing to late-cycle economic conditions rather than strong expansion."
-  },
-  "extra": {
-    "ru": "Положительный спред означает нормальную кривую доходности...",
-    "en": "Historically, sustained inversions of the T10Y3M spread have preceded U.S. recessions by 6–18 months. The current positive but narrow spread reflects cautious optimism: investors expect economic growth to continue, but at a moderate pace.\n\nFor risk assets, a positive T10Y3M spread is generally supportive. However, a decline toward zero would increase recession risk signals and raise volatility across equities and crypto markets, including Bitcoin."
-  },
-  "image": "assets/10Y-3Mec.png"
+      "title": {
+        "ru": "T10Y2Y",
+        "en": "10Y–2Y Treasury Yield Spread (T10Y2Y)"
+      },
+      "text": {
+        "ru": "АНАЛИЗ на 28.12.2025...",
+        "en": "As of December 26, 2025, the T10Y2Y spread stands at approximately +0.68 percentage points, remaining firmly in positive territory. This indicates that 10-year Treasury yields exceed 2-year yields, reflecting a normally shaped yield curve.\n\nThe spread has widened compared to the previous year (~0.28%), signaling partial normalization after the deep inversions observed during 2022–2024. However, it remains slightly below the long-term historical average, suggesting that while recession fears have eased, growth expectations remain moderate."
+      },
+      "extra": {
+        "ru": "T10Y2Y — это разница между доходностью 10-летних и 2-летних облигаций США...",
+        "en": "The T10Y2Y spread represents the difference between 10-year and 2-year U.S. Treasury yields and is a widely used macroeconomic indicator of business cycle expectations. A positive spread typically signals economic stability, while a flattening or inversion may precede economic downturns.\n\nAt current levels, the curve suggests moderate confidence in economic continuity, supporting risk assets while keeping investors alert to potential slowdowns."
+      },
+      "image": "assets/RC 10-2.png"
     },
     {
-  "title": {
-    "ru": "Kansas City Financial Stress Index",
-    "en": "Kansas City Financial Stress Index (KCFSI)"
-  },
-  "text": {
-    "ru": "KCFSI — индекс финансового стресса ФРБ Канзас-Сити...",
-    "en": "The Kansas City Financial Stress Index (KCFSI) is a composite indicator developed by the Federal Reserve Bank of Kansas City to measure stress in U.S. financial markets. It is based on 11 market variables, including interest rates, yield spreads, and volatility measures.\n\nAs of November 2025, the KCFSI stands near –0.75, well below zero, indicating that financial stress remains lower than its historical average and that overall financial conditions are relatively calm."
-  },
-  "extra": {
-    "ru": "Отрицательное значение означает низкий уровень стресса...",
-    "en": "A persistently negative KCFSI suggests stable credit conditions, adequate liquidity, and limited systemic stress. In such environments, risk assets such as equities and cryptocurrencies tend to perform more favorably, assuming no external shocks occur.\n\nIf the index were to rise toward or above zero, it would signal tightening financial conditions, increased volatility, and a potential shift toward defensive positioning across markets."
-  },
-  "image": "assets/RC KCFSI — Kansas City Financial Stress Index.png"
+      "title": {
+        "ru": "WTREGEN",
+        "en": "Treasury General Account Balance (WTREGEN)"
+      },
+      "text": {
+        "ru": "Текущее значение на 28 декабря 2025...",
+        "en": "As of December 17, 2025, the WTREGEN indicator stands at approximately USD 833 billion. This reflects the balance of U.S. Treasury deposits held at the Federal Reserve, excluding bank reserve balances.\n\nA high WTREGEN level indicates that a significant portion of government liquidity is retained within the Treasury General Account rather than circulating through the banking system. This can temporarily reduce available market liquidity and influence financial conditions."
+      },
+      "extra": {
+        "ru": "WTREGEN — это экономический показатель из базы данных FRED...",
+        "en": "WTREGEN is closely monitored as part of broader liquidity models. Elevated balances suggest restrained fiscal liquidity injection, which may dampen risk appetite across financial markets.\n\nIn a medium-term context, persistently high WTREGEN levels may contribute to equity consolidation, lower volatility in bond markets, and subdued momentum in Bitcoin and other liquidity-sensitive assets unless offset by central bank easing or fiscal outflows."
+      },
+      "image": "assets/RC WTREGEN.png"
     },
     {
-  "title": {
-    "ru": "ICE BofA US High Yield Index",
-    "en": "ICE BofA US High Yield Index"
-  },
-  "text": {
-    "ru": "ICE BofA US High Yield Index. Анализ на 24.12.2025. Значение ≈ 6.53 % — эффективная доходность высокодоходных корпоративных облигаций США. Это означает, что в среднем инвесторы получают около 6.5 % годовых, отражая текущие оценки риска и условия рынка.\n\nКонтекст:\n— Ниже исторического среднего (~7.8–8 %)\n— Ниже кризисных уровней (>10–15 %)\nЭто говорит о том, что кредитные рынки находятся в умеренном состоянии, не экстремальном.\n\nСреднесрочный прогноз (6–12 мес):\n1) Если доходность снизится: рост риск-аппетита, поддержка инвестиций в риск-активы\n2) Если доходность вырастет: усиление опасений по кредитам, ужесточение финансовых условий\n\nВлияние на рынки:\nАкции: рост доходности → давление на рисковые акции; снижение → поддержка риск-аппета\nКредитные рынки: рост доходности → ужесточение условий; снижение → комфортные условия\n\nВлияние на биткоин (BTC):\nСнижение/стабильная доходность → поддержка риск-аппета → BTC может расти\nРост доходности → сигнал тревоги → BTC может корректироваться сильнее",
-    "en": "ICE BofA US High Yield Index. Analysis as of 24.12.2025. Value ≈ 6.53 % — effective yield of US high-yield corporate bonds. This means investors on average earn around 6.5% annually, reflecting current risk assessments and market conditions.\n\nContext:\n— Below historical average (~7.8–8 %)\n— Below crisis levels (>10–15 %)\nThis indicates credit markets are in a moderate state, not extreme.\n\nMedium-term forecast (6–12 months):\n1) If yields decline: investor sentiment improves, risk appetite rises, risk assets supported\n2) If yields rise: credit concerns increase, financial conditions tighten\n\nMarket impact:\nEquities: rising yields → pressure on risky stocks; falling yields → support for risk appetite\nCredit markets: rising yields → tighter conditions; falling yields → comfortable lending environment\n\nImpact on Bitcoin (BTC):\nFalling/stable yields → support for risk appetite → BTC may rise\nRising yields → warning signal → BTC may correct more sharply"
-  },
-  "extra": {
-    "ru": "BAMLH0A0HYM2EY — код серии данных, показывающей эффективную доходность высокодоходных корпоративных облигаций США (junk bonds, рейтинг BB и ниже). Индекс отражает компенсацию инвесторов за кредитный риск: чем выше доходность, тем выше воспринимаемый риск дефолта.",
-    "en": "BAMLH0A0HYM2EY — data series code representing the effective yield of US high-yield corporate bonds (junk bonds, BB rating and below). The index reflects investor compensation for credit risk: higher yields indicate higher perceived default risk."
-  },
-  "image": "assets/RC ICE BofA US High Yield Index.png"
-    },
-   {
-  "title": {
-    "ru": "Buffett Indicator",
-    "en": "Buffett Indicator"
-  },
-  "text": {
-    "ru": "Анализ на 24.12.2025. Buffett Indicator ≈ 220–226 % — рыночная капитализация вдвое превышает размер экономики США. Исторически рекордные значения, выше среднего (~158 %). Это сигнал сильной переоценки рынка.\n\nСреднесрочный прогноз (6–12 мес):\n1) Медвежий сценарий: замедление экономики → коррекция акций\n2) Боковик/стагнация: высокие оценки без драйверов → консолидация рынка\n3) Продолжение роста, но умеренно: корпоративные прибыли растут быстрее GDP, рискованная позиция\n\nВлияние на рынки и BTC:\nАкции: высокая вероятность коррекции\nОблигации: инвесторы могут переходить в защитные активы\nBTC/крипта: косвенно через риск-аппетит, рост во время risk-on, падение при risk-off\n\nИспользование в трейдинге:\nОчень высокий уровень (>200 %) → сигнал к осторожности; низкий (<100 %) → потенциально благоприятный",
-    "en": "Analysis as of 24.12.2025. Buffett Indicator ≈ 220–226 % — market capitalization is twice the size of the US economy. Historically record-high values, well above the average (~158 %). This signals a strong market overvaluation.\n\nMedium-term forecast (6–12 months):\n1) Bearish scenario: economic slowdown → stock corrections\n2) Sideways/stagnation: high valuations without growth drivers → market consolidation\n3) Continued growth, but moderate: corporate profits outpace GDP, risky position\n\nImpact on markets and BTC:\nEquities: higher chance of corrections\nBonds: investors may shift to safe assets\nBTC/crypto: indirectly via risk appetite, rises during risk-on, falls during risk-off\n\nTrading use:\nVery high levels (>200 %) → caution; low levels (<100 %) → potentially favorable"
-  },
-  "extra": {
-    "ru": "Buffett Indicator = Market Cap / GDP × 100 %. Показывает, насколько дорого рынок акций США относительно экономики, любимый показатель Баффета для оценки общей оценки рынка.",
-    "en": "Buffett Indicator = Market Cap / GDP × 100 %. Shows how expensive the US stock market is relative to the economy, Warren Buffett’s favorite metric for overall market valuation."
-  },
-  "image": "assets/RC Buffet.png"
-},
-    {
-  "title": {
-    "ru": "Buffett Indicator",
-    "en": "Buffett Indicator"
-  },
-  "text": {
-    "ru": "Анализ на 24.12.2025. Buffett Indicator ≈ 220–226 % — рыночная капитализация вдвое превышает размер экономики США. Исторически рекордные значения, выше среднего (~158 %). Это сигнал сильной переоценки рынка.\n\nСреднесрочный прогноз (6–12 мес):\n1) Медвежий сценарий: замедление экономики → коррекция акций\n2) Боковик/стагнация: высокие оценки без драйверов → консолидация рынка\n3) Продолжение роста, но умеренно: корпоративные прибыли растут быстрее GDP, рискованная позиция\n\nВлияние на рынки и BTC:\nАкции: высокая вероятность коррекции\nОблигации: инвесторы могут переходить в защитные активы\nBTC/крипта: косвенно через риск-аппетит, рост во время risk-on, падение при risk-off\n\nИспользование в трейдинге:\nОчень высокий уровень (>200 %) → сигнал к осторожности; низкий (<100 %) → потенциально благоприятный",
-    "en": "Analysis as of 24.12.2025. Buffett Indicator ≈ 220–226 % — market capitalization is twice the size of the US economy. Historically record-high values, well above the average (~158 %). This signals a strong market overvaluation.\n\nMedium-term forecast (6–12 months):\n1) Bearish scenario: economic slowdown → stock corrections\n2) Sideways/stagnation: high valuations without growth drivers → market consolidation\n3) Continued growth, but moderate: corporate profits outpace GDP, risky position\n\nImpact on markets and BTC:\nEquities: higher chance of corrections\nBonds: investors may shift to safe assets\nBTC/crypto: indirectly via risk appetite, rises during risk-on, falls during risk-off\n\nTrading use:\nVery high levels (>200 %) → caution; low levels (<100 %) → potentially favorable"
-  },
-  "extra": {
-    "ru": "Buffett Indicator = Market Cap / GDP × 100 %. Показывает, насколько дорого рынок акций США относительно экономики, любимый показатель Баффета для оценки общей оценки рынка.",
-    "en": "Buffett Indicator = Market Cap / GDP × 100 %. Shows how expensive the US stock market is relative to the economy, Warren Buffett’s favorite metric for overall market valuation."
-  },
-  "image": "assets/RC Buffet.png"
-    },
-   {
-  "title": {
-    "ru": "BDI Baltic Dry Index",
-    "en": "BDI Baltic Dry Index"
-  },
-  "text": {
-    "ru": "Анализ на декабрь 2025. Значение ~1 877–2 294 пунктов после снижения с начала декабря (~2 845). Рост за год ≈ 80–88 %. Индекс выше недавних минимумов, но ниже исторических максимумов (~11 793 в 2008).\n\nСреднесрочный прогноз (6–12 мес):\n— Если глобальная экономика растёт → индекс стабилизируется или слегка подрастёт.\n— Если спрос на сырьё ослабнет → возможна коррекция или консолидация.\n\nВлияние на рынки:\nАкции/сырьё: рост BDI → поддержка производственных и сырьевых секторов\nПадение → сигнал замедления спроса, давление на циклические акции\nBTC/крипта: косвенно через риск-аппетит — рост BDI → risk-on, падение → риск-оф",
-    "en": "Analysis as of December 2025. Value ~1,877–2,294 points after decline from early December (~2,845). Annual growth ≈ 80–88 %. Index above recent lows, but below historical peaks (~11,793 in 2008).\n\nMedium-term forecast (6–12 months):\n— If global economy grows → index stabilizes or rises slightly\n— If commodity demand weakens → possible correction or consolidation\n\nMarket impact:\nEquities/commodities: rising BDI → supports industrial and commodity sectors\nFalling → signals slowing demand, pressure on cyclical stocks\nBTC/crypto: indirectly via risk appetite — rising BDI → risk-on, falling → risk-off"
-  },
-  "extra": {
-    "ru": "BDI измеряет стоимость перевозки сухих навалочных грузов (уголь, руда, зерно) по ключевым маршрутам. Рост индекса → усиление глобальной торговли, падение → снижение активности.",
-    "en": "BDI measures the cost of shipping dry bulk commodities (coal, ore, grain) on major routes. Rising index → stronger global trade; falling → weaker activity."
-  },
-  "image": "assets/RC Baltic Dry.png"
+      "title": {
+        "ru": "T10Y3M",
+        "en": "10Y–3M Treasury Yield Spread (T10Y3M)"
+      },
+      "text": {
+        "ru": "10-летние минус 3-месячные казначейские облигации США...",
+        "en": "The T10Y3M spread measures the difference between 10-year and 3-month U.S. Treasury yields and is considered one of the most reliable leading indicators of economic cycles.\n\nAs of late December 2025, the spread remains positive at approximately +0.50%, indicating a non-inverted yield curve. This suggests that markets do not currently anticipate an imminent recession, although the spread remains below its long-term historical average, pointing to late-cycle economic conditions rather than strong expansion."
+      },
+      "extra": {
+        "ru": "Положительный спред означает нормальную кривую доходности...",
+        "en": "Historically, sustained inversions of the T10Y3M spread have preceded U.S. recessions by 6–18 months. The current positive but narrow spread reflects cautious optimism: investors expect economic growth to continue, but at a moderate pace.\n\nFor risk assets, a positive T10Y3M spread is generally supportive. However, a decline toward zero would increase recession risk signals and raise volatility across equities and crypto markets, including Bitcoin."
+      },
+      "image": "assets/10Y-3Mec.png"
     },
     {
-  "title": {
-    "ru": "BDI Baltic Dry Index",
-    "en": "BDI Baltic Dry Index"
-  },
-  "text": {
-    "ru": "Анализ на декабрь 2025. Значение ~1 877–2 294 пунктов после снижения с начала декабря (~2 845). Рост за год ≈ 80–88 %. Индекс выше недавних минимумов, но ниже исторических максимумов (~11 793 в 2008).\n\nСреднесрочный прогноз (6–12 мес):\n— Если глобальная экономика растёт → индекс стабилизируется или слегка подрастёт.\n— Если спрос на сырьё ослабнет → возможна коррекция или консолидация.\n\nВлияние на рынки:\nАкции/сырьё: рост BDI → поддержка производственных и сырьевых секторов\nПадение → сигнал замедления спроса, давление на циклические акции\nBTC/крипта: косвенно через риск-аппетит — рост BDI → risk-on, падение → риск-оф",
-    "en": "Analysis as of December 2025. Value ~1,877–2,294 points after decline from early December (~2,845). Annual growth ≈ 80–88 %. Index above recent lows, but below historical peaks (~11,793 in 2008).\n\nMedium-term forecast (6–12 months):\n— If global economy grows → index stabilizes or rises slightly\n— If commodity demand weakens → possible correction or consolidation\n\nMarket impact:\nEquities/commodities: rising BDI → supports industrial and commodity sectors\nFalling → signals slowing demand, pressure on cyclical stocks\nBTC/crypto: indirectly via risk appetite — rising BDI → risk-on, falling → risk-off"
-  },
-  "extra": {
-    "ru": "BDI измеряет стоимость перевозки сухих навалочных грузов (уголь, руда, зерно) по ключевым маршрутам. Рост индекса → усиление глобальной торговли, падение → снижение активности.",
-    "en": "BDI measures the cost of shipping dry bulk commodities (coal, ore, grain) on major routes. Rising index → stronger global trade; falling → weaker activity."
-  },
-  "image": "assets/RC Baltic Dry.png"
+      "title": {
+        "ru": "Kansas City Financial Stress Index",
+        "en": "Kansas City Financial Stress Index (KCFSI)"
+      },
+      "text": {
+        "ru": "KCFSI — индекс финансового стресса ФРБ Канзас-Сити...",
+        "en": "The Kansas City Financial Stress Index (KCFSI) is a composite indicator developed by the Federal Reserve Bank of Kansas City to measure stress in U.S. financial markets. It is based on 11 market variables, including interest rates, yield spreads, and volatility measures.\n\nAs of November 2025, the KCFSI stands near –0.75, well below zero, indicating that financial stress remains lower than its historical average and that overall financial conditions are relatively calm."
+      },
+      "extra": {
+        "ru": "Отрицательное значение означает низкий уровень стресса...",
+        "en": "A persistently negative KCFSI suggests stable credit conditions, adequate liquidity, and limited systemic stress. In such environments, risk assets such as equities and cryptocurrencies tend to perform more favorably, assuming no external shocks occur.\n\nIf the index were to rise toward or above zero, it would signal tightening financial conditions, increased volatility, and a potential shift toward defensive positioning across markets."
+      },
+      "image": "assets/RC KCFSI — Kansas City Financial Stress Index.png"
     },
     {
-  "title": {
-    "ru": "Индекс потребительских цен — CPI YoY",
-    "en": "Consumer Price Index — CPI YoY"
-  },
-  "text": {
-    "ru": "Анализ на декабрь 2025. Инфляция (CPI YoY) ≈ 2.7 % — ниже прошлых месяцев и близко к таргету ФРС (~2 %).\n\nСреднесрочный прогноз (6–12 мес):\n— Инфляция вероятно останется умеренной (2–3 %)\n— Низкая инфляция → ФРС может замедлить ужесточение ставок → поддержка риск-активов\n— Ускорение инфляции → возможное ужесточение → давление на акции и BTC\n\nВлияние на рынки:\nАкции: умеренная инфляция → благоприятно, растущая → давление\nОблигации: снижение инфляции → доходности падают, рост → доходности растут\nДоллар: низкая инфляция → ослабление, рост → укрепление\nBTC/крипта: низкая инфляция и мягкая политика → рост; ускорение инфляции → коррекция"
-    ,
-    "en": "Analysis as of December 2025. Inflation (CPI YoY) ≈ 2.7 % — lower than previous months and near the Fed’s target (~2 %).\n\nMedium-term forecast (6–12 months):\n— Inflation likely remains moderate (2–3 %)\n— Low inflation → Fed may slow rate hikes → supports risk assets\n— Rising inflation → potential tightening → pressure on equities and BTC\n\nMarket impact:\nEquities: moderate inflation → positive, rising → negative\nBonds: falling inflation → yields drop, rising → yields rise\nDollar: low inflation → weaker, rising → stronger\nBTC/crypto: low inflation and easy policy → upward; rising inflation → possible correction"
-  },
-  "extra": {
-    "ru": "USIRYY показывает годовое изменение потребительских цен (CPI) в США. Основной индикатор инфляционного давления и денежно-кредитной политики ФРС.",
-    "en": "USIRYY shows the annual change in US consumer prices (CPI). Key indicator of inflation pressure and Fed monetary policy."
-  },
-  "image": "assets/RC Consumer Price Index — CPI YoY ( USIRYY).png"
-}
+      "title": {
+        "ru": "ICE BofA US High Yield Index",
+        "en": "ICE BofA US High Yield Index"
+      },
+      "text": {
+        "ru": "ICE BofA US High Yield Index. Анализ на 24.12.2025. Значение ≈ 6.53 % — эффективная доходность высокодоходных корпоративных облигаций США. Это означает, что в среднем инвесторы получают около 6.5 % годовых, отражая текущие оценки риска и условия рынка.\n\nКонтекст:\n— Ниже исторического среднего (~7.8–8 %)\n— Ниже кризисных уровней (>10–15 %)\nЭто говорит о том, что кредитные рынки находятся в умеренном состоянии, не экстремальном.\n\nСреднесрочный прогноз (6–12 мес):\n1) Если доходность снизится: рост риск-аппетита, поддержка инвестиций в риск-активы\n2) Если доходность вырастет: усиление опасений по кредитам, ужесточение финансовых условий\n\nВлияние на рынки:\nАкции: рост доходности → давление на рисковые акции; снижение → поддержка риск-аппета\nКредитные рынки: рост доходности → ужесточение условий; снижение → комфортные условия\n\nВлияние на биткоин (BTC):\nСнижение/стабильная доходность → поддержка риск-аппета → BTC может расти\nРост доходности → сигнал тревоги → BTC может корректироваться сильнее",
+        "en": "ICE BofA US High Yield Index. Analysis as of 24.12.2025. Value ≈ 6.53 % — effective yield of US high-yield corporate bonds. This means investors on average earn around 6.5% annually, reflecting current risk assessments and market conditions.\n\nContext:\n— Below historical average (~7.8–8 %)\n— Below crisis levels (>10–15 %)\nThis indicates credit markets are in a moderate state, not extreme.\n\nMedium-term forecast (6–12 months):\n1) If yields decline: investor sentiment improves, risk appetite rises, risk assets supported\n2) If yields rise: credit concerns increase, financial conditions tighten\n\nMarket impact:\nEquities: rising yields → pressure on risky stocks; falling yields → support for risk appetite\nCredit markets: rising yields → tighter conditions; falling yields → comfortable lending environment\n\nImpact on Bitcoin (BTC):\nFalling/stable yields → support for risk appetite → BTC may rise\nRising yields → warning signal → BTC may correct more sharply"
+      },
+      "extra": {
+        "ru": "BAMLH0A0HYM2EY — код серии данных, показывающей эффективную доходность высокодоходных корпоративных облигаций США (junk bonds, рейтинг BB и ниже). Индекс отражает компенсацию инвесторов за кредитный риск: чем выше доходность, тем выше воспринимаемый риск дефолта.",
+        "en": "BAMLH0A0HYM2EY — data series code representing the effective yield of US high-yield corporate bonds (junk bonds, BB rating and below). The index reflects investor compensation for credit risk: higher yields indicate higher perceived default risk."
+      },
+      "image": "assets/RC ICE BofA US High Yield Index.png"
+    },
+    {
+      "title": {
+        "ru": "Buffett Indicator",
+        "en": "Buffett Indicator"
+      },
+      "text": {
+        "ru": "Анализ на 24.12.2025. Buffett Indicator ≈ 220–226 % — рыночная капитализация вдвое превышает размер экономики США. Исторически рекордные значения, выше среднего (~158 %). Это сигнал сильной переоценки рынка.\n\nСреднесрочный прогноз (6–12 мес):\n1) Медвежий сценарий: замедление экономики → коррекция акций\n2) Боковик/стагнация: высокие оценки без драйверов → консолидация рынка\n3) Продолжение роста, но умеренно: корпоративные прибыли растут быстрее GDP, рискованная позиция\n\nВлияние на рынки и BTC:\nАкции: высокая вероятность коррекции\nОблигации: инвесторы могут переходить в защитные активы\nBTC/крипта: косвенно через риск-аппетит, рост во время risk-on, падение при risk-off\n\nИспользование в трейдинге:\nОчень высокий уровень (>200 %) → сигнал к осторожности; низкий (<100 %) → потенциально благоприятный",
+        "en": "Analysis as of 24.12.2025. Buffett Indicator ≈ 220–226 % — market capitalization is twice the size of the US economy. Historically record-high values, well above the average (~158 %). This signals a strong market overvaluation.\n\nMedium-term forecast (6–12 months):\n1) Bearish scenario: economic slowdown → stock corrections\n2) Sideways/stagnation: high valuations without growth drivers → market consolidation\n3) Continued growth, but moderate: corporate profits outpace GDP, risky position\n\nImpact on markets and BTC:\nEquities: higher chance of corrections\nBonds: investors may shift to safe assets\nBTC/crypto: indirectly via risk appetite, rises during risk-on, falls during risk-off\n\nTrading use:\nVery high levels (>200 %) → caution; low levels (<100 %) → potentially favorable"
+      },
+      "extra": {
+        "ru": "Buffett Indicator = Market Cap / GDP × 100 %. Показывает, насколько дорого рынок акций США относительно экономики, любимый показатель Баффета для оценки общей оценки рынка.",
+        "en": "Buffett Indicator = Market Cap / GDP × 100 %. Shows how expensive the US stock market is relative to the economy, Warren Buffett’s favorite metric for overall market valuation."
+      },
+      "image": "assets/RC Buffet.png"
+    },
+    {
+      "title": {
+        "ru": "Buffett Indicator",
+        "en": "Buffett Indicator"
+      },
+      "text": {
+        "ru": "Анализ на 24.12.2025. Buffett Indicator ≈ 220–226 % — рыночная капитализация вдвое превышает размер экономики США. Исторически рекордные значения, выше среднего (~158 %). Это сигнал сильной переоценки рынка.\n\nСреднесрочный прогноз (6–12 мес):\n1) Медвежий сценарий: замедление экономики → коррекция акций\n2) Боковик/стагнация: высокие оценки без драйверов → консолидация рынка\n3) Продолжение роста, но умеренно: корпоративные прибыли растут быстрее GDP, рискованная позиция\n\nВлияние на рынки и BTC:\nАкции: высокая вероятность коррекции\nОблигации: инвесторы могут переходить в защитные активы\nBTC/крипта: косвенно через риск-аппетит, рост во время risk-on, падение при risk-off\n\nИспользование в трейдинге:\nОчень высокий уровень (>200 %) → сигнал к осторожности; низкий (<100 %) → потенциально благоприятный",
+        "en": "Analysis as of 24.12.2025. Buffett Indicator ≈ 220–226 % — market capitalization is twice the size of the US economy. Historically record-high values, well above the average (~158 %). This signals a strong market overvaluation.\n\nMedium-term forecast (6–12 months):\n1) Bearish scenario: economic slowdown → stock corrections\n2) Sideways/stagnation: high valuations without growth drivers → market consolidation\n3) Continued growth, but moderate: corporate profits outpace GDP, risky position\n\nImpact on markets and BTC:\nEquities: higher chance of corrections\nBonds: investors may shift to safe assets\nBTC/crypto: indirectly via risk appetite, rises during risk-on, falls during risk-off\n\nTrading use:\nVery high levels (>200 %) → caution; low levels (<100 %) → potentially favorable"
+      },
+      "extra": {
+        "ru": "Buffett Indicator = Market Cap / GDP × 100 %. Показывает, насколько дорого рынок акций США относительно экономики, любимый показатель Баффета для оценки общей оценки рынка.",
+        "en": "Buffett Indicator = Market Cap / GDP × 100 %. Shows how expensive the US stock market is relative to the economy, Warren Buffett’s favorite metric for overall market valuation."
+      },
+      "image": "assets/RC Buffet.png"
+    },
+    {
+      "title": {
+        "ru": "BDI Baltic Dry Index",
+        "en": "BDI Baltic Dry Index"
+      },
+      "text": {
+        "ru": "Анализ на декабрь 2025. Значение ~1 877–2 294 пунктов после снижения с начала декабря (~2 845). Рост за год ≈ 80–88 %. Индекс выше недавних минимумов, но ниже исторических максимумов (~11 793 в 2008).\n\nСреднесрочный прогноз (6–12 мес):\n— Если глобальная экономика растёт → индекс стабилизируется или слегка подрастёт.\n— Если спрос на сырьё ослабнет → возможна коррекция или консолидация.\n\nВлияние на рынки:\nАкции/сырьё: рост BDI → поддержка производственных и сырьевых секторов\nПадение → сигнал замедления спроса, давление на циклические акции\nBTC/крипта: косвенно через риск-аппетит — рост BDI → risk-on, падение → риск-оф",
+        "en": "Analysis as of December 2025. Value ~1,877–2,294 points after decline from early December (~2,845). Annual growth ≈ 80–88 %. Index above recent lows, but below historical peaks (~11,793 in 2008).\n\nMedium-term forecast (6–12 months):\n— If global economy grows → index stabilizes or rises slightly\n— If commodity demand weakens → possible correction or consolidation\n\nMarket impact:\nEquities/commodities: rising BDI → supports industrial and commodity sectors\nFalling → signals slowing demand, pressure on cyclical stocks\nBTC/crypto: indirectly via risk appetite — rising BDI → risk-on, falling → risk-off"
+      },
+      "extra": {
+        "ru": "BDI измеряет стоимость перевозки сухих навалочных грузов (уголь, руда, зерно) по ключевым маршрутам. Рост индекса → усиление глобальной торговли, падение → снижение активности.",
+        "en": "BDI measures the cost of shipping dry bulk commodities (coal, ore, grain) on major routes. Rising index → stronger global trade; falling → weaker activity."
+      },
+      "image": "assets/RC Baltic Dry.png"
+    },
+    {
+      "title": {
+        "ru": "BDI Baltic Dry Index",
+        "en": "BDI Baltic Dry Index"
+      },
+      "text": {
+        "ru": "Анализ на декабрь 2025. Значение ~1 877–2 294 пунктов после снижения с начала декабря (~2 845). Рост за год ≈ 80–88 %. Индекс выше недавних минимумов, но ниже исторических максимумов (~11 793 в 2008).\n\nСреднесрочный прогноз (6–12 мес):\n— Если глобальная экономика растёт → индекс стабилизируется или слегка подрастёт.\n— Если спрос на сырьё ослабнет → возможна коррекция или консолидация.\n\nВлияние на рынки:\nАкции/сырьё: рост BDI → поддержка производственных и сырьевых секторов\nПадение → сигнал замедления спроса, давление на циклические акции\nBTC/крипта: косвенно через риск-аппетит — рост BDI → risk-on, падение → риск-оф",
+        "en": "Analysis as of December 2025. Value ~1,877–2,294 points after decline from early December (~2,845). Annual growth ≈ 80–88 %. Index above recent lows, but below historical peaks (~11,793 in 2008).\n\nMedium-term forecast (6–12 months):\n— If global economy grows → index stabilizes or rises slightly\n— If commodity demand weakens → possible correction or consolidation\n\nMarket impact:\nEquities/commodities: rising BDI → supports industrial and commodity sectors\nFalling → signals slowing demand, pressure on cyclical stocks\nBTC/crypto: indirectly via risk appetite — rising BDI → risk-on, falling → risk-off"
+      },
+      "extra": {
+        "ru": "BDI измеряет стоимость перевозки сухих навалочных грузов (уголь, руда, зерно) по ключевым маршрутам. Рост индекса → усиление глобальной торговли, падение → снижение активности.",
+        "en": "BDI measures the cost of shipping dry bulk commodities (coal, ore, grain) on major routes. Rising index → stronger global trade; falling → weaker activity."
+      },
+      "image": "assets/RC Baltic Dry.png"
+    },
+    {
+      "title": {
+        "ru": "Индекс потребительских цен — CPI YoY",
+        "en": "Consumer Price Index — CPI YoY"
+      },
+      "text": {
+        "ru": "Анализ на декабрь 2025. Инфляция (CPI YoY) ≈ 2.7 % — ниже прошлых месяцев и близко к таргету ФРС (~2 %).\n\nСреднесрочный прогноз (6–12 мес):\n— Инфляция вероятно останется умеренной (2–3 %)\n— Низкая инфляция → ФРС может замедлить ужесточение ставок → поддержка риск-активов\n— Ускорение инфляции → возможное ужесточение → давление на акции и BTC\n\nВлияние на рынки:\nАкции: умеренная инфляция → благоприятно, растущая → давление\nОблигации: снижение инфляции → доходности падают, рост → доходности растут\nДоллар: низкая инфляция → ослабление, рост → укрепление\nBTC/крипта: низкая инфляция и мягкая политика → рост; ускорение инфляции → коррекция",
+        "en": "Analysis as of December 2025. Inflation (CPI YoY) ≈ 2.7 % — lower than previous months and near the Fed’s target (~2 %).\n\nMedium-term forecast (6–12 months):\n— Inflation likely remains moderate (2–3 %)\n— Low inflation → Fed may slow rate hikes → supports risk assets\n— Rising inflation → potential tightening → pressure on equities and BTC\n\nMarket impact:\nEquities: moderate inflation → positive, rising → negative\nBonds: falling inflation → yields drop, rising → yields rise\nDollar: low inflation → weaker, rising → stronger\nBTC/crypto: low inflation and easy policy → upward; rising inflation → possible correction"
+      },
+      "extra": {
+        "ru": "USIRYY показывает годовое изменение потребительских цен (CPI) в США. Основной индикатор инфляционного давления и денежно-кредитной политики ФРС.",
+        "en": "USIRYY shows the annual change in US consumer prices (CPI). Key indicator of inflation pressure and Fed monetary policy."
+      },
+      "image": "assets/RC Consumer Price Index — CPI YoY ( USIRYY).png"
+    }
   ],
   "market": [
     {
-  "title": {
-    "ru": "Открытый интерес, цена и объём",
-    "en": "Open Interest, Price, Volume"
-  },
-  "text": {
-    "ru": "Анализ открытого интереса, цены и объёма биткоина (23 декабря 2025). BTC показывает смешанную динамику: цена боковик после отскока от $85K, объём средний, открытый интерес высокий, сигнализируя потенциальную волатильность.\n\nОсновные метрики:\n- Цена: ~$88,088–$88,870 USD, за 24ч +2.29%, rejected at $90K.\n- Объём: 24h ~$29.77 млрд, CME futures 2,657 контрактов — средний.\n- Открытый интерес: фьючерсы ~$60 млрд, options OI ~$23.6 млрд на expiry 26 декабря.\n\nАнализ: рост OI + боковик = подготовка к прорыву (бычий при росте объёма, медвежий при фейке). Высокий OI в опционах = волатильность от expiry.\nКраткосрочный прогноз (1–7 дней): $90K–$92K (60% при росте объёма), откат к $85K (40%).\nСреднесрочный (1–3 месяца): рост к $100K+ при поддержке ликвидности и ETF inflows, риск коррекции –10–20%.\nДолгосрочный (2026): $100K–$120K, рецессия 35–50% → падение к $60K–$70K.",
-    "en": "Analysis of Bitcoin open interest, price, and volume (as of December 23, 2025). BTC shows mixed dynamics: price in a sideways range after bouncing from $85K, average volume, high open interest, signaling potential volatility.\n\nKey metrics:\n- Price: ~$88,088–$88,870 USD, +2.29% over 24h, rejected at $90K.\n- Volume: 24h ~$29.77B, CME futures 2,657 contracts — average.\n- Open Interest: futures ~$60B, options OI ~$23.6B for expiry Dec 26.\n\nAnalysis: rising OI + sideways price = prep for breakout (bullish if volume rises, bearish if fakeout). High options OI = volatility around expiry.\nShort-term (1–7 days): $90K–$92K (60% chance if volume >$30B), pullback to $85K (40%).\nMedium-term (1–3 months): growth to $100K+ with liquidity support and ETF inflows, correction risk –10–20%.\nLong-term (2026): $100K–$120K, recession 35–50% → drop to $60K–$70K."
-  },
-  "extra": {
-    "ru": "Комментарий: Метрики показывают консолидацию с бычьим уклоном. Корреляция с S&P 500 ~0.75.",
-    "en": "Commentary: Metrics indicate consolidation with a bullish bias. Correlation with S&P 500 ~0.75."
-  },
-  "image": "assets/MM OpI,P,B.png"
+      "title": {
+        "ru": "Открытый интерес, цена и объём",
+        "en": "Open Interest, Price, Volume"
+      },
+      "text": {
+        "ru": "Анализ открытого интереса, цены и объёма биткоина (23 декабря 2025). BTC показывает смешанную динамику: цена боковик после отскока от $85K, объём средний, открытый интерес высокий, сигнализируя потенциальную волатильность.\n\nОсновные метрики:\n- Цена: ~$88,088–$88,870 USD, за 24ч +2.29%, rejected at $90K.\n- Объём: 24h ~$29.77 млрд, CME futures 2,657 контрактов — средний.\n- Открытый интерес: фьючерсы ~$60 млрд, options OI ~$23.6 млрд на expiry 26 декабря.\n\nАнализ: рост OI + боковик = подготовка к прорыву (бычий при росте объёма, медвежий при фейке). Высокий OI в опционах = волатильность от expiry.\nКраткосрочный прогноз (1–7 дней): $90K–$92K (60% при росте объёма), откат к $85K (40%).\nСреднесрочный (1–3 месяца): рост к $100K+ при поддержке ликвидности и ETF inflows, риск коррекции –10–20%.\nДолгосрочный (2026): $100K–$120K, рецессия 35–50% → падение к $60K–$70K.",
+        "en": "Analysis of Bitcoin open interest, price, and volume (as of December 23, 2025). BTC shows mixed dynamics: price in a sideways range after bouncing from $85K, average volume, high open interest, signaling potential volatility.\n\nKey metrics:\n- Price: ~$88,088–$88,870 USD, +2.29% over 24h, rejected at $90K.\n- Volume: 24h ~$29.77B, CME futures 2,657 contracts — average.\n- Open Interest: futures ~$60B, options OI ~$23.6B for expiry Dec 26.\n\nAnalysis: rising OI + sideways price = prep for breakout (bullish if volume rises, bearish if fakeout). High options OI = volatility around expiry.\nShort-term (1–7 days): $90K–$92K (60% chance if volume >$30B), pullback to $85K (40%).\nMedium-term (1–3 months): growth to $100K+ with liquidity support and ETF inflows, correction risk –10–20%.\nLong-term (2026): $100K–$120K, recession 35–50% → drop to $60K–$70K."
+      },
+      "extra": {
+        "ru": "Комментарий: Метрики показывают консолидацию с бычьим уклоном. Корреляция с S&P 500 ~0.75.",
+        "en": "Commentary: Metrics indicate consolidation with a bullish bias. Correlation with S&P 500 ~0.75."
+      },
+      "image": "assets/MM OpI,P,B.png"
     },
     {
-  "title": {
-    "ru": "Открытый интерес, цена и объём",
-    "en": "Open Interest, Price, Volume"
-  },
-  "text": {
-    "ru": "Анализ открытого интереса, цены и объёма биткоина (23 декабря 2025). BTC показывает смешанную динамику: цена боковик после отскока от $85K, объём средний, открытый интерес высокий, сигнализируя потенциальную волатильность.\n\nОсновные метрики:\n- Цена: ~$88,088–$88,870 USD, за 24ч +2.29%, rejected at $90K.\n- Объём: 24h ~$29.77 млрд, CME futures 2,657 контрактов — средний.\n- Открытый интерес: фьючерсы ~$60 млрд, options OI ~$23.6 млрд на expiry 26 декабря.\n\nАнализ: рост OI + боковик = подготовка к прорыву (бычий при росте объёма, медвежий при фейке). Высокий OI в опционах = волатильность от expiry.\nКраткосрочный прогноз (1–7 дней): $90K–$92K (60% при росте объёма), откат к $85K (40%).\nСреднесрочный (1–3 месяца): рост к $100K+ при поддержке ликвидности и ETF inflows, риск коррекции –10–20%.\nДолгосрочный (2026): $100K–$120K, рецессия 35–50% → падение к $60K–$70K.",
-    "en": "Analysis of Bitcoin open interest, price, and volume (as of December 23, 2025). BTC shows mixed dynamics: price in a sideways range after bouncing from $85K, average volume, high open interest, signaling potential volatility.\n\nKey metrics:\n- Price: ~$88,088–$88,870 USD, +2.29% over 24h, rejected at $90K.\n- Volume: 24h ~$29.77B, CME futures 2,657 contracts — average.\n- Open Interest: futures ~$60B, options OI ~$23.6B for expiry Dec 26.\n\nAnalysis: rising OI + sideways price = prep for breakout (bullish if volume rises, bearish if fakeout). High options OI = volatility around expiry.\nShort-term (1–7 days): $90K–$92K (60% chance if volume >$30B), pullback to $85K (40%).\nMedium-term (1–3 months): growth to $100K+ with liquidity support and ETF inflows, correction risk –10–20%.\nLong-term (2026): $100K–$120K, recession 35–50% → drop to $60K–$70K."
-  },
-  "extra": {
-    "ru": "Комментарий: Метрики показывают консолидацию с бычьим уклоном. Корреляция с S&P 500 ~0.75.",
-    "en": "Commentary: Metrics indicate consolidation with a bullish bias. Correlation with S&P 500 ~0.75."
-  },
-  "image": "assets/MM OpI,P,B.png"
+      "title": {
+        "ru": "Открытый интерес, цена и объём",
+        "en": "Open Interest, Price, Volume"
+      },
+      "text": {
+        "ru": "Анализ открытого интереса, цены и объёма биткоина (23 декабря 2025). BTC показывает смешанную динамику: цена боковик после отскока от $85K, объём средний, открытый интерес высокий, сигнализируя потенциальную волатильность.\n\nОсновные метрики:\n- Цена: ~$88,088–$88,870 USD, за 24ч +2.29%, rejected at $90K.\n- Объём: 24h ~$29.77 млрд, CME futures 2,657 контрактов — средний.\n- Открытый интерес: фьючерсы ~$60 млрд, options OI ~$23.6 млрд на expiry 26 декабря.\n\nАнализ: рост OI + боковик = подготовка к прорыву (бычий при росте объёма, медвежий при фейке). Высокий OI в опционах = волатильность от expiry.\nКраткосрочный прогноз (1–7 дней): $90K–$92K (60% при росте объёма), откат к $85K (40%).\nСреднесрочный (1–3 месяца): рост к $100K+ при поддержке ликвидности и ETF inflows, риск коррекции –10–20%.\nДолгосрочный (2026): $100K–$120K, рецессия 35–50% → падение к $60K–$70K.",
+        "en": "Analysis of Bitcoin open interest, price, and volume (as of December 23, 2025). BTC shows mixed dynamics: price in a sideways range after bouncing from $85K, average volume, high open interest, signaling potential volatility.\n\nKey metrics:\n- Price: ~$88,088–$88,870 USD, +2.29% over 24h, rejected at $90K.\n- Volume: 24h ~$29.77B, CME futures 2,657 contracts — average.\n- Open Interest: futures ~$60B, options OI ~$23.6B for expiry Dec 26.\n\nAnalysis: rising OI + sideways price = prep for breakout (bullish if volume rises, bearish if fakeout). High options OI = volatility around expiry.\nShort-term (1–7 days): $90K–$92K (60% chance if volume >$30B), pullback to $85K (40%).\nMedium-term (1–3 months): growth to $100K+ with liquidity support and ETF inflows, correction risk –10–20%.\nLong-term (2026): $100K–$120K, recession 35–50% → drop to $60K–$70K."
+      },
+      "extra": {
+        "ru": "Комментарий: Метрики показывают консолидацию с бычьим уклоном. Корреляция с S&P 500 ~0.75.",
+        "en": "Commentary: Metrics indicate consolidation with a bullish bias. Correlation with S&P 500 ~0.75."
+      },
+      "image": "assets/MM OpI,P,B.png"
     },
     {
-  "title": {
-    "ru": "Ставки финансирования BTC",
-    "en": "Bitcoin Funding Rates"
-  },
-  "text": {
-    "ru": "Funding rate — механизм на бессрочных фьючерсах для поддержания паритета с спотом. Положительная ставка: лонги платят шортам, рынок бычий. Отрицательная: шорты платят лонгам, рынок медвежий.\n\nНа 31.12.2025: умеренно положительные ставки (~0.007–0.015% за период расчёта) — указывают на доминирование длинных позиций без экстремального перегрева.\n\nКраткосрочно: поддерживают умеренно бычий тренд BTC при стабильном объёме и ликвидности.\nСреднесрочно: положительные ставки + рост OI → подпитывают рост или удерживают диапазон выше ключевых уровней; резкий рост ставок → риск коррекции.\nДолгосрочно: отражают настроения деривативных трейдеров, подтверждают фазу рынка, но не являются фундаментальным драйвером BTC.",
-    "en": "Funding rate — a mechanism on perpetual futures to maintain parity with spot. Positive rate: longs pay shorts, bullish market. Negative: shorts pay longs, bearish market.\n\nAs of Dec 31, 2025: moderately positive rates (~0.007–0.015% per calculation period) — indicate long positions dominance without extreme overheating.\n\nShort-term: supports moderately bullish BTC trend with stable volume and liquidity.\nMedium-term: positive rates + rising OI → fuel growth or hold range above key levels; sharp rate spikes → correction risk.\nLong-term: reflect derivative traders’ sentiment, confirm market phase, but not a fundamental BTC driver."
-  },
-  "extra": {
-    "ru": "Funding rates показывают перекос между лонгами и шортами на BTC фьючерсах и отражают настроения трейдеров.",
-    "en": "Funding rates show the imbalance between longs and shorts on BTC futures and reflect trader sentiment."
-  },
-  "image": "assets/MM FandRate.png"
-}
+      "title": {
+        "ru": "Ставки финансирования BTC",
+        "en": "Bitcoin Funding Rates"
+      },
+      "text": {
+        "ru": "Funding rate — механизм на бессрочных фьючерсах для поддержания паритета с спотом. Положительная ставка: лонги платят шортам, рынок бычий. Отрицательная: шорты платят лонгам, рынок медвежий.\n\nНа 31.12.2025: умеренно положительные ставки (~0.007–0.015% за период расчёта) — указывают на доминирование длинных позиций без экстремального перегрева.\n\nКраткосрочно: поддерживают умеренно бычий тренд BTC при стабильном объёме и ликвидности.\nСреднесрочно: положительные ставки + рост OI → подпитывают рост или удерживают диапазон выше ключевых уровней; резкий рост ставок → риск коррекции.\nДолгосрочно: отражают настроения деривативных трейдеров, подтверждают фазу рынка, но не являются фундаментальным драйвером BTC.",
+        "en": "Funding rate — a mechanism on perpetual futures to maintain parity with spot. Positive rate: longs pay shorts, bullish market. Negative: shorts pay longs, bearish market.\n\nAs of Dec 31, 2025: moderately positive rates (~0.007–0.015% per calculation period) — indicate long positions dominance without extreme overheating.\n\nShort-term: supports moderately bullish BTC trend with stable volume and liquidity.\nMedium-term: positive rates + rising OI → fuel growth or hold range above key levels; sharp rate spikes → correction risk.\nLong-term: reflect derivative traders’ sentiment, confirm market phase, but not a fundamental BTC driver."
+      },
+      "extra": {
+        "ru": "Funding rates показывают перекос между лонгами и шортами на BTC фьючерсах и отражают настроения трейдеров.",
+        "en": "Funding rates show the imbalance between longs and shorts on BTC futures and reflect trader sentiment."
+      },
+      "image": "assets/MM FandRate.png"
+    }
   ],
   "onchain": [
     {
-  "title": {
-    "ru": "Активные адреса 25.12.25",
-    "en": "Active Addresses 25.12.25"
-  },
-  "text": {
-    "ru": "Bitcoin Active Addresses — это ончейн-метрика, измеряющая количество уникальных адресов в сети Биткоин, которые были активны (отправляли или получали транзакции) за определённый период (обычно день или 7-дневную скользящую среднюю — MA). Метрика показывает реальное использование сети: высокий уровень = рост активности, низкий = охлаждение интереса.\n\nНа декабрь 2025:\n— Текущая 7-дневная MA ~660,000 активных адресов, дневные значения ~114,597–430,364\n— Тренд снижения с пика >900,000 в 2024 (Ordinals/Runes хайп)\n— Контекст: BTC +120% ($40K → $88K), но addresses низкие — спекулятивный рост, медвежий дивергенс.\n\nПрогноз:\nКраткосрочно (1–4 недели): падение <600K → коррекция –5–10%, рост >800K → прорыв к $90K–$95K\nСреднесрочно (1–3 месяца): низкие addresses + риски рецессии → давление к $70K–$80K, рост активности → $100K+\nДолгосрочно (2026): возвращение к 900K+ → булл к $120K, продолжение спада → стагнация ~$74K",
-    "en": "Bitcoin Active Addresses is an on-chain metric measuring the number of unique Bitcoin addresses that were active (sent or received transactions) over a period (usually daily or 7-day MA). It indicates real network usage: high = growing activity, low = cooling interest.\n\nAs of Dec 2025:\n— Current 7-day MA ~660,000 active addresses, daily values ~114,597–430,364\n— Trend declining from peak >900,000 in 2024 (Ordinals/Runes hype)\n— Context: BTC +120% ($40K → $88K) but addresses low — speculative growth, bearish divergence.\n\nForecast:\nShort-term (1–4 weeks): <600K → BTC correction –5–10%, >800K → breakout to $90K–$95K\nMedium-term (1–3 months): low addresses + recession risks → pressure to $70K–$80K, growth → $100K+\nLong-term (2026): return to 900K+ → bull to $120K, continued decline → stagnation ~$74K"
-  },
-  "extra": {
-    "ru": "Комментарий: активность адресов коррелирует с ценой BTC (~0.6–0.7). Низкие значения = медвежий сигнал, рост = булл.",
-    "en": "Commentary: Address activity correlates with BTC price (~0.6–0.7). Low values = bearish signal, growth = bullish."
-  },
-  "image": "assets/ON Activ Adress.png"
-    },
-   {
-  "title": {
-    "ru": "Коэффициент NVT/RVT",
-    "en": "NVT/RVT Ratio"
-  },
-  "text": {
-    "ru": "NVT Ratio (Network Value to Transactions) — ончейн-метрика, показывающая отношение рыночной капитализации BTC к объёму транзакций. RVT Ratio (Realized Value to Transactions) — похожий коэффициент, но использует реализованную капитализацию, более устойчивый к рыночной спекуляции.\n\nПринцип:\n— Высокие NVT/RVT → сеть недостаточно активна относительно стоимости → возможная переоценка\n— Низкие NVT/RVT → активная сеть → цена может быть устойчивой или недооценённой\n\nАнализ на 31.12.2025:\n— NVT умеренный ~85–90, не экстремально высокий → цена не явно перекуплена\n— RVT стабилен, указывает на фундаментальный спрос и завершение коррекции\n\nПрогноз влияния:\nКраткосрочно (1–3 мес): рост транзакций → снижение NVT/RVT → поддержка BTC\nСреднесрочно (3–12 мес): падение NVT/RVT с ростом активности → бычий сигнал, рост коэффициентов при стагнации → возможная консолидация\nДолгосрочно: тренд вниз NVT/RVT → устойчивый рост цены при активной сети, пики NVT/RVT → возможные коррекции",
-    "en": "NVT Ratio (Network Value to Transactions) is an on-chain metric showing BTC market cap relative to transaction volume. RVT Ratio (Realized Value to Transactions) uses realized cap, more resilient to market speculation.\n\nPrinciple:\n— High NVT/RVT → network underactive vs value → possible overvaluation\n— Low NVT/RVT → active network → price may be fair or undervalued\n\nAnalysis as of Dec 31, 2025:\n— NVT moderate ~85–90, not extreme → price not obviously overbought\n— RVT stable, reflecting fundamental demand and correction completion\n\nImpact forecast:\nShort-term (1–3 months): growing transactions → lower NVT/RVT → supports BTC\nMedium-term (3–12 months): declining NVT/RVT with higher activity → bullish signal; rising ratios during stagnation → potential consolidation\nLong-term: downward NVT/RVT trend → sustained price growth with active network; NVT/RVT peaks → potential corrections"
-  },
-  "extra": {
-    "ru": "Комментарий: NVT и RVT помогают оценить здоровье сети и фундаментальный спрос на Bitcoin, выступают аналогами P/E для криптовалют.",
-    "en": "Commentary: NVT and RVT assess network health and fundamental demand for Bitcoin, serving as P/E analogs for crypto."
-  },
-  "image": "assets/ON NVT.png"
+      "title": {
+        "ru": "Активные адреса 25.12.25",
+        "en": "Active Addresses 25.12.25"
+      },
+      "text": {
+        "ru": "Bitcoin Active Addresses — это ончейн-метрика, измеряющая количество уникальных адресов в сети Биткоин, которые были активны (отправляли или получали транзакции) за определённый период (обычно день или 7-дневную скользящую среднюю — MA). Метрика показывает реальное использование сети: высокий уровень = рост активности, низкий = охлаждение интереса.\n\nНа декабрь 2025:\n— Текущая 7-дневная MA ~660,000 активных адресов, дневные значения ~114,597–430,364\n— Тренд снижения с пика >900,000 в 2024 (Ordinals/Runes хайп)\n— Контекст: BTC +120% ($40K → $88K), но addresses низкие — спекулятивный рост, медвежий дивергенс.\n\nПрогноз:\nКраткосрочно (1–4 недели): падение <600K → коррекция –5–10%, рост >800K → прорыв к $90K–$95K\nСреднесрочно (1–3 месяца): низкие addresses + риски рецессии → давление к $70K–$80K, рост активности → $100K+\nДолгосрочно (2026): возвращение к 900K+ → булл к $120K, продолжение спада → стагнация ~$74K",
+        "en": "Bitcoin Active Addresses is an on-chain metric measuring the number of unique Bitcoin addresses that were active (sent or received transactions) over a period (usually daily or 7-day MA). It indicates real network usage: high = growing activity, low = cooling interest.\n\nAs of Dec 2025:\n— Current 7-day MA ~660,000 active addresses, daily values ~114,597–430,364\n— Trend declining from peak >900,000 in 2024 (Ordinals/Runes hype)\n— Context: BTC +120% ($40K → $88K) but addresses low — speculative growth, bearish divergence.\n\nForecast:\nShort-term (1–4 weeks): <600K → BTC correction –5–10%, >800K → breakout to $90K–$95K\nMedium-term (1–3 months): low addresses + recession risks → pressure to $70K–$80K, growth → $100K+\nLong-term (2026): return to 900K+ → bull to $120K, continued decline → stagnation ~$74K"
+      },
+      "extra": {
+        "ru": "Комментарий: активность адресов коррелирует с ценой BTC (~0.6–0.7). Низкие значения = медвежий сигнал, рост = булл.",
+        "en": "Commentary: Address activity correlates with BTC price (~0.6–0.7). Low values = bearish signal, growth = bullish."
+      },
+      "image": "assets/ON Activ Adress.png"
     },
     {
-  "title": {
-    "ru": "Коэффициент MVRV (Рыночная стоимость к реализованной)",
-    "en": "MVRV (Market Value to Realized Value)"
-  },
-  "text": {
-    "ru": "MVRV Ratio показывает, насколько рыночная капитализация BTC превышает реализованную капитализацию (Realized Cap).\n— MVRV = Market Cap / Realized Cap\n\nИнтерпретация:\n— MVRV > 1 → большинство держателей в прибыли, возможная переоценка\n— MVRV ≈ 1 → цена близка к фундаментальной стоимости сети\n— MVRV < 1 → большинство держателей в убытке, потенциальная зона дна/капитуляции\n\nАнализ на 31.12.2025:\n— MVRV ~1.8–2.0 после коррекции, ниже пиков прошлых циклов (>3.5)\n— На начало 2025 BTC находился в нейтральной зоне, с балансом между прибыльными держателями и зоной накопления\n\nПрогноз влияния:\nКраткосрочно: MVRV в нейтральной зоне → поддержка движения без экстремальных перекупленностей\nСреднесрочно: рост MVRV с BTC → укрепление рынка; MVRV >3 → сигнал исторической перекупленности\nДолгосрочно: экстремальные значения MVRV → пики и коррекции; умеренные значения → устойчивый фундаментальный рост",
-    "en": "MVRV Ratio shows how much BTC market cap exceeds realized cap (Realized Cap).\n— MVRV = Market Cap / Realized Cap\n\nInterpretation:\n— MVRV > 1 → most holders in profit, possible overvaluation\n— MVRV ≈ 1 → price near fundamental network value\n— MVRV < 1 → most holders at loss, potential bottom/capitulation zone\n\nAnalysis as of Dec 31, 2025:\n— MVRV ~1.8–2.0 after correction, below past cycle peaks (>3.5)\n— Early 2025 BTC was in neutral zone, balance between profitable holders and accumulation\n\nImpact forecast:\nShort-term: MVRV neutral → supports price movement without extreme overbought levels\nMedium-term: MVRV rising with BTC → market strengthening; MVRV >3 → historical overbought signal\nLong-term: extreme MVRV → cycle peaks/corrections; moderate MVRV → sustainable fundamental growth"
-  },
-  "extra": {
-    "ru": "Комментарий: MVRV отражает удерживаемую прибыль/убытки держателей и помогает оценить перекупленность или зоны накопления на рынке BTC.",
-    "en": "Commentary: MVRV reflects holders’ unrealized profit/loss and helps assess overbought conditions or accumulation zones in BTC."
-  },
-  "image": "assets/ON MVRV.png"
+      "title": {
+        "ru": "Коэффициент NVT/RVT",
+        "en": "NVT/RVT Ratio"
+      },
+      "text": {
+        "ru": "NVT Ratio (Network Value to Transactions) — ончейн-метрика, показывающая отношение рыночной капитализации BTC к объёму транзакций. RVT Ratio (Realized Value to Transactions) — похожий коэффициент, но использует реализованную капитализацию, более устойчивый к рыночной спекуляции.\n\nПринцип:\n— Высокие NVT/RVT → сеть недостаточно активна относительно стоимости → возможная переоценка\n— Низкие NVT/RVT → активная сеть → цена может быть устойчивой или недооценённой\n\nАнализ на 31.12.2025:\n— NVT умеренный ~85–90, не экстремально высокий → цена не явно перекуплена\n— RVT стабилен, указывает на фундаментальный спрос и завершение коррекции\n\nПрогноз влияния:\nКраткосрочно (1–3 мес): рост транзакций → снижение NVT/RVT → поддержка BTC\nСреднесрочно (3–12 мес): падение NVT/RVT с ростом активности → бычий сигнал, рост коэффициентов при стагнации → возможная консолидация\nДолгосрочно: тренд вниз NVT/RVT → устойчивый рост цены при активной сети, пики NVT/RVT → возможные коррекции",
+        "en": "NVT Ratio (Network Value to Transactions) is an on-chain metric showing BTC market cap relative to transaction volume. RVT Ratio (Realized Value to Transactions) uses realized cap, more resilient to market speculation.\n\nPrinciple:\n— High NVT/RVT → network underactive vs value → possible overvaluation\n— Low NVT/RVT → active network → price may be fair or undervalued\n\nAnalysis as of Dec 31, 2025:\n— NVT moderate ~85–90, not extreme → price not obviously overbought\n— RVT stable, reflecting fundamental demand and correction completion\n\nImpact forecast:\nShort-term (1–3 months): growing transactions → lower NVT/RVT → supports BTC\nMedium-term (3–12 months): declining NVT/RVT with higher activity → bullish signal; rising ratios during stagnation → potential consolidation\nLong-term: downward NVT/RVT trend → sustained price growth with active network; NVT/RVT peaks → potential corrections"
+      },
+      "extra": {
+        "ru": "Комментарий: NVT и RVT помогают оценить здоровье сети и фундаментальный спрос на Bitcoin, выступают аналогами P/E для криптовалют.",
+        "en": "Commentary: NVT and RVT assess network health and fundamental demand for Bitcoin, serving as P/E analogs for crypto."
+      },
+      "image": "assets/ON NVT.png"
     },
     {
-  "title": {
-    "ru": "NUPL (Чистая нереализованная прибыль/убыток)",
-    "en": "NUPL (Net Unrealized Profit/Loss)"
-  },
-  "text": {
-    "ru": "NUPL показывает чистую нереализованную прибыль или убыток участников BTC:\n— NUPL = (Market Cap − Realized Cap) / Market Cap\n\nИнтерпретация:\n— Высокие положительные значения (>0.75) → большинство в прибыли, возможная перегретость рынка\n— Умеренные положительные значения (0.3–0.6) → держатели в прибыли, стабильный рост\n— Значения около нуля или отрицательные → многие держатели в убытке, возможная капитуляция/зона дна\n\nАнализ на 01.01.2025:\n— NUPL умеренно положительный (~0.3–0.6), большинство участников в прибыли, но не на уровне экстремальной эйфории\n— Сигнализирует фазу накопления или умеренного тренда, не пика\n\nПрогноз влияния:\nКраткосрочно: умеренные значения → устойчивый тренд, отсутствие сильного давления на фиксацию прибыли\nСреднесрочно: рост NUPL → поддержка продолжающегося тренда; снижение → возможные коррекции\nДолгосрочно: экстремальные значения → пики или дно циклов, умеренные → сбалансированный рынок",
-    "en": "NUPL shows net unrealized profit or loss of BTC holders:\n— NUPL = (Market Cap − Realized Cap) / Market Cap\n\nInterpretation:\n— High positive (>0.75) → most holders in profit, potential market overheating\n— Moderate positive (0.3–0.6) → holders in profit, stable growth\n— Near zero or negative → many holders at loss, possible capitulation/bottom zone\n\nAnalysis as of Jan 1, 2025:\n— NUPL moderately positive (~0.3–0.6), majority in profit, not at euphoric extremes\n— Signals accumulation phase or moderate trend, not peak\n\nImpact forecast:\nShort-term: moderate values → stable trend, no strong profit-taking pressure\nMedium-term: rising NUPL → supports ongoing trend; decline → possible corrections\nLong-term: extreme values → cycle peaks/bottoms, moderate → balanced market"
-  },
-  "extra": {
-    "ru": "Комментарий: NUPL отражает психологию рынка и готовность держателей фиксировать прибыль или терпеть убытки.",
-    "en": "Commentary: NUPL reflects market sentiment and holders’ readiness to take profits or hold losses."
-  },
-  "image": "assets/ON NUPL.png"
+      "title": {
+        "ru": "Коэффициент MVRV (Рыночная стоимость к реализованной)",
+        "en": "MVRV (Market Value to Realized Value)"
+      },
+      "text": {
+        "ru": "MVRV Ratio показывает, насколько рыночная капитализация BTC превышает реализованную капитализацию (Realized Cap).\n— MVRV = Market Cap / Realized Cap\n\nИнтерпретация:\n— MVRV > 1 → большинство держателей в прибыли, возможная переоценка\n— MVRV ≈ 1 → цена близка к фундаментальной стоимости сети\n— MVRV < 1 → большинство держателей в убытке, потенциальная зона дна/капитуляции\n\nАнализ на 31.12.2025:\n— MVRV ~1.8–2.0 после коррекции, ниже пиков прошлых циклов (>3.5)\n— На начало 2025 BTC находился в нейтральной зоне, с балансом между прибыльными держателями и зоной накопления\n\nПрогноз влияния:\nКраткосрочно: MVRV в нейтральной зоне → поддержка движения без экстремальных перекупленностей\nСреднесрочно: рост MVRV с BTC → укрепление рынка; MVRV >3 → сигнал исторической перекупленности\nДолгосрочно: экстремальные значения MVRV → пики и коррекции; умеренные значения → устойчивый фундаментальный рост",
+        "en": "MVRV Ratio shows how much BTC market cap exceeds realized cap (Realized Cap).\n— MVRV = Market Cap / Realized Cap\n\nInterpretation:\n— MVRV > 1 → most holders in profit, possible overvaluation\n— MVRV ≈ 1 → price near fundamental network value\n— MVRV < 1 → most holders at loss, potential bottom/capitulation zone\n\nAnalysis as of Dec 31, 2025:\n— MVRV ~1.8–2.0 after correction, below past cycle peaks (>3.5)\n— Early 2025 BTC was in neutral zone, balance between profitable holders and accumulation\n\nImpact forecast:\nShort-term: MVRV neutral → supports price movement without extreme overbought levels\nMedium-term: MVRV rising with BTC → market strengthening; MVRV >3 → historical overbought signal\nLong-term: extreme MVRV → cycle peaks/corrections; moderate MVRV → sustainable fundamental growth"
+      },
+      "extra": {
+        "ru": "Комментарий: MVRV отражает удерживаемую прибыль/убытки держателей и помогает оценить перекупленность или зоны накопления на рынке BTC.",
+        "en": "Commentary: MVRV reflects holders’ unrealized profit/loss and helps assess overbought conditions or accumulation zones in BTC."
+      },
+      "image": "assets/ON MVRV.png"
     },
     {
-  "title": {
-    "ru": "SOPR (Коэффициент прибыли/убытка при расходе)",
-    "en": "SOPR (Spent Output Profit Ratio)"
-  },
-  "text": {
-    "ru": "SOPR показывает, продают ли участники BTC с прибылью или убытком:\n— SOPR = цена при продаже / цена покупки\n\nИнтерпретация:\n— SOPR > 1 → в среднем продают с прибылью\n— SOPR ≈ 1 → продажи без прибыли/убытка\n— SOPR < 1 → продажи в убыток\n\nАнализ на 01.01.2025:\n— SOPR > 1, значительная часть продаваемых монет фиксировалась с прибылью\n— Соответствует фазе восстановления/накопления после предыдущих коррекций\n\nПрогноз влияния:\nКраткосрочно: SOPR > 1 → умеренный рост или диапазонная консолидация, отсутствие паники\nСреднесрочно: стабильно выше 1 → постепенное накопление, снижение фиксации прибыли\nДолгосрочно: SOPR > 1 без экстремальных всплесков → продолжение тренда, определяет стадии рынка (накопление → распределение)",
-    "en": "SOPR shows whether BTC holders sell at profit or loss:\n— SOPR = selling price / purchase price\n\nInterpretation:\n— SOPR > 1 → holders sell at profit on average\n— SOPR ≈ 1 → break-even sales\n— SOPR < 1 → holders sell at loss\n\nAnalysis as of Jan 1, 2025:\n— SOPR > 1, significant portion of sold coins realized profit\n— Corresponds to recovery/accumulation phase after prior corrections\n\nImpact forecast:\nShort-term: SOPR > 1 → moderate rise or sideways consolidation, no panic\nMedium-term: stably above 1 → gradual accumulation, decreasing profit-taking\nLong-term: SOPR > 1 without spikes → trend continuation, indicates market stages (accumulation → distribution)"
-  },
-  "extra": {
-    "ru": "Комментарий: SOPR отражает реальные действия участников, показывая фиксацию прибыли или убытков.",
-    "en": "Commentary: SOPR reflects real holder behavior, showing profit or loss realization."
-  },
-  "image": "assets/ON SOPR.png"
+      "title": {
+        "ru": "NUPL (Чистая нереализованная прибыль/убыток)",
+        "en": "NUPL (Net Unrealized Profit/Loss)"
+      },
+      "text": {
+        "ru": "NUPL показывает чистую нереализованную прибыль или убыток участников BTC:\n— NUPL = (Market Cap − Realized Cap) / Market Cap\n\nИнтерпретация:\n— Высокие положительные значения (>0.75) → большинство в прибыли, возможная перегретость рынка\n— Умеренные положительные значения (0.3–0.6) → держатели в прибыли, стабильный рост\n— Значения около нуля или отрицательные → многие держатели в убытке, возможная капитуляция/зона дна\n\nАнализ на 01.01.2025:\n— NUPL умеренно положительный (~0.3–0.6), большинство участников в прибыли, но не на уровне экстремальной эйфории\n— Сигнализирует фазу накопления или умеренного тренда, не пика\n\nПрогноз влияния:\nКраткосрочно: умеренные значения → устойчивый тренд, отсутствие сильного давления на фиксацию прибыли\nСреднесрочно: рост NUPL → поддержка продолжающегося тренда; снижение → возможные коррекции\nДолгосрочно: экстремальные значения → пики или дно циклов, умеренные → сбалансированный рынок",
+        "en": "NUPL shows net unrealized profit or loss of BTC holders:\n— NUPL = (Market Cap − Realized Cap) / Market Cap\n\nInterpretation:\n— High positive (>0.75) → most holders in profit, potential market overheating\n— Moderate positive (0.3–0.6) → holders in profit, stable growth\n— Near zero or negative → many holders at loss, possible capitulation/bottom zone\n\nAnalysis as of Jan 1, 2025:\n— NUPL moderately positive (~0.3–0.6), majority in profit, not at euphoric extremes\n— Signals accumulation phase or moderate trend, not peak\n\nImpact forecast:\nShort-term: moderate values → stable trend, no strong profit-taking pressure\nMedium-term: rising NUPL → supports ongoing trend; decline → possible corrections\nLong-term: extreme values → cycle peaks/bottoms, moderate → balanced market"
+      },
+      "extra": {
+        "ru": "Комментарий: NUPL отражает психологию рынка и готовность держателей фиксировать прибыль или терпеть убытки.",
+        "en": "Commentary: NUPL reflects market sentiment and holders’ readiness to take profits or hold losses."
+      },
+      "image": "assets/ON NUPL.png"
     },
     {
-  "title": {
-    "ru": "Realized Price (Реализованная цена)",
-    "en": "Realized Price"
-  },
-  "text": {
-    "ru": "Realized Price — средняя цена, по которой все существующие BTC были в последний раз перемещены на блокчейне.\n\nФормула:\nRealized Price = Realized Market Cap / Circulating Supply\n\nИнтерпретация:\n— Цена > Realized Price → большинство держателей в прибыли, поддержка цены, меньше панических распродаж\n— Цена ≈ Realized Price → баланс входов и выходов, потенциальная зона поддержки\n— Цена < Realized Price → держатели в убытке, усиление страха, возможные капитуляции\n\nАнализ на 01.01.2025:\n— Реализованная цена значительно ниже рыночной → большинство держателей в прибыли\n— Поддержка фундаментального тренда BTC\n\nПрогноз влияния:\nКраткосрочно: служит зоной поддержки, коррекции менее глубокие при цене выше Realized Price\nСреднесрочно: постепенный рост Realized Price отражает накопление и доверие участников\nДолгосрочно: рост вместе с рынком указывает на укрепление фундамента BTC и продолжение бычьего тренда",
-    "en": "Realized Price — the average price at which all existing BTC were last moved on-chain.\n\nFormula:\nRealized Price = Realized Market Cap / Circulating Supply\n\nInterpretation:\n— Price > Realized Price → most holders in profit, price support, less panic selling\n— Price ≈ Realized Price → balance of inflows/outflows, potential support zone\n— Price < Realized Price → holders at loss, increased fear, potential capitulation\n\nAnalysis as of Jan 1, 2025:\n— Realized Price significantly below market price → most holders in profit\n— Supports BTC fundamental trend\n\nImpact forecast:\nShort-term: acts as support zone, shallower corrections if price above Realized Price\nMedium-term: gradual growth of Realized Price reflects accumulation and participant confidence\nLong-term: growth alongside market indicates strengthening BTC fundamentals and continuation of bullish trend"
-  },
-  "extra": {
-    "ru": "Комментарий: Realized Price помогает оценить фундаментальные уровни поддержки и психологию держателей.",
-    "en": "Commentary: Realized Price helps assess fundamental support levels and holder psychology."
-  },
-  "image": "assets/ON Realized Price.png"
-    },
-   {
-  "title": {
-    "ru": "Realized Price (Реализованная цена)",
-    "en": "Realized Price"
-  },
-  "text": {
-    "ru": "Realized Price — средняя цена, по которой все существующие BTC были в последний раз перемещены на блокчейне.\n\nФормула:\nRealized Price = Realized Market Cap / Circulating Supply\n\nИнтерпретация:\n— Цена > Realized Price → большинство держателей в прибыли, поддержка цены, меньше панических распродаж\n— Цена ≈ Realized Price → баланс входов и выходов, потенциальная зона поддержки\n— Цена < Realized Price → держатели в убытке, усиление страха, возможные капитуляции\n\nАнализ на 01.01.2025:\n— Реализованная цена значительно ниже рыночной → большинство держателей в прибыли\n— Поддержка фундаментального тренда BTC\n\nПрогноз влияния:\nКраткосрочно: служит зоной поддержки, коррекции менее глубокие при цене выше Realized Price\nСреднесрочно: постепенный рост Realized Price отражает накопление и доверие участников\nДолгосрочно: рост вместе с рынком указывает на укрепление фундамента BTC и продолжение бычьего тренда",
-    "en": "Realized Price — the average price at which all existing BTC were last moved on-chain.\n\nFormula:\nRealized Price = Realized Market Cap / Circulating Supply\n\nInterpretation:\n— Price > Realized Price → most holders in profit, price support, less panic selling\n— Price ≈ Realized Price → balance of inflows/outflows, potential support zone\n— Price < Realized Price → holders at loss, increased fear, potential capitulation\n\nAnalysis as of Jan 1, 2025:\n— Realized Price significantly below market price → most holders in profit\n— Supports BTC fundamental trend\n\nImpact forecast:\nShort-term: acts as support zone, shallower corrections if price above Realized Price\nMedium-term: gradual growth of Realized Price reflects accumulation and participant confidence\nLong-term: growth alongside market indicates strengthening BTC fundamentals and continuation of bullish trend"
-  },
-  "extra": {
-    "ru": "Комментарий: Realized Price помогает оценить фундаментальные уровни поддержки и психологию держателей.",
-    "en": "Commentary: Realized Price helps assess fundamental support levels and holder psychology."
-  },
-  "image": "assets/ON Realized Price.png"
+      "title": {
+        "ru": "SOPR (Коэффициент прибыли/убытка при расходе)",
+        "en": "SOPR (Spent Output Profit Ratio)"
+      },
+      "text": {
+        "ru": "SOPR показывает, продают ли участники BTC с прибылью или убытком:\n— SOPR = цена при продаже / цена покупки\n\nИнтерпретация:\n— SOPR > 1 → в среднем продают с прибылью\n— SOPR ≈ 1 → продажи без прибыли/убытка\n— SOPR < 1 → продажи в убыток\n\nАнализ на 01.01.2025:\n— SOPR > 1, значительная часть продаваемых монет фиксировалась с прибылью\n— Соответствует фазе восстановления/накопления после предыдущих коррекций\n\nПрогноз влияния:\nКраткосрочно: SOPR > 1 → умеренный рост или диапазонная консолидация, отсутствие паники\nСреднесрочно: стабильно выше 1 → постепенное накопление, снижение фиксации прибыли\nДолгосрочно: SOPR > 1 без экстремальных всплесков → продолжение тренда, определяет стадии рынка (накопление → распределение)",
+        "en": "SOPR shows whether BTC holders sell at profit or loss:\n— SOPR = selling price / purchase price\n\nInterpretation:\n— SOPR > 1 → holders sell at profit on average\n— SOPR ≈ 1 → break-even sales\n— SOPR < 1 → holders sell at loss\n\nAnalysis as of Jan 1, 2025:\n— SOPR > 1, significant portion of sold coins realized profit\n— Corresponds to recovery/accumulation phase after prior corrections\n\nImpact forecast:\nShort-term: SOPR > 1 → moderate rise or sideways consolidation, no panic\nMedium-term: stably above 1 → gradual accumulation, decreasing profit-taking\nLong-term: SOPR > 1 without spikes → trend continuation, indicates market stages (accumulation → distribution)"
+      },
+      "extra": {
+        "ru": "Комментарий: SOPR отражает реальные действия участников, показывая фиксацию прибыли или убытков.",
+        "en": "Commentary: SOPR reflects real holder behavior, showing profit or loss realization."
+      },
+      "image": "assets/ON SOPR.png"
     },
     {
-  "title": {
-    "ru": "CDD (Coin Days Destroyed)",
-    "en": "CDD (Coin Days Destroyed)"
-  },
-  "text": {
-    "ru": "CDD измеряет движение BTC с учётом того, как долго монеты оставались неподвижными перед транзакцией.\n\nНа 01.01.2026: 60-дневное скользящее CDD резко выросло до максимумов за 6 лет, что указывает на активные перемещения старых монет.\n\nВлияние на цену:\n— Высокий CDD → долгосрочные держатели продают, возможна краткосрочная коррекция\n— Низкий CDD → удержание монет, поддержка стабильности и рост цены\n— Продолжительный рост CDD → повышенная волатильность и возможные развороты\n— Падение CDD после пиков → стабилизация тренда\n\nПрогноз:\nКраткосрочно: возможны колебания цены из-за перемещения старых монет\nСреднесрочно: длительный рост CDD → боковик или коррекция, снижение → возобновление бычьего тренда\nДолгосрочно: низкий CDD → накопление, поддержка стабильного роста BTC",
-    "en": "CDD measures BTC movement considering how long coins were dormant before a transaction.\n\nAs of 01.01.2026: 60-day moving CDD sharply increased to 6-year highs, indicating active movement of old coins.\n\nImpact on price:\n— High CDD → long-term holders selling, potential short-term correction\n— Low CDD → holding coins, supporting stability and price growth\n— Prolonged CDD rise → higher volatility, possible reversals\n— CDD drop after peaks → trend stabilization\n\nForecast:\nShort-term: price fluctuations due to movement of old coins\nMedium-term: prolonged high CDD → sideways/consolidation, drop → bullish trend resumes\nLong-term: low CDD → accumulation, supporting stable BTC growth"
-  },
-  "extra": {
-    "ru": "Комментарий: CDD отражает активность долгосрочных держателей и может предсказывать точки коррекции или разворота.",
-    "en": "Commentary: CDD reflects long-term holder activity and can signal potential corrections or trend reversals."
-  },
-  "image": "assets/ON SSR.png"
+      "title": {
+        "ru": "Realized Price (Реализованная цена)",
+        "en": "Realized Price"
+      },
+      "text": {
+        "ru": "Realized Price — средняя цена, по которой все существующие BTC были в последний раз перемещены на блокчейне.\n\nФормула:\nRealized Price = Realized Market Cap / Circulating Supply\n\nИнтерпретация:\n— Цена > Realized Price → большинство держателей в прибыли, поддержка цены, меньше панических распродаж\n— Цена ≈ Realized Price → баланс входов и выходов, потенциальная зона поддержки\n— Цена < Realized Price → держатели в убытке, усиление страха, возможные капитуляции\n\nАнализ на 01.01.2025:\n— Реализованная цена значительно ниже рыночной → большинство держателей в прибыли\n— Поддержка фундаментального тренда BTC\n\nПрогноз влияния:\nКраткосрочно: служит зоной поддержки, коррекции менее глубокие при цене выше Realized Price\nСреднесрочно: постепенный рост Realized Price отражает накопление и доверие участников\nДолгосрочно: рост вместе с рынком указывает на укрепление фундамента BTC и продолжение бычьего тренда",
+        "en": "Realized Price — the average price at which all existing BTC were last moved on-chain.\n\nFormula:\nRealized Price = Realized Market Cap / Circulating Supply\n\nInterpretation:\n— Price > Realized Price → most holders in profit, price support, less panic selling\n— Price ≈ Realized Price → balance of inflows/outflows, potential support zone\n— Price < Realized Price → holders at loss, increased fear, potential capitulation\n\nAnalysis as of Jan 1, 2025:\n— Realized Price significantly below market price → most holders in profit\n— Supports BTC fundamental trend\n\nImpact forecast:\nShort-term: acts as support zone, shallower corrections if price above Realized Price\nMedium-term: gradual growth of Realized Price reflects accumulation and participant confidence\nLong-term: growth alongside market indicates strengthening BTC fundamentals and continuation of bullish trend"
+      },
+      "extra": {
+        "ru": "Комментарий: Realized Price помогает оценить фундаментальные уровни поддержки и психологию держателей.",
+        "en": "Commentary: Realized Price helps assess fundamental support levels and holder psychology."
+      },
+      "image": "assets/ON Realized Price.png"
+    },
+    {
+      "title": {
+        "ru": "Realized Price (Реализованная цена)",
+        "en": "Realized Price"
+      },
+      "text": {
+        "ru": "Realized Price — средняя цена, по которой все существующие BTC были в последний раз перемещены на блокчейне.\n\nФормула:\nRealized Price = Realized Market Cap / Circulating Supply\n\nИнтерпретация:\n— Цена > Realized Price → большинство держателей в прибыли, поддержка цены, меньше панических распродаж\n— Цена ≈ Realized Price → баланс входов и выходов, потенциальная зона поддержки\n— Цена < Realized Price → держатели в убытке, усиление страха, возможные капитуляции\n\nАнализ на 01.01.2025:\n— Реализованная цена значительно ниже рыночной → большинство держателей в прибыли\n— Поддержка фундаментального тренда BTC\n\nПрогноз влияния:\nКраткосрочно: служит зоной поддержки, коррекции менее глубокие при цене выше Realized Price\nСреднесрочно: постепенный рост Realized Price отражает накопление и доверие участников\nДолгосрочно: рост вместе с рынком указывает на укрепление фундамента BTC и продолжение бычьего тренда",
+        "en": "Realized Price — the average price at which all existing BTC were last moved on-chain.\n\nFormula:\nRealized Price = Realized Market Cap / Circulating Supply\n\nInterpretation:\n— Price > Realized Price → most holders in profit, price support, less panic selling\n— Price ≈ Realized Price → balance of inflows/outflows, potential support zone\n— Price < Realized Price → holders at loss, increased fear, potential capitulation\n\nAnalysis as of Jan 1, 2025:\n— Realized Price significantly below market price → most holders in profit\n— Supports BTC fundamental trend\n\nImpact forecast:\nShort-term: acts as support zone, shallower corrections if price above Realized Price\nMedium-term: gradual growth of Realized Price reflects accumulation and participant confidence\nLong-term: growth alongside market indicates strengthening BTC fundamentals and continuation of bullish trend"
+      },
+      "extra": {
+        "ru": "Комментарий: Realized Price помогает оценить фундаментальные уровни поддержки и психологию держателей.",
+        "en": "Commentary: Realized Price helps assess fundamental support levels and holder psychology."
+      },
+      "image": "assets/ON Realized Price.png"
+    },
+    {
+      "title": {
+        "ru": "CDD (Coin Days Destroyed)",
+        "en": "CDD (Coin Days Destroyed)"
+      },
+      "text": {
+        "ru": "CDD измеряет движение BTC с учётом того, как долго монеты оставались неподвижными перед транзакцией.\n\nНа 01.01.2026: 60-дневное скользящее CDD резко выросло до максимумов за 6 лет, что указывает на активные перемещения старых монет.\n\nВлияние на цену:\n— Высокий CDD → долгосрочные держатели продают, возможна краткосрочная коррекция\n— Низкий CDD → удержание монет, поддержка стабильности и рост цены\n— Продолжительный рост CDD → повышенная волатильность и возможные развороты\n— Падение CDD после пиков → стабилизация тренда\n\nПрогноз:\nКраткосрочно: возможны колебания цены из-за перемещения старых монет\nСреднесрочно: длительный рост CDD → боковик или коррекция, снижение → возобновление бычьего тренда\nДолгосрочно: низкий CDD → накопление, поддержка стабильного роста BTC",
+        "en": "CDD measures BTC movement considering how long coins were dormant before a transaction.\n\nAs of 01.01.2026: 60-day moving CDD sharply increased to 6-year highs, indicating active movement of old coins.\n\nImpact on price:\n— High CDD → long-term holders selling, potential short-term correction\n— Low CDD → holding coins, supporting stability and price growth\n— Prolonged CDD rise → higher volatility, possible reversals\n— CDD drop after peaks → trend stabilization\n\nForecast:\nShort-term: price fluctuations due to movement of old coins\nMedium-term: prolonged high CDD → sideways/consolidation, drop → bullish trend resumes\nLong-term: low CDD → accumulation, supporting stable BTC growth"
+      },
+      "extra": {
+        "ru": "Комментарий: CDD отражает активность долгосрочных держателей и может предсказывать точки коррекции или разворота.",
+        "en": "Commentary: CDD reflects long-term holder activity and can signal potential corrections or trend reversals."
+      },
+      "image": "assets/ON SSR.png"
     }
   ],
   "network": [
-   {
-  "title": {
-    "ru": "Hashrate, Hashrate Ribbons",
-    "en": "Hashrate, Hashrate Ribbons"
-  },
-  "text": {
-    "ru": "Анализ Hashrate и Hashrate Ribbons на сегодня (25 декабря 2025 года)\nHashrate — это общая вычислительная мощность сети Биткоин, измеряемая в экзахешах в секунду (EH/s). Это индикатор безопасности сети (высокий hashrate = трудно атаковать) и уверенности майнеров (рост = ожидания прибыли от майнинга). На сегодня hashrate ~1,094–1,171 EH/s, что на 4% ниже пика декабря (~1,239 EH/s на 30 ноября). Снижение в декабре (–1% м/м) указывает на капитуляцию майнеров (miner capitulation) — слабые майнеры выходят, доходность падает (mining cost ~$101K/BTC, цена $88K).\nHashrate Ribbons — индикатор: 30-дневная и 60-дневная скользящие средние hashrate. Buy signal — 30d MA пересекает 60d MA снизу вверх. На сегодня ribbons в buy signal фазе (5-й раз в 2025), но сжатие указывает на возможный reversal.\nОбщий анализ: высокий hashrate = сеть стабильна, снижение 4% = капитуляция, Ribbons buy = бычий дивергенс.\nСреднесрочный прогноз (1–3 месяца): hashrate стабилизируется ~1,100 EH/s, ribbons остаются bullish → рост BTC $90K–$95K (60%). Риск >10% снижения = коррекция $80K–$85K (40%). В 2026 ожидается рост hashrate +20–30%, ribbons buy → $100K+.\nВлияние на рынки: высокий hashrate = стабильность крипто-сектора, снижение = волатильность. Ribbons buy = булл для альткоинов.\nНа трейдинг: crossover = buy signal, reversal = sell. Комбинируйте с NVT Ratio. На TradingView индикатор \"Hashrate Ribbons\" — buy on blue/red crossover.\nНа цену BTC: корреляция ~0.6–0.7. Спад hashrate = медведь (–1–5%), Ribbons buy = булл (+2–5%), потенциал роста к $90K, но сжатие = риск –5–10% ($80K–$85K).",
-    "en": "Hashrate and Hashrate Ribbons analysis as of Dec 25, 2025.\nHashrate — total computational power of the Bitcoin network, measured in exahashes per second (EH/s). It indicates network security (high hashrate = hard to attack) and miner confidence (growth = expected mining profits). Current hashrate ~1,094–1,171 EH/s, 4% below December peak (~1,239 EH/s on Nov 30). December decline (–1% MoM) signals miner capitulation — weak miners exit, profitability drops (mining cost ~$101K/BTC, price $88K).\nHashrate Ribbons — indicator using 30-day and 60-day moving averages. Buy signal occurs when 30d MA crosses 60d MA upwards. Currently in buy phase (5th in 2025), but compression indicates potential reversal.\nSummary: high hashrate = stable network, 4% decline = capitulation, Ribbons buy = bullish divergence.\nMedium-term forecast (1–3 months): hashrate stabilizes ~1,100 EH/s, ribbons remain bullish → BTC $90K–$95K (60%). Risk of >10% drop = correction $80K–$85K (40%). In 2026, expected hashrate growth +20–30%, ribbons buy → $100K+.\nMarket impact: high hashrate = crypto sector stability, decline = volatility. Ribbons buy = bullish for altcoins.\nTrading: crossover = buy signal, reversal = sell. Combine with NVT Ratio. TradingView indicator \"Hashrate Ribbons\" — buy on blue/red crossover.\nBTC price: correlation ~0.6–0.7. Hashrate decline = bearish (–1–5%), Ribbons buy = bullish (+2–5%), growth potential to $90K, compression = risk –5–10% ($80K–$85K)."
-  },
-  "extra": {
-    "ru": "Комментарий: текущая фаза Hashrate Ribbons указывает на потенциал бычьего разворота при капитуляции майнеров.",
-    "en": "Commentary: current Hashrate Ribbons phase indicates potential bullish reversal amid miner capitulation."
-  },
-  "image": "assets/NT Hash R.png" 
+    {
+      "title": {
+        "ru": "Hashrate, Hashrate Ribbons",
+        "en": "Hashrate, Hashrate Ribbons"
+      },
+      "text": {
+        "ru": "Анализ Hashrate и Hashrate Ribbons на сегодня (25 декабря 2025 года)\nHashrate — это общая вычислительная мощность сети Биткоин, измеряемая в экзахешах в секунду (EH/s). Это индикатор безопасности сети (высокий hashrate = трудно атаковать) и уверенности майнеров (рост = ожидания прибыли от майнинга). На сегодня hashrate ~1,094–1,171 EH/s, что на 4% ниже пика декабря (~1,239 EH/s на 30 ноября). Снижение в декабре (–1% м/м) указывает на капитуляцию майнеров (miner capitulation) — слабые майнеры выходят, доходность падает (mining cost ~$101K/BTC, цена $88K).\nHashrate Ribbons — индикатор: 30-дневная и 60-дневная скользящие средние hashrate. Buy signal — 30d MA пересекает 60d MA снизу вверх. На сегодня ribbons в buy signal фазе (5-й раз в 2025), но сжатие указывает на возможный reversal.\nОбщий анализ: высокий hashrate = сеть стабильна, снижение 4% = капитуляция, Ribbons buy = бычий дивергенс.\nСреднесрочный прогноз (1–3 месяца): hashrate стабилизируется ~1,100 EH/s, ribbons остаются bullish → рост BTC $90K–$95K (60%). Риск >10% снижения = коррекция $80K–$85K (40%). В 2026 ожидается рост hashrate +20–30%, ribbons buy → $100K+.\nВлияние на рынки: высокий hashrate = стабильность крипто-сектора, снижение = волатильность. Ribbons buy = булл для альткоинов.\nНа трейдинг: crossover = buy signal, reversal = sell. Комбинируйте с NVT Ratio. На TradingView индикатор \"Hashrate Ribbons\" — buy on blue/red crossover.\nНа цену BTC: корреляция ~0.6–0.7. Спад hashrate = медведь (–1–5%), Ribbons buy = булл (+2–5%), потенциал роста к $90K, но сжатие = риск –5–10% ($80K–$85K).",
+        "en": "Hashrate and Hashrate Ribbons analysis as of Dec 25, 2025.\nHashrate — total computational power of the Bitcoin network, measured in exahashes per second (EH/s). It indicates network security (high hashrate = hard to attack) and miner confidence (growth = expected mining profits). Current hashrate ~1,094–1,171 EH/s, 4% below December peak (~1,239 EH/s on Nov 30). December decline (–1% MoM) signals miner capitulation — weak miners exit, profitability drops (mining cost ~$101K/BTC, price $88K).\nHashrate Ribbons — indicator using 30-day and 60-day moving averages. Buy signal occurs when 30d MA crosses 60d MA upwards. Currently in buy phase (5th in 2025), but compression indicates potential reversal.\nSummary: high hashrate = stable network, 4% decline = capitulation, Ribbons buy = bullish divergence.\nMedium-term forecast (1–3 months): hashrate stabilizes ~1,100 EH/s, ribbons remain bullish → BTC $90K–$95K (60%). Risk of >10% drop = correction $80K–$85K (40%). In 2026, expected hashrate growth +20–30%, ribbons buy → $100K+.\nMarket impact: high hashrate = crypto sector stability, decline = volatility. Ribbons buy = bullish for altcoins.\nTrading: crossover = buy signal, reversal = sell. Combine with NVT Ratio. TradingView indicator \"Hashrate Ribbons\" — buy on blue/red crossover.\nBTC price: correlation ~0.6–0.7. Hashrate decline = bearish (–1–5%), Ribbons buy = bullish (+2–5%), growth potential to $90K, compression = risk –5–10% ($80K–$85K)."
+      },
+      "extra": {
+        "ru": "Комментарий: текущая фаза Hashrate Ribbons указывает на потенциал бычьего разворота при капитуляции майнеров.",
+        "en": "Commentary: current Hashrate Ribbons phase indicates potential bullish reversal amid miner capitulation."
+      },
+      "image": "assets/NT Hash R.png"
     },
     {
-  "title": {
-    "ru": "Mempool Size",
-    "en": "Mempool Size"
-  },
-  "text": {
-    "ru": "Mempool (memory pool) — очередь всех неподтверждённых BTC-транзакций, ожидающих включения в блок майнерами. Каждый узел хранит свой mempool и обновляет его по мере распространения транзакций. Размер mempool показывает загрузку сети. Резкий рост → высокая активность, рост комиссий, задержки подтверждений. Прямое влияние на цену минимально, но рост mempool обычно совпадает с повышенной волатильностью BTC.\nНа 01.01.2026: mempool умеренно низкий (~1–2 МБ, ~2 000+ транзакций), сеть быстро подтверждает транзакции, низкие комиссии. Среднесрочно: длительный рост → повышенная активность, возможный рост цен. Долгосрочно: высокий mempool → устойчивое использование сети, потенциально положительное влияние на цену BTC.",
-    "en": "Mempool (memory pool) — queue of all unconfirmed BTC transactions waiting to be included in a block by miners. Each node maintains its mempool and updates it as transactions propagate. Mempool size indicates network load. Sharp increase → high activity, higher fees, slower confirmations. Direct impact on BTC price is minimal, but mempool growth often coincides with higher volatility.\nAs of Jan 1, 2026: mempool moderately low (~1–2 MB, ~2,000+ transactions), network confirms quickly, low fees. Medium-term: prolonged growth → increased activity, potential price increase. Long-term: high mempool → sustained network usage, potentially positive BTC price impact."
-  },
-  "extra": {
-    "ru": "Комментарий: Mempool отражает сетевую активность и косвенно указывает на потенциальную волатильность и интерес к BTC.",
-    "en": "Commentary: Mempool reflects network activity and indirectly signals potential volatility and BTC demand."
-  },
-  "image": "assets/NT Mempool.png"
+      "title": {
+        "ru": "Mempool Size",
+        "en": "Mempool Size"
+      },
+      "text": {
+        "ru": "Mempool (memory pool) — очередь всех неподтверждённых BTC-транзакций, ожидающих включения в блок майнерами. Каждый узел хранит свой mempool и обновляет его по мере распространения транзакций. Размер mempool показывает загрузку сети. Резкий рост → высокая активность, рост комиссий, задержки подтверждений. Прямое влияние на цену минимально, но рост mempool обычно совпадает с повышенной волатильностью BTC.\nНа 01.01.2026: mempool умеренно низкий (~1–2 МБ, ~2 000+ транзакций), сеть быстро подтверждает транзакции, низкие комиссии. Среднесрочно: длительный рост → повышенная активность, возможный рост цен. Долгосрочно: высокий mempool → устойчивое использование сети, потенциально положительное влияние на цену BTC.",
+        "en": "Mempool (memory pool) — queue of all unconfirmed BTC transactions waiting to be included in a block by miners. Each node maintains its mempool and updates it as transactions propagate. Mempool size indicates network load. Sharp increase → high activity, higher fees, slower confirmations. Direct impact on BTC price is minimal, but mempool growth often coincides with higher volatility.\nAs of Jan 1, 2026: mempool moderately low (~1–2 MB, ~2,000+ transactions), network confirms quickly, low fees. Medium-term: prolonged growth → increased activity, potential price increase. Long-term: high mempool → sustained network usage, potentially positive BTC price impact."
+      },
+      "extra": {
+        "ru": "Комментарий: Mempool отражает сетевую активность и косвенно указывает на потенциальную волатильность и интерес к BTC.",
+        "en": "Commentary: Mempool reflects network activity and indirectly signals potential volatility and BTC demand."
+      },
+      "image": "assets/NT Mempool.png"
     },
     {
-  "title": {
-    "ru": "Difficulty",
-    "en": "Difficulty"
-  },
-  "text": {
-    "ru": "Difficulty — показатель сложности майнинга Bitcoin, определяющий, как трудно найти правильный хеш для нового блока. Автоматически регулируется каждые ~2 недели для поддержания времени блока ~10 минут. Рост хешрейта → сложность повышается, падение → снижается. Difficulty не напрямую влияет на цену, но отражает активность майнеров и здоровье сети.\nНа 02.01.2026: сложность ~148.26 трлн, ожидается небольшой пересчёт (~0.99%) из-за замедления блока. Рост difficulty коррелирует с ростом хешрейта и институциональной активности. Краткосрочно: падение difficulty может вызвать волатильность. Среднесрочно: рост difficulty подтверждает рыночные движения. Долгосрочно: высокая сложность = безопасная сеть → укрепляет фундаментальные ожидания BTC.",
-    "en": "Difficulty — Bitcoin mining difficulty, indicating how hard it is to find the correct hash for a new block. Automatically adjusts ~every 2 weeks to maintain ~10 min block time. Rising hashrate → difficulty increases, falling → decreases. Difficulty does not directly affect price but reflects miner activity and network health.\nAs of Jan 2, 2026: difficulty ~148.26T, slight adjustment (~0.99%) expected due to slower block times. Difficulty growth correlates with hashrate and institutional activity. Short-term: difficulty drop may trigger volatility. Medium-term: growth confirms market moves. Long-term: high difficulty = secure network → reinforces BTC fundamental expectations."
-  },
-  "extra": {
-    "ru": "Комментарий: Difficulty — важный индикатор здоровья сети, косвенно подтверждающий устойчивость и доверие участников.",
-    "en": "Commentary: Difficulty is a key network health indicator, indirectly confirming stability and participant confidence."
-  },
-  "image": "assets/NT Difficulty.png"
+      "title": {
+        "ru": "Difficulty",
+        "en": "Difficulty"
+      },
+      "text": {
+        "ru": "Difficulty — показатель сложности майнинга Bitcoin, определяющий, как трудно найти правильный хеш для нового блока. Автоматически регулируется каждые ~2 недели для поддержания времени блока ~10 минут. Рост хешрейта → сложность повышается, падение → снижается. Difficulty не напрямую влияет на цену, но отражает активность майнеров и здоровье сети.\nНа 02.01.2026: сложность ~148.26 трлн, ожидается небольшой пересчёт (~0.99%) из-за замедления блока. Рост difficulty коррелирует с ростом хешрейта и институциональной активности. Краткосрочно: падение difficulty может вызвать волатильность. Среднесрочно: рост difficulty подтверждает рыночные движения. Долгосрочно: высокая сложность = безопасная сеть → укрепляет фундаментальные ожидания BTC.",
+        "en": "Difficulty — Bitcoin mining difficulty, indicating how hard it is to find the correct hash for a new block. Automatically adjusts ~every 2 weeks to maintain ~10 min block time. Rising hashrate → difficulty increases, falling → decreases. Difficulty does not directly affect price but reflects miner activity and network health.\nAs of Jan 2, 2026: difficulty ~148.26T, slight adjustment (~0.99%) expected due to slower block times. Difficulty growth correlates with hashrate and institutional activity. Short-term: difficulty drop may trigger volatility. Medium-term: growth confirms market moves. Long-term: high difficulty = secure network → reinforces BTC fundamental expectations."
+      },
+      "extra": {
+        "ru": "Комментарий: Difficulty — важный индикатор здоровья сети, косвенно подтверждающий устойчивость и доверие участников.",
+        "en": "Commentary: Difficulty is a key network health indicator, indirectly confirming stability and participant confidence."
+      },
+      "image": "assets/NT Difficulty.png"
     }
   ]
 }
