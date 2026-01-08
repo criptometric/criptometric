@@ -287,13 +287,11 @@ async loadData() {
     d.className = 'card';
     d.dataset.col = col;
     d.dataset.index = i;
-    d.innerHTML = `
-      <div class="card-title">${card.title?.[LANG] || card.title?.ru || ''}
-      </div>
-      ${card.image ? `<div class="thumb"><img src="${card.image}"></div>` : ''}
-      <div class="card-text">${card.text?.[LANG] || card.text?.ru || ''}
-      </div>
-    `;
+   d.innerHTML = `
+  <div class="card-title">${card.title.ru}</div>
+  ${card.image ? `<div class="thumb"><img src="${card.image}"></div>` : ''}
+  <div class="card-text">${card.text.ru}</div>
+`; 
     return d;
   }
 
