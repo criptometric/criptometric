@@ -233,7 +233,14 @@ const viewExtra = document.getElementById('viewExtra');
 
 class CryptoDashboard {
   constructor() {
-    this.data = {research: [],
+    this.data = {research: [
+      {
+        title: { ru: "Тестовая карточка", en: "Test Card" },
+        text: { ru: "Карточка должна отображаться", en: "Card should be visible" },
+        extra: { ru: "Комментарий", en: "Commentary" },
+        image: "assets/NT Hash R.png"
+      }
+    ],
   global: [], recession: [], market: [], onchain: [], network: []};
     this.columnsDef = [
       { id: 'research', title: 'Research' },
