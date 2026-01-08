@@ -252,26 +252,22 @@ class CryptoDashboard {
     this.bindEvents();
   }
 
-async loadData() {
+ async loadData() {
   try {
     const res = await fetch('data.json');
     if (!res.ok) throw new Error('HTTP error');
+
     const json = await res.json();
 
-    console.log('JSON loaded:', json); // 👈 ВОТ ЭТА СТРОКА
+    for (const key of Object.keys(this.data)) {
+      this.data[key] = Array.isArray(json[key]) ? json[key] : [];
+    }
 
-    Object.keys(this.data).forEach(key => {
-      if (Array.isArray(json[key])) {
-        this.data[key] = json[key];
-      }
-    });
-
-  } catch (e) {
-    console.warn('⚠️ data.json not loaded, using local fallback');
+  } catch {
+    console.warn('⚠️ data.json not loaded, using empty data');
   }
 }
-  
-
+ 
   render() {
     const root = document.getElementById('columns');
     root.innerHTML = '';
