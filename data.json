@@ -429,8 +429,8 @@
         "en": "Funding rates show the imbalance between longs and shorts on BTC futures and reflect trader sentiment."
       },
       "image": "assets/MM FandRate.png"
-    }
-    {
+    },
+   { 
   "title": {
     "en": "Bitcoin ETF AUM Balances",
     "ru": "Bitcoin ETF AUM Balances",
