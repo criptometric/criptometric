@@ -252,6 +252,7 @@ header {
   <div class="lang-switch">
     <button id="langRu">EN</button>
     <button id="langEn">RU</button>
+    <button id="langSi">SI</button>
   </div>
 </header>
 
@@ -275,7 +276,8 @@ header {
 </div>
 
 <script type="module">
-let LANG = localStorage.getItem('lang') || 'ru';
+const LANGS = ['en', 'ru', 'si']; 
+let LANG = localStorage.getItem('lang') || 'en';
 const viewModal = document.getElementById('viewModal');
 const viewImg   = document.getElementById('viewImg');
 const viewTitle = document.getElementById('viewTitle');
@@ -350,13 +352,18 @@ class CryptoDashboard {
     return d;
   }
 
- bindEvents() {
-  const btnRu = document.getElementById('langRu');
-  const btnEn = document.getElementById('langEn');
+  
+bindEvents() {
+  const buttons = {
+    en: document.getElementById('langEn'),
+    ru: document.getElementById('langRu'),
+    si: document.getElementById('langSi')
+  };
 
   const updateLangUI = () => {
-    btnRu.classList.toggle('active', LANG === 'ru');
-    btnEn.classList.toggle('active', LANG === 'en');
+    Object.entries(buttons).forEach(([code, btn]) => {
+      btn.classList.toggle('active', LANG === code);
+    });
   };
 
   document.addEventListener('click', e => {
@@ -366,23 +373,18 @@ class CryptoDashboard {
     if (e.target === viewModal) this.close();
   });
 
-  btnRu.onclick = () => {
-    LANG = 'ru';
-    localStorage.setItem('lang', 'ru');
-    updateLangUI();
-    this.render();
-  };
+  Object.entries(buttons).forEach(([code, btn]) => {
+    btn.onclick = () => {
+      LANG = code;
+      localStorage.setItem('lang', code);
+      updateLangUI();
+      this.render();
+    };
+  });
 
-  btnEn.onclick = () => {
-    LANG = 'en';
-    localStorage.setItem('lang', 'en');
-    updateLangUI();
-    this.render();
-  };
-
-  updateLangUI(); // 👈 при загрузке страницы
+  updateLangUI();
 }
-
+ 
   open(col, i) {
     const c = this.data[col][i];
     viewImg.src = c.image || '';
