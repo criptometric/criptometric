@@ -155,7 +155,7 @@
     "title": {
     "en": "NBER based Recession Indicators",
     "ru": "NBER based Recession Indicators",
-    "si": "NBER based Recession Indicators",
+    "si": "NBER based Recession Indicators"
   },
   "text": {
     "en": "NBER based Recession Indicators for the United States\nBusiness Cycle Dating NBER is the process by which the National Bureau of Economic Research (NBER) committee determines dates of peaks (end of expansion, start of recession) and troughs (end of recession, start of expansion) in the economic cycle. The committee of 8 economists analyzes a complex of indicators (GDP, income, employment, production, sales), not just two quarters of negative GDP (this is a simplified myth). Dates are announced retrospectively (6–18 month delay) for accuracy.",
