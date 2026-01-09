@@ -152,19 +152,22 @@
   "image": "assets/R Business Cycle Dating NBER.png"
     },
     {
-      "title": {
-        "ru": "NBER based Recession Indicators",
-        "en": "NBER-Based Recession Indicators"
-      },
-      "text": {
-        "ru": "Business Cycle Dating NBER — это процесс, при котором комитет Национального бюро экономических исследований США (NBER) определяет даты пиков и дна экономического цикла...",
-        "en": "NBER-based recession indicators rely on the official business cycle dating methodology of the National Bureau of Economic Research. The NBER committee evaluates a broad set of economic indicators including GDP, employment, income, industrial production, and sales, rather than relying solely on the simplified rule of two consecutive quarters of negative GDP growth.\n\nRecession dates are announced retroactively with a delay of 6–18 months to ensure accuracy. As of late 2025, the U.S. economy remains in expansion, with no official recession declared by NBER."
-      },
-      "extra": {
-        "ru": "АНАЛИЗ на 25.12.2025 года...",
-        "en": "Analysis as of December 25, 2025. The current expansion has continued since May 2020, reaching approximately 68 months. Unemployment has risen modestly but remains far below historical recessionary levels, suggesting a soft landing scenario rather than an imminent downturn."
-      },
-      "image": "assets/Rec NBER.png"
+    "title": {
+    "en": "NBER based Recession Indicators",
+    "ru": "NBER based Recession Indicators",
+    "si": "NBER kazalniki recesije"
+  },
+  "text": {
+    "en": "NBER based Recession Indicators for the United States\nBusiness Cycle Dating NBER is the process by which the National Bureau of Economic Research (NBER) committee determines dates of peaks (end of expansion, start of recession) and troughs (end of recession, start of expansion) in the economic cycle. The committee of 8 economists analyzes a complex of indicators (GDP, income, employment, production, sales), not just two quarters of negative GDP (this is a simplified myth). Dates are announced retrospectively (6–18 month delay) for accuracy.",
+    "ru": "NBER based Recession Indicators for the United States\nBusiness Cycle Dating NBER — это процесс, при котором комитет Национального бюро экономических исследований США (NBER) определяет даты пиков (peaks — конец экспансии, начало рецессии) и дна (troughs — конец рецессии, начало экспансии) в экономическом цикле. Комитет из 8 экономистов анализирует комплекс индикаторов (ВВП, доходы, занятость, производство, продажи), а не только два квартала негативного ВВП (это упрощённый миф). Даты объявляются ретроспективно (задержка 6–18 месяцев) для точности.",
+    "si": "NBER kazalniki recesije za ZDA\nBusiness Cycle Dating NBER je postopek, s katerim Nacionalni urad za ekonomska raziskovanja ZDA (NBER) določa datume vrhov (peaks — konec ekspanzije, začetek recesije) in dnov (troughs — konec recesije, začetek ekspanzije) v ekonomskem ciklu. Odbor iz 8 ekonomistov analizira sklop kazalnikov (BDP, dohodki, zaposlenost, proizvodnja, prodaja), ne le dva četrtletja negativnega BDP (to je poenostavljena mit). Datumi se objavijo retrospektivno (zamik 6–18 mesecev) za natančnost."
+  },
+  "extra": {
+    "en": "ANALYSIS as of 25.12.2025. Current cycle — expansion since May 2020 (~68 months, record duration).\nAs of today, NBER has not declared a new recession. Unemployment chart since 1980 (from your NBER website screenshot) shows: unemployment historically rises during recessions (shaded areas, peaks 10–14%), falls in expansions. Current level ~4.3% (November 2025) — low, no shaded recession after 2020. Unemployment rise from 3.8% (2023) to 4.3% (2025) — warning sign, but below recession peaks (e.g., 14.8% in 2020). This indicates \"soft landing\", but risks from slowdown (NFP +119K, production –0.1%).\nForecast for 2026–2027\nShort-term (Q1–Q2 2026): New recession probability 35–50% (Goldman Sachs/Fed models). NBER may declare peak in Q1 2026 if unemployment >4.5–4.7% and GDP <1.7%.\nMedium-term: If recession, mild (2–3 quarters, -1–2% GDP), NBER dating in H2 2026–Q1 2027. Expansion may extend to 72–80 months if Fed continues cuts (65% probability in January).\nLong-term: Stabilization in 2027, new expansion with unemployment ~4%. Risks: Trump tariffs = unemployment +1 p.p.",
+    "ru": "АНАЛИЗ на 25.12.2025 года.    Текущий цикл — экспансия с мая 2020 года (~68 месяцев, рекордная длительность).\nНа сегодня NBER не объявил новой рецессии. График безработицы с 1980 года (из вашего скриншота с сайта NBER) показывает: безработица исторически растёт во время рецессий (заштрихованные области, пики 10–14%), падает в экспансиях. Текущий уровень ~4.3% (ноябрь 2025) — низкий, без заштрихованной рецессии после 2020. Рост безработицы с 3.8% (2023) до 4.3% (2025) — предупреждение, но ниже пиков рецессий (например, 14.8% в 2020). Это указывает на \"мягкую посадку\", но риски от замедления (NFP +119K, производство –0.1%).\nПрогноз на 2026–2027\nКраткосрочный (Q1–Q2 2026): Вероятность новой рецессии 35–50% (модели Goldman Sachs/Fed). NBER может объявить пик в Q1 2026, если безработица >4.5–4.7% и ВВП <1.7%.\nСреднесрочный: Если рецессия, мягкая (2–3 квартала, -1–2% ВВП), датировка NBER в H2 2026–Q1 2027. Экспансия может продлиться до 72–80 месяцев, если ФРС продолжит cuts (вероятность 65% в январе).\nДолгосрочный: Стабилизация в 2027, новая экспансия с безработицей ~4%. Риски: Тарифы Трампа = рост безработицы +1 п.п.",
+    "si": "ANALIZA na 25.12.2025. Trenutni cikel — ekspanzija od maja 2020 (~68 mesecev, rekordna dolžina).\nDanes NBER ni razglasil nove recesije. Graf brezposelnosti od 1980 (iz vašega posnetka NBER spletne strani) kaže: brezposelnost zgodovinsko narašča med recesijami (senčena območja, vrhovi 10–14 %), pada v ekspanzijah. Trenutna raven ~4,3 % (november 2025) — nizka, brez senčenega območja recesije po 2020. Rast brezposelnosti z 3,8 % (2023) na 4,3 % (2025) — opozorilni znak, a pod vrhovi recesij (npr. 14,8 % v 2020). To kaže na „mehko pristajanje“, a tveganja od upočasnitve (NFP +119 tisoč, proizvodnja –0,1 %).\nNapoved za 2026–2027\nKratkoročno (Q1–Q2 2026): Verjetnost nove recesije 35–50 % (modeli Goldman Sachs/Fed). NBER lahko razglasi vrh v Q1 2026, če brezposelnost >4,5–4,7 % in BDP <1,7 %.\nSrednjeročno: Če recesija, blaga (2–3 četrtletja, -1–2 % BDP), datacija NBER v H2 2026–Q1 2027. Ekspanzija se lahko raztegne na 72–80 mesecev, če Fed nadaljuje znižanja (verjetnost 65 % januarja).\nDolgooročno: Stabilizacija 2027, nova ekspanzija z brezposelnostjo ~4 %. Tveganja: Carine Trumpa = rast brezposelnosti +1 p.p."
+  },
+  "image": "assets/Rec NBER.png"
     },
     {
       "title": {
