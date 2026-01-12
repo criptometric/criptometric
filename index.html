@@ -1,375 +1,273 @@
-/* ========================================================================
-   DESIGN SYSTEM · CRYPTOMETRICS
-   ======================================================================== */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Metrics Dashboard</title>
 
-/* ------------------------------------------------------------------------
-   1. CORE TOKENS (Colors, Typography, Layout)
-   ------------------------------------------------------------------------ */
-
+<style>
 :root {
-  /* Backgrounds */
-  --bg-app: #050713;
-  --bg-panel: rgba(18, 22, 55, 0.85);
-  --bg-overlay: rgba(0, 0, 0, 0.85);
-
-  /* Text */
-  --text-primary: #f5f7ff;
-  --text-secondary: #9ca3c7;
-
-  /* Brand */
-  --brand-primary: #00d4ff;
-
-  /* System */
-  --border-default: rgba(255, 255, 255, 0.08);
+  --bg: #050713;
+  --panel: rgba(18,22,55,0.85);
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f7ff;
+  --text2: #9ca3c7;
+  --blue: #00d4ff;
   --error: #ef4444;
-
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 1rem;
-  --radius-full: 999px;
-
-  /* Motion */
-  --ease-ui: cubic-bezier(.2,.6,.2,1);
-  --t-fast: .18s;
-  --t-base: .25s;
 }
-
-/* ------------------------------------------------------------------------
-   2. STATE TOKENS (Hover / Active / Focus)
-   ------------------------------------------------------------------------ */
-
-:root {
-  /* Hover */
-  --state-hover-y: -2px;
-  --state-hover-border: rgba(0, 212, 255, 0.55);
-  --state-hover-glow-sm: rgba(0, 212, 255, 0.25);
-  --state-hover-glow-md: rgba(0, 212, 255, 0.4);
-
-  /* Active / Pressed */
-  --state-press-y: 3px;
-
-  /* Selected */
-  --state-selected-border: rgba(0, 212, 255, 0.9);
-  --state-selected-glow: rgba(0, 212, 255, 0.45);
-}
-
-/* ------------------------------------------------------------------------
-   3. RESET & BASE
-   ------------------------------------------------------------------------ */
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
-  background: var(--bg-app);
-  color: var(--text-primary);
+  background: var(--bg);
+  color: var(--text);
   font-family: Inter, system-ui, sans-serif;
 }
+img { max-width: 100%; display: block; }
 
-img {
-  max-width: 100%;
-  display: block;
+header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
 }
-
-/* ------------------------------------------------------------------------
-   4. APP HEADER
-   ------------------------------------------------------------------------ */
+.logo { font-weight: 700; color: var(--blue); }
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border-default);
 }
-
-.logo {
-  font-weight: 700;
-  color: var(--brand-primary);
-}
-
-/* ------------------------------------------------------------------------
-   5. LANGUAGE SWITCH (Component)
-   ------------------------------------------------------------------------ */
 
 .lang-switch {
   display: flex;
   gap: 6px;
 }
-
-.lang-switch button {
+  
+  .lang-switch button {
   width: 30px;
   height: 30px;
+  margin-left: 6px;
 
   background: transparent;
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
 
-  color: var(--text-secondary);
+  color: var(--text2);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.05em;
 
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
-
   transition:
-    transform var(--t-fast) var(--ease-ui),
-    border-color var(--t-base) var(--ease-ui),
-    box-shadow var(--t-base) var(--ease-ui),
-    color var(--t-fast) var(--ease-ui);
+    box-shadow .22s ease,
+    border-color .22s ease,
+    transform .18s ease,
+    color .18s ease;
 }
 
-/* Hover */
-.lang-switch button:hover {
-  transform: translateY(var(--state-hover-y));
-  border-color: var(--state-hover-border);
-  color: var(--text-primary);
-
-  box-shadow:
-    0 0 0 1px rgba(0, 212, 255, 0.35),
-    0 0 14px var(--state-hover-glow-sm);
-}
-
-/* Pressed */
-.lang-switch button:active {
-  transform: translateY(var(--state-press-y));
-}
-
-/* Selected */
+/* активная кнопка */
 .lang-switch button.active {
   transform: translateY(1px);
-  color: #fff;
-  border-color: var(--state-selected-border);
+  border-color: rgba(0,212,255,0.9);
+  color: #ffffff;
 
   box-shadow:
-    0 0 0 1px rgba(0, 212, 255, 0.7),
-    0 0 18px var(--state-selected-glow),
-    inset 0 0 6px rgba(0, 212, 255, 0.25);
+    0 0 0 1px rgba(0,212,255,0.7),
+    0 0 18px rgba(0,212,255,0.45),
+    inset 0 0 6px rgba(0,212,255,0.25);
 }
-
-/* ------------------------------------------------------------------------
-   6. BOARD LAYOUT
-   ------------------------------------------------------------------------ */
-
+  
+  .lang-switch button:active {
+  transform: translateY(3px);
+}
+  /* hover — как у карточек, БЕЗ смены цвета */
+.lang-switch button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,212,255,0.55);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.35),
+    0 0 14px rgba(0,212,255,0.25);
+  color: var(--text);
+}
 .columns {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px;
   padding: 10px;
 }
-
-/* ------------------------------------------------------------------------
-   7. COLUMN (Navigation Surface)
-   ------------------------------------------------------------------------ */
-
 .column {
-  background: var(--bg-panel);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  
   display: flex;
   flex-direction: column;
   height: calc(100vh - 70px);
 
   transition:
-    transform var(--t-base) var(--ease-ui),
-    box-shadow var(--t-base) var(--ease-ui),
-    border-color var(--t-base) var(--ease-ui);
+  transform .25s ease,
+  box-shadow .25s ease,
+  border-color .25s ease;
 }
-
-/* Hover */
-.column:hover {
+ 
+  .column:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 212, 255, 0.6);
-
+  border-color: rgba(0,212,255,0.6);
   box-shadow:
-    0 0 0 1px var(--state-hover-glow-md),
-    0 0 20px var(--state-hover-glow-sm),
-    0 12px 30px rgba(0, 0, 0, 0.6);
+    0 0 0 1px rgba(0,212,255,0.4),
+    0 0 20px rgba(0,212,255,0.25),
+    0 12px 30px rgba(0,0,0,0.6);
 }
-
-/* Disable column hover when card is hovered */
+  
+/* 🔥 КЛЮЧЕВОЕ: когда курсор над карточкой —
+   колонка НЕ реагирует */
 .column:has(.card:hover) {
   transform: none;
-  border-color: var(--border-default);
+  border-color: var(--border);
   box-shadow: none;
 }
-
-/* ------------------------------------------------------------------------
-   8. COLUMN HEADER
-   ------------------------------------------------------------------------ */
+  /* subtle highlight Paralax заголовка */
+.column:hover .col-title {
+  color: var(--blue);
+  text-shadow:
+    0 0 22px rgba(0,212,255,0.35);
+}
 
 .col-title {
   padding: 10px;
-
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: .1em;
   text-transform: uppercase;
-
-  color: var(--brand-primary);
-  border-bottom: 1px solid var(--border-default);
+  letter-spacing: .1em;
+  color: var(--blue);
+  border-bottom: 1px solid var(--border);
 }
-
-/* Subtle highlight */
-.column:hover .col-title {
-  text-shadow: 0 0 22px rgba(0, 212, 255, 0.35);
-}
-
-/* ------------------------------------------------------------------------
-   9. COLUMN BODY
-   ------------------------------------------------------------------------ */
-
 .col-body {
   padding: 10px;
   overflow-y: auto;
   scrollbar-width: none;
 }
-
-.col-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* ------------------------------------------------------------------------
-   10. CARD (Content Unit)
-   ------------------------------------------------------------------------ */
+.col-body::-webkit-scrollbar { display: none; }
 
 .card {
-  background: linear-gradient(
-    135deg,
-    rgba(20, 25, 60, 0.75),
-    rgba(10, 15, 40, 0.75)
-  );
-
-  border: 1px solid var(--border-default);
+  background: linear-gradient(135deg, rgba(20,25,60,0.75), rgba(10,15,40,0.75));
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 1.2rem;
-
   padding: .9rem;
   margin-bottom: .6rem;
-
   cursor: pointer;
-
-  transition:
-    transform var(--t-base) var(--ease-ui),
-    box-shadow var(--t-base) var(--ease-ui),
-    border-color var(--t-base) var(--ease-ui);
+  transition: 
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
 }
-
-/* Hover */
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 212, 255, 0.6);
-
+  border-color: rgba(0,212,255,0.6);
   box-shadow:
-    0 0 0 1px var(--state-hover-glow-md),
-    0 0 20px var(--state-hover-glow-sm),
-    0 12px 30px rgba(0, 0, 0, 0.6);
-}
-
+    0 0 0 1px rgba(0,212,255,0.4),
+    0 0 20px rgba(0,212,255,0.25),
+    0 12px 30px rgba(0,0,0,0.6);
+} 
+  
 .card-title {
-  font-size: 0.75rem;
   font-weight: 600;
+  font-size: 0.75rem;
   margin-bottom: 4px;
 }
-
 .card-text {
   font-size: 0.75rem;
-  color: var(--text-secondary);
-
+  color: var(--text2);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.thumb img { border-radius:6px; margin-bottom:6px; }
 
-.thumb img {
-  border-radius: var(--radius-sm);
-  margin-bottom: 6px;
-}
-
-/* ------------------------------------------------------------------------
-   11. MODAL (Content Viewer)
-   ------------------------------------------------------------------------ */
-
+/* MODAL */
 .modal {
   position: fixed;
   inset: 0;
-
-  background: var(--bg-overlay);
+  background: rgba(0,0,0,0.85);
   display: none;
-
   align-items: center;
   justify-content: center;
 }
+.modal.active { display: flex; }
 
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  width: 96vw;
-  height: 96vh;
-  max-width: 1600px;
-
-  background: var(--bg-panel);
-  border-radius: var(--radius-lg);
-
+  .modal-content {
+  width: 96vw;      /* почти на всю ширину экрана */
+  height: 96vh;     /* почти на всю высоту экрана */
+  max-width: 1600px;/* ограничение для больших мониторов */
+  background: var(--panel);
+  border-radius: 1rem;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 2fr 1fr;
+} 
+  .modal-img {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+}
+  .modal-img-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
-
-/* Close button */
+ .modal-img-top img {
+  max-width: 100%;
+  max-height: calc(96vh - 120px);
+  object-fit: contain;
+}
+  .modal-img-bottom {
+  padding: 12px;
+  font-size: 0.85rem;
+  color: var(--text2);
+  overflow-y: auto;     /* ПРОКРУТКА */
+  min-height: 0;        /* критично для flex */
+  scrollbar-width: none;
+}
+  .modal-img-bottom::-webkit-scrollbar {
+  display: none;
+}
+  .modal-text {
+  padding: 20px;
+  height: 100%; 
+  overflow-y: auto;   /* прокрутка */
+  min-height: 0;      /* КРИТИЧНО */
+  scrollbar-width: none; 
+}
+.modal-text::-webkit-scrollbar {
+  display: none;
+}
+.modal-text {
+  scrollbar-width: none;
+} 
+  #viewText {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
 .modal-close {
   position: absolute;
   top: 8px;
   right: 8px;
-
-  width: 30px;
-  height: 30px;
-
-  background: transparent;
-  border: 1px solid var(--error);
-  border-radius: var(--radius-full);
-
-  color: var(--error);
-  cursor: pointer;
-
-  transition:
-    background var(--t-fast),
-    color var(--t-fast),
-    transform var(--t-fast);
-}
-
-.modal-close:hover {
   background: var(--error);
   color: #fff;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 50%;
 }
-
-/* ------------------------------------------------------------------------
-   12. RESPONSIVE
-   ------------------------------------------------------------------------ */
-
 @media (max-width: 768px) {
-  .columns {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-content {
-    grid-template-columns: 1fr;
-  }
+  .columns { grid-template-columns: 1fr; }
+  .modal-content { grid-template-columns: 1fr; }
 }
-
-
-  
 </style>
 </head>
 
