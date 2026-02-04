@@ -203,10 +203,6 @@
   "image": "assets/RC-LEI.png"
 },
  {
-      "title": {
-        "ru": "GDP-Based Recession Indicator Index",
-        "en": "GDP-Based Recession Indicator Index"
-      },
      "title": {
     "en": "GDP-Based Recession Indicator Index",
     "ru": "GDP-Based Recession Indicator Index",
