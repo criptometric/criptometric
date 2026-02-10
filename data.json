@@ -55,10 +55,9 @@
     "si": "TREASURY Assets: Securities Held Outright: U.S. Treasury Securities: All (WALCL) predstavlja tedensko raven ameriških državnih obveznic na bilanci Federal Reserve. Trenutno znaša približno 4,28 bilijona USD v državnih obveznicah, skupna vrednost vrednostnih papirjev pa okoli 6,30 bilijona USD. Podatki H.4.1 kažejo rahel tedenski porast obveznic, prvi po več tednih stabilnega krčenja.\n\nTo odraža premik v politiki Feda, z omejenimi nakupi kratkoročnih zakladnih menic za podporo likvidnosti, čeprav je bilo strukturno QT v preteklih četrtletjih prevladujoče.\n\nKratkoročna napoved (1–6 tednov)\n\nWALCL bo verjetno ostal povišan ali zmerno rasel, če bo Fed nadaljeval tehnične nakupe zakladnih menic za stabilizacijo denarnih trgov po volatilnosti na repo trgih.\n\nKratkoročno: gibanje v razponu z blagim pozitivnim nagibom.\n\nSrednjeročna napoved (2–6 mesecev)\n\nSrednjeročno: nevtralno do bikovsko s podporo tveganim sredstvom.\n\nDolgoročna napoved (6 mesecev – 1–3 leta)\n\nDolgoročno: temeljno pozitiven scenarij ob stabilni bilanci, vendar tveganja ponovnega zaostrovanja QT ostajajo."
   },
   "image": "assets/M2-WALCL.png"
-}
-
+},
     {
-      "title": {
+  "title": {
     "en": "USINTR (Fed Funds Rate)",
     "ru": "USINTR (Fed Funds Rate)",
     "si": "USINTR (Fed Funds Rate)"
