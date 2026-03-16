@@ -437,7 +437,7 @@
   "image": "assets/RC-ACWI.png"
 }
   ],
-  "market": [
+  "derivatives": [
     {
   "title": {
     "en": "Open Interest (OI), Price, Volume",
