@@ -416,16 +416,16 @@ bindEvents() {
   updateLangUI();
 }
  
-  /* open(col, i) {
+    open(col, i) {
     const c = this.data[col][i];
     viewImg.src = c.image || '';
     viewTitle.textContent = c.title?.[LANG] || c.title?.ru || '';
     viewText.textContent  = c.text?.[LANG]  || c.text?.ru  || '';
     viewExtra.textContent = c.extra?.[LANG] || c.extra?.ru || '';
     viewModal.classList.add('active');
-  } */
+  }
 
-  open(col, i) {
+ /* open(col, i) {
   const c = this.data[col][i];
 
   viewImg.src = c.image || '';
@@ -442,7 +442,8 @@ bindEvents() {
     ? links.map(url => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`).join('<br>')
     : '';
   viewModal.classList.add('active');
-}
+} */
+ 
   close() {
     viewModal.classList.remove('active');
   }
