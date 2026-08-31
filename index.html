@@ -91,12 +91,22 @@ header {
     0 0 14px rgba(0,212,255,0.25);
   color: var(--text);
 }
-.columns {
+/*.columns {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px;
   padding: 10px;
+}*/
+
+  .columns {
+  display: grid;
+  grid-template-columns: repeat(9, 320px);
+  gap: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
+  
 .column {
   background: var(--panel);
   border: 1px solid var(--border);
