@@ -292,7 +292,7 @@ header {
 <body>
 
 <header>
-  <div class="logo">GLOBALMETRIC.PRO EDUCATION RESEARCH</div>
+  <div class="logo">GLOBALMETRIC.PRO   EDUCATION RESEARCH</div>
   
   <div class="lang-switch">
     <button id="langEn">EN</button>
@@ -344,6 +344,7 @@ function linkifyText(text = '') {
 class CryptoDashboard {
   constructor() {
     this.data = {
+                 research: [],
                  global: [], 
                  credit: [], 
                  recession: [], 
@@ -351,10 +352,10 @@ class CryptoDashboard {
                  flows: [], 
                  onchain: [], 
                  network: [],
-                 research: []};
+                 sentiment: []};
     
     this.columnsDef = [
-     
+      { id: 'research', title: 'Research' },
       { id: 'global', title: 'Liquidity Metrics' },
       { id: 'credit', title: 'Credit Metrics' },
       { id: 'recession', title: 'Macro Cicle Metrics' },
@@ -362,9 +363,8 @@ class CryptoDashboard {
       { id: 'flows', title: 'Flows Metrics' },
       { id: 'onchain', title: 'Onchain Metrics' },
       { id: 'network', title: 'Network Metrics' },
-      { id: 'research', title: 'Sentiment, News' }
-      
-    ];
+      { id: 'sentiment', title: 'Sentiment, News' }
+      ];
     this.init();
   }
 
