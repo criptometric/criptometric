@@ -66,9 +66,9 @@
     "si": "SHORT! Ko cena BTC oblikuje vrh, nižji od prejšnjega (Lower High), medtem ko dominanca stabilnih kovancev (USDT.D) oblikuje dno, nižje od prejšnjega (Lower Low), na trgu poteka proces, ki je nevaren za bike.\n\nMehanika tega signala: kaj se dogaja v ozadju?\n\nIluzija moči stabilnih kovancev: Padec dominance stabilnih kovancev na nov minimum pomeni, da so vlagatelji na trg prinesli zelo veliko »gotovine«, medtem ko se je delež prostega kapitala zmanjšal.\n\nŠibkost Bitcoina: Kljub ogromnemu obsegu stabilnih kovancev, vnesenih na trg, cena Bitcoina ni imela dovolj moči niti za preseganje svojega prejšnjega lokalnega vrha.\n\nKam je šel denar? Celoten obseg stabilnih kovancev se je bodisi »razpršil« med altcoine, kar je znak skorajšnjega konca altsezone in zloma, bodisi so veliki udeleženci, oziroma pametni denar, ta pritok likvidnosti uporabili za unovčenje svojih pozicij ob naročilih malih kupcev.\n\nZaključek: Učinkovitost kupcev je izjemno nizka. Če ogromen pritok kapitala iz stabilnih kovancev ni mogel dvigniti cene BTC nad prejšnji vrh, bo cena takoj, ko se ta pritok izčrpa, strmo padla."
   },  
     "extra": {
-    "en": "",
-    "ru": "",
-    "si": ""
+    "en": "https://ru.tradingview.com/chart/xS4F8LSt/?symbol=CRYPTOCAP%3ASTABLE.C.D",
+    "ru": "https://ru.tradingview.com/chart/xS4F8LSt/?symbol=CRYPTOCAP%3ASTABLE.C.D",
+    "si": "https://ru.tradingview.com/chart/xS4F8LSt/?symbol=CRYPTOCAP%3ASTABLE.C.D"
    },
     "image": "assets/DIV-Dominance.png"
     },
@@ -90,9 +90,9 @@
     "si": "SHORT! Na grafu se je oblikovala klasična skrita medvedja divergenca (v borzni terminologiji jo pogosto imenujejo skrita konvergenca), ki je močan vodilni signal za nadaljevanje padca cene Bitcoina.\n\nKo cena BTC oblikuje maksimum nižje od prejšnjega (Lower High — znak šibkosti kupcev), medtem ko borzne rezerve oblikujejo minimum višje od prejšnjega (Higher Low — znak priliva kovancev na borze), se na trgu odvija za bike nevaren proces.\n\nMehanika tega signala: kaj se dogaja za kuliso?\n\nSkriti priliv prodajalcev: Rast minimumov vijolične črte rezerv pomeni, da se v odstotkovnem razmerju na borzah pojavlja več Bitcoinov. Veliki igralci (kiti in rudarji) so začeli tiho prenašati svoje kovance s hladnih denarnic na trgovalne platforme in jih pripravljati na prodajo.\n\nNemoč kupcev: Kljub temu, da se je cena Bitcoina lokalno poskušala dvigniti, tega šibkega vzpona ni bilo dovolj niti za to, da bi preprosto dosegla pretekle cenovne rekorde in posodobila prejšnji globalni vrh.\n\nPritisk limitnih naročil: Takoj ko se je cena Bitcoina nekoliko dvignila, je takoj naletela na te sveže pripeljane količine kovancev na borzah. Veliki kapital je uporabil lokalni odboj cene, da je razporedil svoje Bitcoine in jih unovčil ob naročilih malih kupcev.\n\nRezultat: Učinkovitost kupcev na trgu je izjemno nizka, pritisk prodajalcev pa tiho narašča. Ker je priliv novih kovancev na borze blokiral rast cene in oblikoval nižji maksimum (Lower High), bo takoj, ko bo lokalno povpraševanje kupcev usahnilo, cena Bitcoina kot kamen padla navzdol, da bi napadla nova lokalna dna. V takih trenutkih je odpiranje dolgih pozicij izjemno nevarno."
   },
     "extra": {
-    "en": "",
-    "ru": "",
-    "si": ""
+    "en": "https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-reserve?exchange=all_exchange&window=DAY&sma=0&ema=0&priceScale=log&metricScale=linear&chartStyle=line",
+    "ru": "https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-reserve?exchange=all_exchange&window=DAY&sma=0&ema=0&priceScale=log&metricScale=linear&chartStyle=line",
+    "si": "https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-reserve?exchange=all_exchange&window=DAY&sma=0&ema=0&priceScale=log&metricScale=linear&chartStyle=line"
    },
     "image": "assets/DIV-Exchange Reserve.png"
     },
@@ -108,9 +108,9 @@
     "si": "SHORT! Na priloženem makro grafu LookIntoBitcoin je zabeležena najmočnejša globalna medvedja divergenca med ceno Bitcoina (črna črta) in HODL valom starosti kovancev 5 let in več (oranžna črta), ki se je začela aktivno razvijati okoli 1. julija.\n\nČe natančno analizirate desni rob grafa v bližini navedenega datuma, trajektoriji obeh kazalnikov kažeta na kritično razhajanje trendov.\n\nČrna črta cene Bitcoina je v tem obdobju ujeta v konsolidacijo na svojih lokalnih maksimumih okoli 82.000 $. Kupci z zadnjimi močmi držijo ceno na vrhunskih vrednostih tega srednjeročnega impulza in na grafu ustvarjajo vizualno iluzijo stabilnosti in moči vzpona.\n\nHkrati je oranžna črta HODL vala 5Yr+, ki je do takrat neprekinjeno rasla že vrsto let, dosegla svoj zgodovinski vrh okoli 34 % in 1. julija naredila oster obrat navzdol ter začela strm padec.\n\nTemeljni pomen tega razhajanja je v začetku obsežne kapitulacije in razdelitve dobička s strani najstarejših vlagateljev. Kohorta »5+ let « so najbolj konservativni in neomajni udeleženci na trgu, tako imenovani »starodavni kiti «. Dejstvo, da je ta kazalnik 1. julija začel strmo padati, pomeni, da so denarnice, ki so spale več kot pet let, množično oživele in začele premikati svoje Bitcoine.\n\nStarodavni kapital uporablja cono lokalnih maksimumov okoli 82.000 $ kot idealno točko, da zaklene kolosalne dobičke ob evforiji malih kupcev in pritoku mejne likvidnosti. Ko se pet let stari kovanci začnejo premikati, se takoj spremenijo v aktivno tržno ponudbo na borzah.\n\nVpliv te divergence na ceno Bitcoina v srednjeročnem obdobju je izjemno negativen. Zgodovinsko je obrat HODL valov starejših starosti navzdol vedno napovedoval konec večjih vzponov in začetek dolgotrajnega padajočega trenda. Takoj ko bo povpraševanje malih kupcev usahnilo in ne bo več moglo absorbirati ogromnih prodajnih količin prebujenih starodavnih kitov, bo cena Bitcoina neizogibno začela globok padec. Ta vzorec opozarja, da je trenutni vrh oblikovan s profesionalnimi prodajami in da nakupi na teh ravneh nosijo največje tveganje."
   },      
   "extra": {
-    "en": "",
-    "ru": "",
-    "si": ""
+    "en": "https://www.lookintobitcoin.com/charts/5-year-hodl-wave/",
+    "ru": "https://www.lookintobitcoin.com/charts/5-year-hodl-wave/",
+    "si": "https://www.lookintobitcoin.com/charts/5-year-hodl-wave/"
    },
     "image": "assets/DIV-5+ Years HODL Wave.png"
     },
@@ -126,9 +126,9 @@
     "si": "SHORT! Ko cena Bitcoina oblikuje nižji maksimum, medtem ko metrika Coin Days Destroyed (CDD) kaže višji lokalni vrh, to daje jasen signal o skritem pritisku prodajalcev. Namesto pasivnega držanja pozicij so dolgoročni veliki igralci izkoristili septembrski lokalni odboj cene za realizacijo dobička.\n\nV tem obdobju je bilo na trg vrženih veliko »starih « kovancev, ki so dolgo časa mirovali. Ker CDD upošteva starost premaknjenih bitcoinov, rast tega kazalnika ob šibkejši ceni potrjuje, da so se velike denarnice znebile količin bolj agresivno kot med majskim vrhom. Kupci takrat niso mogli absorbirati te ponudbe, kar je pripeljalo do nižjega cenovnega maksimuma.\n\nTak vzorec vedenja je značilen za lokalno ali globalno razporeditev sredstev. Kiti so razkladali svoje portfelje in prenašali kovance v roke malih ali manj izkušenih vlagateljev (kratkoročnih imetnikov), kar običajno ustvari težo na trgu in napoveduje ohlajanje ali korekcijo cene."
   },   
     "extra": {
-    "en": "",
-    "ru": "",
-    "si": ""
+    "en": "https://charts.bitbo.io/cdd/",
+    "ru": "https://charts.bitbo.io/cdd/",
+    "si": "https://charts.bitbo.io/cdd/"
    },
     "image": "assets/DIV-CDD.png"
     },
@@ -144,9 +144,9 @@
     "si": "SHORT! Analiza notranje strukture oziroma futprinta sveče na vrhu pri 82.282,8 dolarja omogoča podroben vpogled v mehaniko kapitulacije kupcev in skrita dejanja velikega prodajalca. Čeprav na tem splošnem grafu vidimo svečne stolpce in ne številčne mreže bidov in askov znotraj klastrov, oblika sveče izčrpanosti in spremljajoči indikatorji v celoti razkrivajo njeno notranjo vsebino oziroma futprint.\n\nAnatomija vrha kaže, da je na samem začetku oblikovanja te sveče na trgu vladala največja evforija. Mali trgovci so množično odpirali dolge pozicije po tržnih cenah, pri čemer jih je vodil strah pred zamujeno priložnostjo. Znotraj futprinta se je to pokazalo kot skrajno neravnovesje v smeri agresivnih nakupov po tržni ceni na strani Ask. Prav ta močan tržni pritisk je ceno takoj pognal navzgor do ravni 82.282,8 dolarja.\n\nDrugi ključni element futprinta na tem vrhu je bilo množično sprožanje stop-loss naročil trgovcev s kratkimi pozicijami. Ko je cena začela strmo rasti, so bili trgovci, ki so odprli pozicije za padec, prisiljeni zapreti pozicije prek zaščitnih naročil. Zapiranje kratke pozicije na terminskem trgu tehnično poteka z nakupom po tržni ceni. Ta prisilni tok nakupov je ustvaril močan dodatni zagon, ki se je v futprintu pokazal kot ogromen skok pozitivne delte na samem vrhu sveče.\n\nVendar se je na vrhu pri 82.282,8 dolarja zgodilo to, kar v klastrski analizi imenujemo zaustavitveni klaster oziroma popolna absorpcija nakupov. Celoten velikanski obseg nakupov po tržni ceni s strani kupcev, ki jih je vodil FOMO, in likvidiranih trgovcev s kratkimi pozicijami je naletel na nevidno oviro. Velik institucionalni udeleženec je vnaprej postavil limitna prodajna naročila ogromnega obsega. Naročila malih vlagateljev so preprosto udarjala ob to limitno ponudbo. Prodajalec je v celoti absorbiral vse prihajajoče povpraševanje in ceni ni dovolil, da bi se pomaknila niti za en dolar višje.\n\nKončna faza oblikovanja futprinta te sveče je popolna izčrpanost kupcev in agresivna prevlada prodajalcev na trgu. Takoj ko so se limitna naročila trgovcev s kratkimi pozicijami izčrpala, mali trgovci pa so porabili svoj kapital za nakup na samem vrhu, se je v knjigi naročil nad ceno oblikoval vakuum kupcev. Velik prodajalec je ob obrambi svoje limitne ravni začel prodajati še s tržnimi prodajnimi naročili. Ker spodaj ni bilo podpore, je cena hitro strmoglavila nazaj in za seboj pustila dolgo prazno senco.\n\nV futprintu takšna sveča pusti največji obseg, ujet na samem vrhu stenja. Vsi, ki so v evforiji kupovali v območju od 81.000 do 82.000, so zdaj ujeti in imajo izgube. Ob najmanjšem nadaljevanju padca bodo začeli panično prodajati svoje kovance, kar bo postalo dodatno gorivo za gibanje cene navzdol. To potrjuje, da je bil vrh oblikovan s profesionalnimi prodajami velikega kapitala."
   },
 "extra": {
-    "en": "",
-    "ru": "",
-    "si": ""
+    "en": "https://legend.coinglass.com/chart/a5e6ed1b78204af283d8ab4e1d4d42d1",
+    "ru": "https://legend.coinglass.com/chart/a5e6ed1b78204af283d8ab4e1d4d42d1",
+    "si": "https://legend.coinglass.com/chart/a5e6ed1b78204af283d8ab4e1d4d42d1"
    },
     "image": "assets/DIV-Footprint.png"
     }
